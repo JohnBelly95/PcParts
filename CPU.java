@@ -1,8 +1,4 @@
 public class CPU extends Hardware{
-	private String modelName;
-	private String Manufacturer;
-	private int modelYear;
-	private int Price;
 	private double Speed;
 	private int CoreCount;
 	public CPU(){
