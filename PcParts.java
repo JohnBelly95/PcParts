@@ -16,4 +16,16 @@ public class PcParts{
 		this.modelYear = modelYear;
 		this.Price = Price;
 	}
+	public String getManufacturer(){
+		return Manufacturer;
+	}
+	public String getmodelName(){
+		return modelName;
+	}
+	public int getmodelYear(){
+		return modelYear;
+	}
+	public int getPrice(){
+		return Price;
+	}
 }
