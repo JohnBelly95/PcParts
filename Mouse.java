@@ -7,7 +7,7 @@ public class Mouse extends Peripherals{
 		Connection = "Wired" ;
 		Technology = "Laser" ;
 	}
-	public Mouse(String Connection, String modelName, String Manufacturer, int modelYear, int Price){
+	public Mouse(String Connection, String Technology, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Connection = Connection;
 		this.Technology = Technology ;
