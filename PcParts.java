@@ -11,6 +11,9 @@ public class PcParts{
 		Price = 1000000;
 	}
 	public Model( String modelName, String Manufacturer, int modelYear, int Price){
-		this.modelName
-	
+		this.modelName = modelName;
+		this.Manufacturer = Manufacturer;
+		this.modelYear = modelYear;
+		this.Price = Price;
+	}
 }
