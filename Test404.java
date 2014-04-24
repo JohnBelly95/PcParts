@@ -6,5 +6,9 @@ public class Test404{
 		System.out.println(Z87k);
 		CPU topkek = new CPU();
 		System.out.println(topkek);
+		Keyboard BlackWidow = new Keyboard("Wired","Black Widow","Razer",2014,100);
+		System.out.println(BlackWidow);
+		BlackWidow.setPrice(220);
+		System.out.println(BlackWidow);
 	}
 }
