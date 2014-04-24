@@ -11,7 +11,19 @@ public class CPU extends Hardware{
 		this.Speed = Speed;
 		this.CoreCount = CoreCount;
 	}
+	public double getSpeed(){
+		return Speed;
+	}
+	public void setSpeed(int Speed){
+		this.Speed = Speed;
+	}
+	public int getCoreCount(){
+		return CoreCount;
+	}
+	public void setCoreCount(int CoreCount){
+		this.CoreCount = CoreCount;
+	}
 	public String toString(){
-		return("This is an " + getManufacturer() + " " + getmodelName() + " CPU from " + getmodelYear() +", with " + CoreCount + " clocked at " + Speed + " Ghz. It's price is " + getPrice() + " Euros.");
+		return("This is an " + getManufacturer() + " " + getmodelName() + " CPU from " + getmodelYear() +", with " + CoreCount + " cores clocked at " + Speed + " Ghz. It's price is " + getPrice() + " Euros.");
 	}//This is here for testing purposes feel free to ignore.
 }
