@@ -1,4 +1,8 @@
 public class CPU extends Hardware{
+	private String modelName;
+	private String Manufacturer;
+	private int modelYear;
+	private int Price;
 	private double Speed;
 	private int CoreCount;
 	public CPU(){
@@ -10,5 +14,8 @@ public class CPU extends Hardware{
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Speed = Speed;
 		this.CoreCount = CoreCount;
+	}
+	public String toString(){
+		return("This is an " + getManufacturer() + " " + getmodelName() + " CPU from " + getmodelYear() +", with " + CoreCount + " clocked at " + Speed + " Ghz. It's price is " + getPrice() + " Euros.");
 	}
 }
