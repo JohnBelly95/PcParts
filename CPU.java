@@ -13,5 +13,5 @@ public class CPU extends Hardware{
 	}
 	public String toString(){
 		return("This is an " + getManufacturer() + " " + getmodelName() + " CPU from " + getmodelYear() +", with " + CoreCount + " clocked at " + Speed + " Ghz. It's price is " + getPrice() + " Euros.");
-	}
+	}//This is here for testing purposes feel free to ignore.
 }
