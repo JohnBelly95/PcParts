@@ -19,13 +19,26 @@ public class PcParts{
 	public String getManufacturer(){
 		return Manufacturer;
 	}
+	public void setManufacturer(String Manufacturer){
+		this.Manufacturer = Manufacturer;
+	}
 	public String getmodelName(){
 		return modelName;
+	}
+	public void setmodelName(String modelName){
+		this.modelName = modelName;
 	}
 	public int getmodelYear(){
 		return modelYear;
 	}
+	public void setmodelYear(int modelYear){
+		this.modelYear = modelYear;
+	}
 	public int getPrice(){
 		return Price;
 	}
+	public void setPrice(int Price){
+		this.Price = Price;
+	}
+	
 }
