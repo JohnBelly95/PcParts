@@ -24,6 +24,7 @@ public class CPU extends Hardware{
 		this.CoreCount = CoreCount;
 	}
 	public String toString(){
+		System.out.println("===============================================================");
 		return("This is an " + getManufacturer() + " " + getmodelName() + " CPU from " + getmodelYear() +", with " + CoreCount + " cores clocked at " + Speed + " Ghz. It's price is " + getPrice() + " Euros.");
 	}//This is here for testing purposes feel free to ignore.
 }
