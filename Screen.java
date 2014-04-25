@@ -16,6 +16,7 @@ public class Screen extends Peripherals{
 		DVIport = 0;
 		COMPOSITEport = 0;
 	}
+	
 	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Type = Type;
@@ -25,8 +26,52 @@ public class Screen extends Peripherals{
 		this.DVIport = DVIport;
 		this.COMPOSITEport = COMPOSITEport;
 	}
+	
+	public String getTYpe(){
+		return Type;
+	}	
+	public void setType(String Type){
+		this.Type = Type;
+	}
+	
+	public double getSize(){
+		return Size;
+	}	
+	public void setSize(double Size){
+		this.Size = Size;
+	}
+	
+	public String getResolution(){
+		return Resolution;
+	}	
+	public void setResolution(String Resolution){
+		this.Resolution = Resolution;
+	}
+	
+	public int getHDMIport(){
+		return HDMIport;
+	}
+	public void setHDMIport(int HDMIport){
+		this.HDMIport = HDMIport;
+	}
+	
+	public int getDVIport(){
+		return DVIport;
+	}
+	public void setDVIport(int DVIport){
+		this.DVIport = DVIport;
+	}
+	
+	public int getCOMPOSITEport(){
+		return COMPOSITEport;
+	}
+	public void setCOMPOSITEport(int COMPOSITEport){
+		this.COMPOSITEport = COMPOSITEport;
+	}
+	
 	public String toString(){
 		return("This is an " + getManufacturer() + " " + getmodelName() + " Screen from " + getmodelYear() +" , with " + Type + " type , " + Size + " inches , " +Resolution+ " pixels resolution , " +HDMIport+ " HDMI ports , " +DVIport+ " DVI ports and " +COMPOSITEport+ " Compose ports "  +". It's price is " + getPrice() + " Euros.");
 	}
 	
 }
+
