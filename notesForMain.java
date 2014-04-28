@@ -55,3 +55,35 @@ public static Screen Screen(String modelName, String Manufacturer, int modelYear
 	Screen SCR = new Screen (Type, Size, Resolution, HDMIport, DVIport, COMPOSITEport, x1, x2, z1, z2);
 	return SCR;
 }
+
+
+public static RAM RAM(String modelName, String Manufacturer, int modelYear, int Price){
+	System.out.println("What RAM type is the customer ordering ?");
+	Type = input.nextLine();
+	System.out.println("What size is the customer ordering ?");
+	Size = input.nextInt();
+	System.out.println("What speed type is the customer ordering ?");
+	Speed = input.nextInt();
+	x1 = modelName;
+	x2 = Manufacturer;
+	z1 = modelYear;
+	z2 = Price;
+	RAM RM = new RAM (Type, Size, Speed, x1, x2, z1, z2);
+	return RM;
+}
+
+public static HardDrive HardDrive(String modelName, String Manufacturer, int modelYear, int Price){
+	System.out.println("What Hard drive type is the customer ordering ?");
+	Type = input.nextLine();
+	System.out.println("What is the width (inches) of the product that the customer ordering ?");
+	Width = input.nextInt();
+	System.out.println("What size (GB) is the customer ordering ?");
+	Size = input.nextInt();
+	x1 = modelName;
+	x2 = Manufacturer;
+	z1 = modelYear;
+	z2 = Price;
+	HardDrive HDRV = new HardDrive (Type, Size, Width, x1, x2, z1, z2);
+	return HRDV;
+}
+	
