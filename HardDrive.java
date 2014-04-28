@@ -6,8 +6,8 @@ public class HardDrive extends Hardware{
 	public HardDrive(){
 		super();
 		Type = "HDD";
-		Size = 1000;
-		Width= 3.5;		
+		Size = 1000;    //χωρητικοτητα (GB)
+		Width= 3.5;	//μεγεθος (inches)	
 	}
 	public HardDrive(String Type, int Size, int Width,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
