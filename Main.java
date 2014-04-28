@@ -8,8 +8,8 @@ public class Main{
 	private static String Chip, PrintingType, Type, Technology, Connection, Resolution;
 	private static int z1;
 	private static int z2;
-	private static int Cores, RAM, EPorts,HDMIport, DVIport, COMPOSITEport, Width;
-	private static double Clock,Size,Speed;
+	private static int Cores, RAM, EPorts,HDMIport, DVIport, COMPOSITEport, Width, Size, RAMSpeed;
+	private static double Clock,Diameter;
 	private static double y2;
 	static Scanner input = new Scanner(System.in);
 	
@@ -24,7 +24,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					Motherboard Part = Motherboard(x1,x2,z1,z2);
+					Motherboard mobo = Motherboard(x1,x2,z1,z2);
 					j++;
 					//System.out.println(mobo);
 					break;
@@ -33,7 +33,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					CPU Part = CPU(x1,x2,z1,z2);
+					CPU cpu = CPU(x1,x2,z1,z2);
 					j++;
 					//System.out.println(cpu);
 					break;
@@ -42,7 +42,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					RAM Part = RAM(x1,x2,z1,z2);
+					RAM ram = RAM(x1,x2,z1,z2);
 					j++;
 					break;
 				case"Hard Drive":
@@ -50,7 +50,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					HardDrive Part = HardDrive(x1,x2,z1,z2);
+					HardDrive hd = HardDrive(x1,x2,z1,z2);
 					j++;
 					break;
 				case"Keyboard":
@@ -58,7 +58,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					Keyboard Part = Keyboard(x1,x2,z1,z2);
+					Keyboard kb = Keyboard(x1,x2,z1,z2);
 					j++;
 					break;
 				case"Mouse":
@@ -66,7 +66,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					Mouse Part = Mouse(x1,x2,z1,z2);
+					Mouse mouse = Mouse(x1,x2,z1,z2);
 					j++;
 					break;
 				case"Printer":
@@ -74,7 +74,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					Printer Part = Printer(x1,x2,z1,z2);
+					Printer printer = Printer(x1,x2,z1,z2);
 					j++;
 					break;
 				case"Screen":
@@ -82,7 +82,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					Screen Part = Screen(x1,x2,z1,z2);
+					Screen screen = Screen(x1,x2,z1,z2);
 					j++;
 					break;
 				case"GPU":
@@ -90,7 +90,7 @@ public class Main{
 					x2 = Manufacturer();
 					z1 = modelYear();
 					z2 = Price();
-					GPU Part = GPU(x1,x2,z1,z2);
+					GPU gpu = GPU(x1,x2,z1,z2);
 					j++;
 					break;
 				default:
@@ -208,7 +208,7 @@ public class Main{
 		System.out.println("What screen type is the customer ordering ?");
 		Type = input.nextLine();
 		System.out.println("What size is the customer ordering ?");
-		Size = input.nextDouble();
+		Diameter = input.nextDouble();
 		System.out.println("What resolution is the customer ordering ?");
 		Resolution = input.nextLine();
 		System.out.println("How many HDMI ports is the customer ordering ?");
@@ -230,12 +230,12 @@ public class Main{
 		System.out.println("What size is the customer ordering ?");
 		Size = input.nextInt();
 		System.out.println("What speed type is the customer ordering ?");
-		Speed = input.nextInt();
+		RAMSpeed = input.nextInt();
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
 		z2 = Price;
-		RAM RM = new RAM (Type, Size, Speed, x1, x2, z1, z2);
+		RAM RM = new RAM (Type, Size, RAMSpeed, x1, x2, z1, z2);
 		return RM;
 	}
 
@@ -250,7 +250,7 @@ public class Main{
 		x2 = Manufacturer;
 		z1 = modelYear;
 		z2 = Price;
-		HardDrive HDRV = new HardDrive (Type, Size, Width, x1, x2, z1, z2);
-		return HRDV;
+		HardDrive HDRV = new HardDrive(Type, Size, Width, x1, x2, z1, z2);
+		return HDRV;
 	}
 }
