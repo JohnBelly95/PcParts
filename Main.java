@@ -126,14 +126,14 @@ public class Main{
 	}
 	public static Motherboard Motherboard(String modelName,String Manufacturer,int modelYear,int Price){
 		System.out.println("Please enter the chip supported by the motherboard.");
-		Chip = input.nextLine();
+		Chip = input.next();
 		System.out.println("Given chip is: " + Chip);
 		System.out.println("Please enter the size of RAM supported.");
 		RAM = input.nextInt();
 		System.out.println("Supported RAM is set at: " + RAM);
 		System.out.println("Please enter the number of expansion ports. ");
 		EPorts = input.nextInt();
-		System.out.println("Expansion ports are set to: " + z2);
+		System.out.println("Expansion ports are set to: " + EPorts);
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -157,7 +157,7 @@ public class Main{
 	}
 	public static GPU GPU(String modelName,String Manufacturer,int modelYear,int Price){
 		System.out.println("Please enter the chipset of the GPU the costumer wants to buy.");
-		Chip = input.nextLine();
+		Chip = input.next();
 		System.out.println("Please enter the amount of RAM the desired GPU has.");
 		RAM = input.nextInt();
 		x1 = modelName;
@@ -180,9 +180,9 @@ public class Main{
 
 	public static Mouse Mouse(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What connection type does the desired product have ?");
-		Connection = input.nextLine();
+		Connection = input.next();
 		System.out.println("What technology does the desired mouse use ?");
-		Technology = input.nextLine();
+		Technology = input.next();
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -193,9 +193,9 @@ public class Main{
 
 	public static Printer Printer(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What printing type is the customer ordering ?");
-		PrintingType = input.nextLine();
+		PrintingType = input.next();
 		System.out.println("What technology is the customer ordering ?");
-		Technology = input.nextLine();
+		Technology = input.next();
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -206,12 +206,12 @@ public class Main{
 
 	public static Screen Screen(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What screen type is the customer ordering ?");
-		Type = input.nextLine();
-		System.out.println("What size is the customer ordering ?");
+		Type = input.next();
+		System.out.println("What size is the screen the customer ordering ?");
 		Diameter = input.nextDouble();
-		System.out.println("What resolution is the customer ordering ?");
-		Resolution = input.nextLine();
-		System.out.println("How many HDMI ports is the customer ordering ?");
+		System.out.println("What resolution does the screen the customer ordering have ?");
+		Resolution = input.next();
+		System.out.println("How many HDMI ports does the screen the customer ordering have ?");
 		HDMIport = input.nextInt();
 		System.out.println("How many DVI ports is the customer ordering ?");
 		DVIport = input.nextInt();
@@ -221,12 +221,13 @@ public class Main{
 		x2 = Manufacturer;
 		z1 = modelYear;
 		z2 = Price;
-		Screen SCR = new Screen (Type, Size, Resolution, HDMIport, DVIport, COMPOSITEport, x1, x2, z1, z2);
+		System.out.println(Diameter);
+		Screen SCR = new Screen (Type, Diameter, Resolution, HDMIport, DVIport, COMPOSITEport, x1, x2, z1, z2);
 		return SCR;
 	}
 	public static RAM RAM(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What RAM type is the customer ordering ?");
-		Type = input.nextLine();
+		Type = input.next();
 		System.out.println("What size is the customer ordering ?");
 		Size = input.nextInt();
 		System.out.println("What speed type is the customer ordering ?");
@@ -241,7 +242,7 @@ public class Main{
 
 	public static HardDrive HardDrive(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What Hard drive type is the customer ordering ?");
-		Type = input.nextLine();
+		Type = input.next();
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
 		Width = input.nextInt();
 		System.out.println("What size (GB) is the customer ordering ?");
