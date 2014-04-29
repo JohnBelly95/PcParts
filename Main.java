@@ -1,16 +1,9 @@
 import java.io.*;
 import java.util.Scanner;
 public class Main{
-	private static int j = 1;
-	private static String str;
-	private static String x1;
-	private static String x2;
-	private static String Chip, PrintingType, Type, Technology, Connection, Resolution;
-	private static int z1;
-	private static int z2;
-	private static int Cores, RAM, EPorts,HDMIport, DVIport, COMPOSITEport, Width, Size, RAMSpeed;
-	private static double Clock,Diameter;
-	private static double y2;
+	private static String Chip, PrintingType, Type, Technology, Connection, Resolution, str, x1, x2;
+	private static int j = 1 , Cores, RAM, EPorts,HDMIport, DVIport, COMPOSITEport, Width, Size, RAMSpeed, z1, z2;
+	private static double Clock, Diameter, y2;
 	static Scanner input = new Scanner(System.in);
 	
 	public static void main(String[] args) {
