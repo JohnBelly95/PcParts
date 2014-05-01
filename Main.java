@@ -10,57 +10,73 @@ public class Main{
 	
 	
 	public static void main(String[] args) {
-		createStock();
-	
-	
-	while (true){
-		System.out.println("1. View products available");
-   	 	System.out.println("2. Orders overview");
-   	 	System.out.println("3. Viewing sales");
-   	 	System.out.println("0. Exit");
-   	 	System.out.print("> ");
-   	 	answer = input.nextLine();
-		
-		if (answer.equals ("1")){
-			PcParts thing = Question();
-			System.out.println(thing);
-			
-			//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
-			/*if (exists){
-				
-				System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
-				decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
-				
-				if ( decision == "Y"){
-					Sale sl = new Sale(thing);
-					soldsList.add(sl);
-				}else break;
-			
-			}else{
-				
-				System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
-				decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
-				
-				if ( decision == "Y"){
-					Order odr = new Order(thing);
-					ordersList.add(odr);
-				}else break;
-				+
-				
-			}*/
-			
-			
-			break;
-   	 	}
-		else if (answer.equals ("2")){
-			System.out.println("test");
-			
-		}
-		else if (answer.equals ("3")){
-			System.out.println("test");
-   	 	}
-   	 	else if (answer.equals ("0")) break;
+		Initiate();
+		GUI();
 	}
+	public static void Initiate(){
+		createStock();
+		createOrdersList();
+		createSoldList();
+	}
+	/*public static void Marketing(){
+		PcParts thing = Questions();
+		System.out.println(thing);
+	}*/
+	public static void createStock(){
+		Stock shopStock = new Stock();
+	}
+	public static void createOrdersList(){
+		OrderList ordersList = new OrderList();
+	}
+	public static void GUI(){
+		while (true){
+			System.out.println("1. View products available");
+	   	 	System.out.println("2. Orders overview");
+	   	 	System.out.println("3. Viewing sales");
+	   	 	System.out.println("0. Exit");
+	   	 	System.out.print("> ");
+	   	 	answer = input.nextLine();
+			
+			if (answer.equals ("1")){
+				PcParts thing = Question();
+				System.out.println(thing);
+				
+				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
+				if (Exists(thing)){
+					
+					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
+					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
+					
+					if ( decision == "Y"){
+						Sale sl = new Sale(thing);
+						soldsList.add(sl);
+					}else break;
+				
+				}else{
+					
+					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
+					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
+					
+					if ( decision == "Y"){
+						Order odr = new Order(thing);
+						ordersList.add(odr);
+					}else break;
+					+
+					
+				}
+				
+				
+				break;
+	   	 	}
+			else if (answer.equals ("2")){
+				System.out.println("test");
+				
+			}
+			else if (answer.equals ("3")){
+				System.out.println("test");
+	   	 	}
+	   	 	else if (answer.equals ("0")) break;
+		}
 	}
 	
 	public static void createStock(){
