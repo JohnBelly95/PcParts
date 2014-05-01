@@ -69,9 +69,10 @@ public class Main{private static String chip, printingType, type, technology, co
 						j++;
 						break;
 					default:
-						System.out.println("There was an error during the process. The process will now restart.");
 						break;
 				}
+			}else{
+				System.out.println("There was an error during the process. The process will now restart.");
 			}
 		}
 	}
