@@ -9,12 +9,12 @@ public class Screen extends Peripherals{
 	
 	public Screen(){
 		super();
-		Type = " ";
-		Size = 0;
-		Resolution = " ";
-		HDMIport = 0;
-		DVIport = 0;
-		COMPOSITEport = 0;
+		Type = "LCD";
+		Size = 24;
+		Resolution = "1920*1080";
+		HDMIport = 2;
+		DVIport = 2;
+		COMPOSITEport = 2;
 	}
 	
 	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
