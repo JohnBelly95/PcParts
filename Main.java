@@ -1,129 +1,90 @@
 import java.io.*;
 import java.util.Scanner;
 public class Main{
-	private static String Chip, PrintingType, Type, Technology, Connection, Resolution, str, x1, x2;
-	private static int j = 1 , Cores, RAM, EPorts,HDMIport, DVIport, COMPOSITEport, Width, Size, RAMSpeed, z1, z2;
-	private static double Clock, Diameter, y2;
+	private static int j = 1;
+	private static String str;
+	private static String x1;
+	private static String x2;
+	private static String chip, printingType, type, technology, connection, resolution;
+	private static int z1;
+	private static int z2;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed;
+	private static double clock,diameter;
+	private static double y2;
 	static Scanner input = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		while(j<2){
 			System.out.println("What does the customer want ?");
 			str = input.nextLine();
-			
-			switch(str){
-				case"Motherboard":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					Motherboard mobo = Motherboard(x1,x2,z1,z2);
-					j++;
-					//System.out.println(mobo);
-					break;
-				case"CPU":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					CPU cpu = CPU(x1,x2,z1,z2);
-					j++;
-					//System.out.println(cpu);
-					break;
-				case"RAM":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					RAM ram = RAM(x1,x2,z1,z2);
-					j++;
-					break;
-				case"Hard Drive":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					HardDrive hd = HardDrive(x1,x2,z1,z2);
-					j++;
-					break;
-				case"Keyboard":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					Keyboard kb = Keyboard(x1,x2,z1,z2);
-					j++;
-					break;
-				case"Mouse":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					Mouse mouse = Mouse(x1,x2,z1,z2);
-					j++;
-					break;
-				case"Printer":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					Printer printer = Printer(x1,x2,z1,z2);
-					j++;
-					break;
-				case"Screen":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					Screen screen = Screen(x1,x2,z1,z2);
-					j++;
-					break;
-				case"GPU":
-					x1 = modelName();
-					x2 = Manufacturer();
-					z1 = modelYear();
-					z2 = Price();
-					GPU gpu = GPU(x1,x2,z1,z2);
-					j++;
-					break;
-				default:
-					System.out.println("There was an error during the process. The process will now restart.");
-					break;
+			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
+				System.out.println("You will now be asked to input the specifications of the desired product");
+				System.out.println("Please enter the model name of the desired part. ");
+				x1 = input.nextLine();
+				System.out.println("Model name is set to: " + x1);
+				System.out.println("Please enter the manufacturer of the desired part. ");
+				x2 = input.nextLine();
+				System.out.println("Manufacturer is set to: " + x2);
+				System.out.println("Please enter the year the desired product was released. ");
+				z1 = input.nextInt();
+				System.out.println("Year of release was set to: " + z1);
+				System.out.println("Please enter the price of the desired product. ");
+				z2 = input.nextInt();
+				System.out.println("Price entered was: " + z2);
+				switch(str){
+					case"Motherboard":
+						Motherboard mobo = Motherboard(x1,x2,z1,z2);
+						j++;
+						//System.out.println(mobo);
+						break;
+					case"CPU":
+						CPU cpu = CPU(x1,x2,z1,z2);
+						j++;
+						//System.out.println(cpu);
+						break;
+					case"RAM":
+						RAM ram = RAM(x1,x2,z1,z2);
+						j++;
+						break;
+					case"Hard Drive":
+						HardDrive hd = HardDrive(x1,x2,z1,z2);
+						j++;
+						break;
+					case"Keyboard":
+						Keyboard kb = Keyboard(x1,x2,z1,z2);
+						j++;
+						break;
+					case"Mouse":
+						Mouse mouse = Mouse(x1,x2,z1,z2);
+						j++;
+						break;
+					case"Printer":
+						Printer printer = Printer(x1,x2,z1,z2);
+						j++;
+						break;
+					case"Screen":
+						Screen screen = Screen(x1,x2,z1,z2);
+						j++;
+						break;
+					case"GPU":
+						GPU gpu = GPU(x1,x2,z1,z2);
+						j++;
+						break;
+					default:
+						System.out.println("There was an error during the process. The process will now restart.");
+						break;
+				}
 			}
 		}
 	}
-	public static String modelName(){
-		System.out.println("You will now be asked to input the specifications of the desired product");
-		System.out.println("Please enter the model name of the desired part. ");
-		x1 = input.nextLine();
-		System.out.println("Model name is set to: " + x1);
-		return x1;
-	}
-	public static String Manufacturer(){
-		System.out.println("Please enter the manufacturer of the desired part. ");
-		x2 = input.nextLine();
-		System.out.println("Manufacturer is set to: " + x2);
-		return x2;
-	}
-	public static int modelYear(){
-		System.out.println("Please enter the year the desired product was released. ");
-		z1 = input.nextInt();
-		System.out.println("Year of release was set to: " + z1);
-		return z1;
-	}
-	public static int Price(){
-		System.out.println("Please enter the price of the desired product. ");
-		z2 = input.nextInt();
-		System.out.println("Price entered was: " + z2 + " €");
-		return z2;
-	}
+	
 	public static Motherboard Motherboard(String modelName,String Manufacturer,int modelYear,int Price){
 		System.out.println("Please enter the chip supported by the motherboard.");
 		Chip = input.next();
 		System.out.println("Given chip is: " + Chip);
 		System.out.println("Please enter the size of RAM supported.");
 		RAM = input.nextInt();
-		System.out.println("Supported RAM is set to: " + RAM + " GM.");
+		System.out.println("Supported RAM is set at: " + RAM);
 		System.out.println("Please enter the number of expansion ports. ");
 		EPorts = input.nextInt();
 		System.out.println("Expansion ports are set to: " + EPorts);
@@ -140,7 +101,7 @@ public class Main{
 		System.out.println("Cores were set to " + Cores);
 		System.out.println("Please enter the core clock speed of the desired CPU");
 		Clock = input.nextDouble();
-		System.out.println("Core clock speed was set to " + Clock + " GHz.");
+		System.out.println("Core clock speed was set to " + Clock);
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -151,10 +112,8 @@ public class Main{
 	public static GPU GPU(String modelName,String Manufacturer,int modelYear,int Price){
 		System.out.println("Please enter the chipset of the GPU the costumer wants to buy.");
 		Chip = input.next();
-		System.out.println("Given chipset is: " + Chip);
 		System.out.println("Please enter the amount of RAM the desired GPU has.");
 		RAM = input.nextInt();
-		System.out.println("GPU's RAM amount is set to: " + RAM + " GB.");
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -165,7 +124,6 @@ public class Main{
 	public static Keyboard Keyboard(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What connection type is the customer ordering ?");
 		Connection = input.nextLine();
-		System.out.println("Keyboard's connection type is set to: " + Connection);
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -177,10 +135,8 @@ public class Main{
 	public static Mouse Mouse(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What connection type does the desired product have ?");
 		Connection = input.next();
-		System.out.println("Mouse's connection type is set to: " + Connection);
 		System.out.println("What technology does the desired mouse use ?");
 		Technology = input.next();
-		System.out.println("Technology is set to: " + Technology);
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -192,10 +148,8 @@ public class Main{
 	public static Printer Printer(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What printing type is the customer ordering ?");
 		PrintingType = input.next();
-		System.out.println("Printing type is set to: " + PrintingType);
 		System.out.println("What technology is the customer ordering ?");
 		Technology = input.next();
-		System.out.println("Technology is set to: " + Technology);
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -207,40 +161,31 @@ public class Main{
 	public static Screen Screen(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What screen type is the customer ordering ?");
 		Type = input.next();
-		System.out.println("Screen type is set to: " + Type);
 		System.out.println("What size is the screen the customer ordering ?");
 		Diameter = input.nextDouble();
-		System.out.println("Screen's diameter is set to: " + Diameter);
 		System.out.println("What resolution does the screen the customer ordering have ?");
 		Resolution = input.next();
-		System.out.println("Resolution is set to: " + Resolution);
-		System.out.println("How many HDMI ports is the customer ordering ?");
+		System.out.println("How many HDMI ports does the screen the customer ordering have ?");
 		HDMIport = input.nextInt();
-		System.out.println("The multitude of HDMI ports is: " + HDMIport);
 		System.out.println("How many DVI ports is the customer ordering ?");
 		DVIport = input.nextInt();
-		System.out.println("The multitude of DVI ports is: " + DVIport);
 		System.out.println("How many Composite ports is the customer ordering ?");
-		COMPOSITEport = input.nextInt();
-		System.out.println("The multitude of composite ports is: " + COMPOSITEport);		
+		COMPOSITEport = input.nextInt();	
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
 		z2 = Price;
-		//System.out.println(Diameter);
+		System.out.println(Diameter);
 		Screen SCR = new Screen (Type, Diameter, Resolution, HDMIport, DVIport, COMPOSITEport, x1, x2, z1, z2);
 		return SCR;
 	}
 	public static RAM RAM(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What RAM type is the customer ordering ?");
 		Type = input.next();
-		System.out.println("RAM type is set to: " + Type);
 		System.out.println("What size is the customer ordering ?");
 		Size = input.nextInt();
-		System.out.println("Size is set to: " + Size + " inches.");
 		System.out.println("What speed type is the customer ordering ?");
 		RAMSpeed = input.nextInt();
-		System.out.println("RAM's speed is set to: " + RAMSpeed + " MHz.");
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
@@ -252,13 +197,10 @@ public class Main{
 	public static HardDrive HardDrive(String modelName, String Manufacturer, int modelYear, int Price){
 		System.out.println("What Hard drive type is the customer ordering ?");
 		Type = input.next();
-		System.out.println("Hard drive type is set to: " + Type);
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
 		Width = input.nextInt();
-		System.out.println("Width is set to: " + Width + " inches.");
 		System.out.println("What size (GB) is the customer ordering ?");
 		Size = input.nextInt();
-		System.out.println("Size is set to: " + Size + " GB.");
 		x1 = modelName;
 		x2 = Manufacturer;
 		z1 = modelYear;
