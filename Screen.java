@@ -1,77 +1,35 @@
-public class Screen extends Peripherals{
-
-	private String Type;
-	private double Size;
-	private String Resolution;
-	private int HDMIport;
-	private int DVIport;
-	private int COMPOSITEport;
+public class GPU extends Hardware{
+	private String Chipset;
+	private int Memory;
 	
-	public Screen(){
+	public GPU(){
 		super();
-		Type = "LCD";
-		Size = 24;
-		Resolution = "1920*1080";
-		HDMIport = 2;
-		DVIport = 2;
-		COMPOSITEport = 2;
+		Chipset = "AMD";
+		Memory = 4;
 	}
 	
-	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
+	public GPU(String Chipset, int Memory, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
-		this.Type = Type;
-		this.Size = Size;
-		this.Resolution = Resolution;
-		this.HDMIport = HDMIport;
-		this.DVIport = DVIport;
-		this.COMPOSITEport = COMPOSITEport;
+		this.Chipset = Chipset;
+		this.Memory = Memory;
 	}
 	
-	public String getTYpe(){
-		return Type;
-	}	
-	public void setType(String Type){
-		this.Type = Type;
+	public String getChipset(){
+		return Chipset;
+	}
+	public void setChipset(String Chipset){
+		this.Chipset = Chipset;
 	}
 	
-	public double getSize(){
-		return Size;
-	}	
-	public void setSize(double Size){
-		this.Size = Size;
+	public int getMemory(){
+		return Memory;
 	}
-	
-	public String getResolution(){
-		return Resolution;
-	}	
-	public void setResolution(String Resolution){
-		this.Resolution = Resolution;
-	}
-	
-	public int getHDMIport(){
-		return HDMIport;
-	}
-	public void setHDMIport(int HDMIport){
-		this.HDMIport = HDMIport;
-	}
-	
-	public int getDVIport(){
-		return DVIport;
-	}
-	public void setDVIport(int DVIport){
-		this.DVIport = DVIport;
-	}
-	
-	public int getCOMPOSITEport(){
-		return COMPOSITEport;
-	}
-	public void setCOMPOSITEport(int COMPOSITEport){
-		this.COMPOSITEport = COMPOSITEport;
+	public void setMemory(int Memory){
+		this.Memory = Memory;
 	}
 	
 	public String toString(){
-		return("This is an " + getManufacturer() + " " + getmodelName() + " Screen from " + getmodelYear() +" , with " + Type + " type , " + Size + " inches , " +Resolution+ " pixels resolution , " +HDMIport+ " HDMI ports , " +DVIport+ " DVI ports and " +COMPOSITEport+ " Compose ports "  +". It's price is " + getPrice() + " Euros.");
+		return ("This is a GPU from " + getManufacturer() + " from " + getmodelYear() + ". It has " + Memory + " GB of memory and it's a "+ getmodelName() + " model for the " + Chipset + " Chipset. Its price is " + getPrice() + " Euros.");
 	}
-	
 }
 
