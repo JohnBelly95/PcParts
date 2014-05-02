@@ -1,4 +1,5 @@
 public class Hardware extends PcParts{
+	private int sale;
 	public Hardware(){
 		super();
 	}
