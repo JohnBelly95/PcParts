@@ -1,18 +1,19 @@
 public class RAM extends Hardware{
 	private String Type;
-	private int Size;
-	private int Speed;
+	private int Size, Speed, sale;
 	
 	public RAM(){
 		super();
 		Type = "DDR3";
 		Size = 8;
+		sale = super.sale;
 		Speed= 2000;		
 	}
 	public RAM(String Type, int Size, int Speed,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Type = Type;
 		this.Size = Size;
+		sale = super.sale;
 		this.Speed=Speed;
 	}
 	public String getType(){
