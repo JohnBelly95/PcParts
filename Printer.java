@@ -1,5 +1,5 @@
 public class Printer extends Peripherals{
-
+	private int sale;
 	private String PrintingType;
 	private String Technology;
 	
