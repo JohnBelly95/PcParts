@@ -1,9 +1,17 @@
 import java.util.*;
 
 public class Stock{
-	private List<PcParts> stock = new ArrayList<PcParts>();
-	public boolean Exists(PcParts thing){
-		if(stock.contains(thing)&&/*einai se stock (>2)*/) return true;
-		
+	private PcParts thing;
+	private int availableStock;
+	
+	public Stock(PcParts thing){
+		this.thing = thing;
+		availableStock = 2;
+	}
+	public int getAvailableStock(){
+		return availableStock
+	}
+	public void setAvailableStock(int availableStock){
+		this.availableStock = availableStock;
 	}
 }
