@@ -6,8 +6,8 @@ public class Main{
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
 	private static double clock,diameter;
 	static Scanner input = new Scanner(System.in);
-	
-	
+
+
 	public static void main(String[] args) {
 		Initiate();
 		GUI();
@@ -35,41 +35,41 @@ public class Main{
 	   	 	System.out.println("0. Exit");
 	   	 	System.out.print("> ");
 	   	 	answer = input.nextLine();
-			
+
 			if (answer.equals ("1")){
 				PcParts thing = Question();
 				System.out.println(thing);
-				
+
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing)){
-					
+
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
 					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
-					
+
 					if ( decision == "Y"){
 						Sale sl = new Sale(thing);
 						soldList.add(sl);
 					}else break;
-				
+
 				}else{
-					
+
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
 					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
-					
+
 					if ( decision == "Y"){
 						Order odr = new Order(thing);
 						ordersList.add(odr);
 					}else break;
 					+
-					
+
 				}
-				
-				
+
+
 				break;
 	   	 	}
 			else if (answer.equals ("2")){
 				System.out.println("test");
-				
+
 			}
 			else if (answer.equals ("3")){
 				System.out.println("test");
@@ -77,7 +77,7 @@ public class Main{
 	   	 	else if (answer.equals ("0")) break;
 		}
 	}
-	
+
 	public static void createStock(){
 		Stock shopStock = new Stock();
 	}
