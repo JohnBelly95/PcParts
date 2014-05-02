@@ -1,6 +1,6 @@
 public class HardDrive extends Hardware{
 	private String Type;
-	private int Size;
+	private int Size, sale;
 	private double Width;
 	
 	public HardDrive(){
