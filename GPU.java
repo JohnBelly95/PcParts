@@ -6,12 +6,14 @@ public class GPU extends Hardware{
 		super();
 		Chipset = " ";
 		Memory = 0;
+		sale = super.sale;
 	}
 	
 	public GPU(String Chipset, int Memory, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Chipset = Chipset;
 		this.Memory = Memory;
+		sale = super.sale;
 	}
 	
 	public String getChipset(){
