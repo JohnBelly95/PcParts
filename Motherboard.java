@@ -1,7 +1,6 @@
 public class Motherboard extends Hardware{
 	private String Chip;
-	private int RAMSize;
-	private int ExpansionSlots;
+	private int RAMSize, ExpansionSlots, sale;
 	public Motherboard(){
 		super();
 		Chip = "Intel";
