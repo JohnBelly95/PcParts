@@ -1,6 +1,6 @@
 public class GPU extends Hardware{
 	private String Chipset;
-	private int Memory;
+	private int Memory, sale;
 	
 	public GPU(){
 		super();
