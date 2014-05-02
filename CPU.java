@@ -1,17 +1,19 @@
 public class CPU extends Hardware{
 	private double Speed;
-	private int CoreCount;
+	private int CoreCount, sale;
 	private static final String AMD = "TYPE_AMD";
 	private static final String Intel = "TYPE_INTEL";
 	public CPU(){
 		super();
 		Speed = 2.9;
 		CoreCount = 2;
+		sale = super.sale;
 	}
 	public CPU(double Speed, int CoreCount, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Speed = Speed;
 		this.CoreCount = CoreCount;
+		sale = super.sale;
 	}
 	public double getSpeed(){
 		return Speed;
