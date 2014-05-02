@@ -8,10 +8,11 @@ public class HardDrive extends Hardware{
 		Type = "HDD";
 		Size = 1000;    //choritikotita (GB)
 		Width= 3.5;	//megethos (inches)	
+		sale = super.sale;
 	}
 	public HardDrive(String Type, int Size, int Width,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
-		switch(Type){
+		/*switch(Type){
 			case"DDR":
 				this.Type = "DDR";
 				break;
@@ -24,9 +25,10 @@ public class HardDrive extends Hardware{
 			default: 
 				this.Type = "Invalid Memory Type";
 				break;
-		}
+		}*/
 		this.Size = Size;
 		this.Width=Width;
+		sale = super.sale;
 	}
 	public String getType(){
 		return Type;
