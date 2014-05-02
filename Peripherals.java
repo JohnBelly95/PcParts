@@ -1,5 +1,5 @@
 public class Peripherals extends PcParts{
-
+	private int sale;
 	public Peripherals (){
 		super();
 	}
