@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Scanner;
 import java.util.*;
 
 public class Main{
@@ -23,7 +22,7 @@ public class Main{
 		System.out.println(thing);
 	}*/
 	public static void createStock(){
-		Stock shopStock = new Stock();
+		StockList shopStock = new StockList();
 	}
 	public static void createOrdersList(){
 		OrderList ordersList = new OrderList();
@@ -49,7 +48,7 @@ public class Main{
 					
 					if ( decision == "Y"){
 						Sale sl = new Sale(thing);
-						soldsList.add(sl);
+						soldList.add(sl);
 					}else break;
 				
 				}else{
@@ -103,7 +102,6 @@ public class Main{
 				switch(str){
 					case"Motherboard":
 						Motherboard mobo = Motherboard(x1,x2,z1,z2);
-						//System.out.println(mobo);
 						j++;
 						break;
 					case"CPU":
@@ -123,7 +121,7 @@ public class Main{
 						j++;
 						break;
 					case"Mouse":
-						//Mouse mouse = Mouse(x1,x2,z1,z2);
+						Mouse mouse = Mouse(x1,x2,z1,z2);
 						System.out.println(mouse);
 						j++;
 						break;
