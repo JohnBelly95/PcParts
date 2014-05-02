@@ -1,5 +1,5 @@
 public class Mouse extends Peripherals{
-	
+	private int sale;
 	private String Connection;
 	private String Technology;
 	public Mouse(){
