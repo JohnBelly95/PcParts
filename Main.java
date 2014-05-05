@@ -46,7 +46,7 @@ public class Main{
 					decision = input.nextLine(); //(den exw dhlwsei thn metavliti buy)
 
 					if ( decision == "Y"){
-						Sale sl = new Sale(thing);
+						Sell sl = new Sell(thing);
 						soldList.add(sl);
 					}else break;
 
