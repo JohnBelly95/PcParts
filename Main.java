@@ -1,12 +1,15 @@
 import java.io.*;
 import java.util.*;
+import java.util.ArrayList;
 
 public class Main{
 	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, HWSale, peripheralSale;
 	private static double clock,diameter;
 	static Scanner input = new Scanner(System.in);
-
+	static StockList shopStock;
+	static OrderList ordersList;
+	static SoldList soldList;
 
 	public static void main(String[] args) {
 		Initiate();
@@ -14,19 +17,16 @@ public class Main{
 	}
 	public static void Initiate(){
 		createStock();
-		createOrdersList();
-		createSoldList();
+		ordersList = new OrderList();
+		soldList = new SoldList();
 		System.out.println("What is the sale on Hardware today ?(do not input %)");
 		HWSale = input.nextInt();
+		System.out.println("What is the sale on the Peripherals today ? (do not input %)");
+		peripheralSale = input.nextInt();
 	}
 	public static void createStock(){
-		StockList shopStock = new StockList();
-	}
-	public static void createOrdersList(){
-		OrderList ordersList = new OrderList();
-	}
-	public static void createSoldList(){
-		SoldList soldList = new SoldList();
+		shopStock = new StockList();
+		//Starting Stock goes here
 	}
 	public static void GUI(){
 		while (true){
