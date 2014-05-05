@@ -33,7 +33,7 @@ public class Order{
 		System.out.println("Is the desired item on sale ? (Y/N)");
 		System.out.print(">");
 		str = input.nextLine();
-		if(str.equals(Y)){
+		if(str.equals("Y")){
 			thing.applySale();
 		}
 	}
