@@ -22,7 +22,7 @@ public class Sell{
 		phone = input.nextInt();
 		System.out.println("Sale date : ");
 		saleDate = input.nextLine();
-		fp = thing.getPrice()* (1 - thing.sale/100);                  //finding the final price
+		fp = thing.getPrice()* (1 - thing.getSale()/100);                  //finding the final price
 		System.out.println("The final price is : "+ fp +" Euros.");
 		saleNo++;
 	}

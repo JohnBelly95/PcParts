@@ -8,4 +8,10 @@ public class Hardware extends PcParts{
 		super(modelName, Manufacturer, modelYear, Price);
 		sale = 0;
 	}
+	public int getSale(){
+		return sale;
+	}
+	public void setSale(int Sale){
+		this.sale = sale;
+	}
 }
