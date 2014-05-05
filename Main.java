@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main{
 	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, HWSale, peripheralSale;
 	private static double clock,diameter;
 	static Scanner input = new Scanner(System.in);
 
@@ -16,6 +16,8 @@ public class Main{
 		createStock();
 		createOrdersList();
 		createSoldList();
+		System.out.println("What is the sale on Hardware today ?(do not input %)");
+		HWSale = input.nextInt();
 	}
 	public static void createStock(){
 		StockList shopStock = new StockList();
@@ -51,18 +53,15 @@ public class Main{
 					}else break;
 
 				}else{
-
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
 					decision = input.nextLine(); 
 					if ( decision == "Y"){
 						Order odr = new Order(thing);
 						ordersList.add(odr);
-					}else break;
+					}//else //break;
 					
 				}
-
-
-				break;
+				//break;
 	   	 	}
 			else if (answer.equals ("2")){
 				System.out.println("test");
@@ -73,6 +72,22 @@ public class Main{
 	   	 	}
 	   	 	else if (answer.equals ("0")) break;
 		}
+	}	
+	public static boolean Exists ( PcParts thing ){	
+		int i=0;
+		while ( i < shopStock.size()){
+			if ( thing.getManufacturer() == shopStock.get(i).getManufacturer() ){
+				if (thing.getmodelName() == shopStock.get(i).getmodelName() ){
+					if (thing.getmodelYear() == shopStock.get(i).getmodelYear() ){
+						if (thing.getPrice() == shopStock.get(i).getPrice() ){
+							return true;
+						}
+					}
+				}
+			}		
+			i++;
+		}
+		if ( i == shopStock.size() ) return false;
 	}
 
 	public static PcParts Questions(){

@@ -1,5 +1,5 @@
 import java.util.*;
 
 public class SoldList{
-	private List<Sell> sales = new ArrayList<Sell>();
+	private List<Sell> soldList = new ArrayList<Sell>();
 }

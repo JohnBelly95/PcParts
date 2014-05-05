@@ -1,5 +1,4 @@
 public class Keyboard extends Peripherals{
-	private int sale;
 	private String Connection;
 	public Keyboard(){
 		super();
