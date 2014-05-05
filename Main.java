@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main{
-	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer;
+	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
 	private static double clock,diameter;
 	static Scanner input = new Scanner(System.in);
