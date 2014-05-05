@@ -1,35 +1,33 @@
-public class GPU extends Hardware{
-	private String Chipset;
-	private int Memory, sale;
-	
-	public GPU(){
-		super();
-		Chipset = "AMD";
-		Memory = 4;
-	}
-	
-	public GPU(String Chipset, int Memory, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
-		this.Chipset = Chipset;
-		this.Memory = Memory;
-	}
-	
-	public String getChipset(){
-		return Chipset;
-	}
-	public void setChipset(String Chipset){
-		this.Chipset = Chipset;
-	}
-	
-	public int getMemory(){
-		return Memory;
-	}
-	public void setMemory(int Memory){
-		this.Memory = Memory;
-	}
-	
-	public String toString(){
-		return ("This is a GPU from " + getManufacturer() + " from " + getmodelYear() + ". It has " + Memory + " GB of memory and it's a "+ getmodelName() + " model for the " + Chipset + " Chipset. Its price is " + getPrice() + " Euros.");
-	}
-}
+public class Screen extends Peripherals{
 
+	private String Type;
+	private double Size;
+	private String Resolution;
+	private int HDMIport;
+	private int DVIport;
+	private int COMPOSITEport;
+	
+	public Screen(){
+		super();
+		Type = " ";
+		Size = 0;
+		Resolution = " ";
+		HDMIport = 0;
+		DVIport = 0;
+		COMPOSITEport = 0;
+	}
+	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
+		super(modelName, Manufacturer, modelYear, Price);
+		this.Type = Type;
+		this.Size = Size;
+		this.Resolution = Resolution;
+		this.HDMIport = HDMIport;
+		this.DVIport = DVIport;
+		this.COMPOSITEport = COMPOSITEport;
+	}
+	public String toString(){
+		System.out.println("===============================================================");
+		return("This is an " + getManufacturer() + " " + getmodelName() + " Screen from " + getmodelYear() +" , with " + Type + " type , " + Size + " inches , " +Resolution+ " pixels resolution , " +HDMIport+ " HDMI ports , " +DVIport+ " DVI ports and " +COMPOSITEport+ " Compose ports "  +". It's price is " + getPrice() + " Euros.");
+	}
+	
+}
