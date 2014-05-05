@@ -9,7 +9,7 @@ public class Stock{
 		availableStock = 2;
 	}
 	public int getAvailableStock(){
-		return availableStock
+		return availableStock;
 	}
 	public void setAvailableStock(int availableStock){
 		this.availableStock = availableStock;
