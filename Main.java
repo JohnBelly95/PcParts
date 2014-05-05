@@ -89,8 +89,8 @@ public class Main{
 		}
 	}	
 	public static boolean Exists ( PcParts thing ){	
-		int i=0;
-		while ( i < shopStock.size()){
+		check = false;
+		for(int i=0; i < shopStock.size(); i++){
 			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer())){
 				if (thing.getmodelName().equals(shopStock.get(i).getmodelName())){
 					if (thing.getmodelYear() == shopStock.get(i).getmodelYear()){
@@ -99,10 +99,8 @@ public class Main{
 						}
 					}
 				}
-			}		
-			i++;
+			}
 		}
-		if ( i == shopStock.size() ) check = false;
 		return check;
 	}
 
