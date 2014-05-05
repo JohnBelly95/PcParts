@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class Main{
 	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, HWSale, peripheralSale;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
 	private static double clock,diameter;
+	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
 	private static List<Order> ordersList = new ArrayList<Order>();
