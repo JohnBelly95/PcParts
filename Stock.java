@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Stock{
+public class Stock extends PcParts{
 	private PcParts thing;
 	private int availableStock;
 	

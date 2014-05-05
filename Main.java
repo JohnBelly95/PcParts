@@ -24,6 +24,9 @@ public class Main{
 	}
 	public static void createStock(){
 		//Starting Stock goes here
+		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
+		Stock CPU1 = new Stock(i54670k);
+		shopStock.add(CPU1);
 	}
 	public static void GUI(){
 		while (true){
@@ -73,8 +76,8 @@ public class Main{
 		}
 	}	
 	public static void showOrders(){
-		for (int i=0; i < orderList.size(); i++){
-			System.out.println(orderList.get(i));
+		for (int i=0; i < ordersList.size(); i++){
+			System.out.println(ordersList.get(i));
 		}
 	}
 	public static void showSales(){
@@ -85,10 +88,10 @@ public class Main{
 	public static boolean Exists ( PcParts thing ){	
 		int i=0;
 		while ( i < shopStock.size()){
-			if ( thing.getManufacturer() == shopStock.get(i).getManufacturer() ){
-				if (thing.getmodelName() == shopStock.get(i).getmodelName() ){
-					if (thing.getmodelYear() == shopStock.get(i).getmodelYear() ){
-						if (thing.getPrice() == shopStock.get(i).getPrice() ){
+			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer())){
+				if (thing.getmodelName().equals(shopStock.get(i).getmodelName())){
+					if (thing.getmodelYear() == shopStock.get(i).getmodelYear()){
+						if (thing.getPrice() == (shopStock.get(i).getPrice())){
 							return true;
 						}
 					}
@@ -121,39 +124,39 @@ public class Main{
 					case"Motherboard":
 						PcParts mobo = MoBo(x1,x2,z1,z2);
 						j++;
-						break;
+						return mobo;
 					case"CPU":
 						PcParts cpu = Prossesor(x1,x2,z1,z2);
 						j++;
-						break;
+						return cpu;
 					case"RAM":
 						PcParts ram = Memory(x1,x2,z1,z2);
 						j++;
-						break;
+						return ram;
 					case"Hard Drive":
 						PcParts hd = SSHD(x1,x2,z1,z2);
 						j++;
-						break;
+						return hd;
 					case"Keyboard":
 						PcParts kb = Click(x1,x2,z1,z2);
 						j++;
-						break;
+						return kb;
 					case"Mouse":
 						PcParts mouse = Mice(x1,x2,z1,z2);
 						j++;
-						break;
+						return mouse;
 					case"Printer":
 						PcParts printer = Paper(x1,x2,z1,z2);
 						j++;
-						break;
+						return printer;
 					case"Screen":
 						PcParts screen = View(x1,x2,z1,z2);
 						j++;
-						break;
+						return screen;
 					case"GPU":
 						PcParts gpu = Graphics(x1,x2,z1,z2);
 						j++;
-						break;
+						return gpu;
 					default:
 						break;
 				}
