@@ -103,7 +103,7 @@ public class Main{
 						j++;
 						break;
 					case"RAM":
-						PcParts ram = mem(x1,x2,z1,z2);
+						PcParts ram = Memory(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Hard Drive":
