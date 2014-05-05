@@ -2,7 +2,7 @@
 import java.util.*;
 import java.text.*;
 
-public class Order{
+public class Order extends PcParts{
 	private String name, expectedDate, state, str;
 	private int phone, orderNo=1, price, sale;
 	private PcParts thing;
@@ -36,8 +36,13 @@ public class Order{
 		System.out.print(">");
 		str = input.nextLine();
 		if(str.equals("Y")){
-			fp = thing.getPrice()* (1 - thing.getSale()/100);                  //finding the final price
-			System.out.println("The final price is : "+ fp +" Euros.");
+			if (thing.isHardware == true){
+				fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
+				System.out.println("The final price is : "+ fp +" Euros.");
+			}else{
+				fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
+				System.out.println("The final price is : "+ fp +" Euros.");
+			}
 			orderNo++;
 			//thing.applySale();
 		}
