@@ -6,11 +6,13 @@ public class Main{
 	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
 	private static double clock,diameter;
+	private static boolean check;
 	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
 	private static List<Order> ordersList = new ArrayList<Order>();
 	private static List<Sell> soldList = new ArrayList<Sell>();
+	private static PcParts item;
 
 	public static void main(String[] args) {
 		Initiate();
@@ -93,14 +95,15 @@ public class Main{
 				if (thing.getmodelName().equals(shopStock.get(i).getmodelName())){
 					if (thing.getmodelYear() == shopStock.get(i).getmodelYear()){
 						if (thing.getPrice() == (shopStock.get(i).getPrice())){
-							return true;
+							check = true;
 						}
 					}
 				}
 			}		
 			i++;
 		}
-		if ( i == shopStock.size() ) return false;
+		if ( i == shopStock.size() ) check = false;
+		return check;
 	}
 
 	public static PcParts Questions(){
@@ -123,41 +126,41 @@ public class Main{
 				System.out.println("Price entered was: " + z2);
 				switch(str){
 					case"Motherboard":
-						PcParts mobo = MoBo(x1,x2,z1,z2);
+						item = MoBo(x1,x2,z1,z2);
 						j++;
-						return mobo;
+						break;
 					case"CPU":
-						PcParts cpu = Prossesor(x1,x2,z1,z2);
+						item = Prossesor(x1,x2,z1,z2);
 						j++;
-						return cpu;
+						break;
 					case"RAM":
-						PcParts ram = Memory(x1,x2,z1,z2);
+						item = Memory(x1,x2,z1,z2);
 						j++;
-						return ram;
+						break;
 					case"Hard Drive":
-						PcParts hd = SSHD(x1,x2,z1,z2);
+						item = SSHD(x1,x2,z1,z2);
 						j++;
-						return hd;
+						break;
 					case"Keyboard":
-						PcParts kb = Click(x1,x2,z1,z2);
+						item = Click(x1,x2,z1,z2);
 						j++;
-						return kb;
+						break;
 					case"Mouse":
-						PcParts mouse = Mice(x1,x2,z1,z2);
+						item = Mice(x1,x2,z1,z2);
 						j++;
-						return mouse;
+						break;
 					case"Printer":
-						PcParts printer = Paper(x1,x2,z1,z2);
+						item = Paper(x1,x2,z1,z2);
 						j++;
-						return printer;
+						break;
 					case"Screen":
-						PcParts screen = View(x1,x2,z1,z2);
+						item = View(x1,x2,z1,z2);
 						j++;
-						return screen;
+						break;
 					case"GPU":
-						PcParts gpu = Graphics(x1,x2,z1,z2);
+						item = Graphics(x1,x2,z1,z2);
 						j++;
-						return gpu;
+						break;
 					default:
 						break;
 				}
@@ -165,6 +168,7 @@ public class Main{
 				System.out.println("There was an error during the process. The process will now restart.");
 			}
 		}
+		return item;
 	}
 	public static PcParts MoBo(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the chip supported by the motherboard.");
