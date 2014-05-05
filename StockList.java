@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 public class StockList{
-	private List<Stock> stock = new ArrayList<Stock>();
+	private ArrayList<Stock> stock = new ArrayList<Stock>();	
 }
