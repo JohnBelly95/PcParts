@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.ArrayList;
 
 public class Main{
 	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
@@ -7,7 +8,7 @@ public class Main{
 	private static double clock,diameter;
 	static Scanner input = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
-	private static List<Order> ordersList = new ArrayList<Sell>();
+	private static List<Order> ordersList = new ArrayList<Order>();
 	private static List<Sell> soldList = new ArrayList<Sell>();
 
 	public static void main(String[] args) {
@@ -16,14 +17,12 @@ public class Main{
 	}
 	public static void Initiate(){
 		createStock();
-		ordersList = new OrderList();
 		System.out.println("What is the sale on Hardware today ?(do not input %)");
 		HWSale = input.nextInt();
 		System.out.println("What is the sale on the Peripherals today ? (do not input %)");
 		peripheralSale = input.nextInt();
 	}
 	public static void createStock(){
-		shopStock = new StockList();
 		//Starting Stock goes here
 	}
 	public static void GUI(){
