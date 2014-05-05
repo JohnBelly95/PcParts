@@ -17,10 +17,6 @@ public class Main{
 		createOrdersList();
 		createSoldList();
 	}
-	/*public static void Marketing(){
-		PcParts thing = Questions();
-		System.out.println(thing);
-	}*/
 	public static void createStock(){
 		StockList shopStock = new StockList();
 	}
@@ -37,14 +33,14 @@ public class Main{
 	   	 	answer = input.nextLine();
 
 			if (answer.equals ("1")){
-				PcParts thing = Question();
+				PcParts thing = Questions();
 				System.out.println(thing);
 
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing)){
 
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
-					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
+					decision = input.nextLine(); //(den exw dhlwsei thn metavliti buy)
 
 					if ( decision == "Y"){
 						Sale sl = new Sale(thing);
@@ -54,14 +50,12 @@ public class Main{
 				}else{
 
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
-					decision = input.nextLine(); (den exw dhlwsei thn metavliti buy)
-
+					decision = input.nextLine(); 
 					if ( decision == "Y"){
 						Order odr = new Order(thing);
 						ordersList.add(odr);
 					}else break;
-					+
-
+					
 				}
 
 
@@ -78,9 +72,6 @@ public class Main{
 		}
 	}
 
-	public static void createStock(){
-		Stock shopStock = new Stock();
-	}
 	public static PcParts Questions(){
 		while(j<2){
 			System.out.println("What does the customer want ?");
@@ -101,40 +92,39 @@ public class Main{
 				System.out.println("Price entered was: " + z2);
 				switch(str){
 					case"Motherboard":
-						Motherboard mobo = Motherboard(x1,x2,z1,z2);
+						PcParts mobo = MoBo(x1,x2,z1,z2);
 						j++;
 						break;
 					case"CPU":
-						CPU cpu = CPU(x1,x2,z1,z2);
+						PcParts cpu = Prossesor(x1,x2,z1,z2);
 						j++;
 						break;
 					case"RAM":
-						RAM ram = RAM(x1,x2,z1,z2);
+						PcParts ram = mem(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Hard Drive":
-						HardDrive hd = HardDrive(x1,x2,z1,z2);
+						PcParts hd = SSHD(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Keyboard":
-						Keyboard kb = Keyboard(x1,x2,z1,z2);
+						PcParts kb = Click(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Mouse":
-						Mouse mouse = Mouse(x1,x2,z1,z2);
-						System.out.println(mouse);
+						PcParts mouse = Mice(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Printer":
-						Printer printer = Printer(x1,x2,z1,z2);
+						PcParts printer = Paper(x1,x2,z1,z2);
 						j++;
 						break;
 					case"Screen":
-						Screen screen = Screen(x1,x2,z1,z2);
+						PcParts screen = View(x1,x2,z1,z2);
 						j++;
 						break;
 					case"GPU":
-						GPU gpu = GPU(x1,x2,z1,z2);
+						PcParts gpu = Graphics(x1,x2,z1,z2);
 						j++;
 						break;
 					default:
@@ -145,7 +135,7 @@ public class Main{
 			}
 		}
 	}
-	public static Motherboard Motherboard(String modelName,String manufacturer,int modelYear,int price){
+	public static PcParts MoBo(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the chip supported by the motherboard.");
 		chip = input.next();
 		System.out.println("Given chip is: " + chip);
@@ -162,7 +152,8 @@ public class Main{
 		Motherboard MoBo = new Motherboard(chip,RAM,ePorts, x1, x2, z1, z2);
 		return MoBo;
 	}
-	public static CPU CPU(String modelName,String manufacturer,int modelYear,int price){
+	
+	public static PcParts Prossesor(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the number of cores in the desired CPU");
 		cores = input.nextInt();
 		System.out.println("Cores were set to " + cores);
@@ -176,7 +167,8 @@ public class Main{
 		CPU cpu = new CPU(clock,cores,x1,x2,z1,z2);
 		return cpu;
 	}
-	public static GPU GPU(String modelName,String manufacturer,int modelYear,int price){
+	
+	public static PcParts Graphics(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the chipset of the GPU the costumer wants to buy.");
 		chip = input.next();
 		System.out.println("Please enter the amount of RAM the desired GPU has.");
@@ -188,7 +180,8 @@ public class Main{
 		GPU gpu = new GPU(chip, RAM,x1,x2,z1,z2);
 		return gpu;
 	}
-	public static Keyboard Keyboard(String modelName, String manufacturer, int modelYear, int price){
+	
+	public static PcParts Click(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What connection type is the customer ordering ?");
 		connection = input.nextLine();
 		x1 = modelName;
@@ -199,7 +192,7 @@ public class Main{
 		return KB;
 	}
 
-	public static Mouse Mouse(String modelName, String manufacturer, int modelYear, int price){
+	public static PcParts Mice(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What connection type does the desired product have ?");
 		connection = input.next();
 		System.out.println("What technology does the desired mouse use ?");
@@ -212,7 +205,7 @@ public class Main{
 		return MS;
 	}
 
-	public static Printer Printer(String modelName, String manufacturer, int modelYear, int price){
+	public static PcParts Paper(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What printing type is the customer ordering ?");
 		printingType = input.next();
 		System.out.println("What technology is the customer ordering ?");
@@ -225,7 +218,7 @@ public class Main{
 		return PR;
 	}
 
-	public static Screen Screen(String modelName, String manufacturer, int modelYear, int price){
+	public static PcParts View(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What screen type is the customer ordering ?");
 		type = input.next();
 		System.out.println("What size is the screen the customer ordering ?");
@@ -245,7 +238,7 @@ public class Main{
 		Screen SCR = new Screen (type, diameter, resolution, HDMIport, DVIport, COMPOSITEport, x1, x2, z1, z2);
 		return SCR;
 	}
-	public static RAM RAM(String modelName, String manufacturer, int modelYear, int price){
+	public static PcParts Memory(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What RAM type is the customer ordering ?");
 		type = input.next();
 		System.out.println("What size is the customer ordering ?");
@@ -260,7 +253,7 @@ public class Main{
 		return RM;
 	}
 
-	public static HardDrive HardDrive(String modelName, String manufacturer, int modelYear, int price){
+	public static PcParts SSHD(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What Hard drive type is the customer ordering ?");
 		type = input.next();
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
