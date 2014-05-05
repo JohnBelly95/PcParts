@@ -1,11 +1,13 @@
+
 import java.util.*;
 import java.text.*;
 
 public class Order{
 	private String name, expectedDate, state, str;
-	private int phone, orderNo, price, sale;
+	private int phone, orderNo=1, price, sale;
 	private PcParts thing;
 	private Scanner input = new Scanner(System.in);
+	private double fp;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 	
 	
@@ -19,10 +21,10 @@ public class Order{
 	}*/
 	public Order(PcParts thing){
 		System.out.println("You will now be asked to input the customers credentials");
-		System.out.println("Please enter the customers full name.");
+		System.out.println("Please enter the customer's full name.");
 		System.out.print(">");
 		name = input.nextLine();
-		System.out.println("Please enter the customers phone.");
+		System.out.println("Please enter the customer's phone.");
 		System.out.print(">");
 		phone = input.nextInt();
 		System.out.println("When do we expect the item to be available ?");
@@ -34,7 +36,14 @@ public class Order{
 		System.out.print(">");
 		str = input.nextLine();
 		if(str.equals("Y")){
-			thing.applySale();
+			fp = thing.getPrice()* (1 - thing.getSale()/100);                  //finding the final price
+			System.out.println("The final price is : "+ fp +" Euros.");
+			orderNo++;
+			//thing.applySale();
 		}
+	}
+	
+	public String toString(){
+		return ("The customer's name is: "+name+ " and his phone is: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
 	}
 }

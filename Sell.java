@@ -27,4 +27,8 @@ public class Sell{
 		saleNo++;
 	}
 	
+	public String toString(){
+		return ("The customer's name is: "+name+ " and his phone is: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros" );
+	}
+	
 }
