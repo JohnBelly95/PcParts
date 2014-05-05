@@ -61,11 +61,13 @@ public class Main{
 				//break;
 	   	 	}
 			else if (answer.equals ("2")){
-				System.out.println("test");
+				//System.out.println("test");
+				ordersList.showOrders();
 
 			}
 			else if (answer.equals ("3")){
-				System.out.println("test");
+				//System.out.println("test");
+				soldList.showSales();
 	   	 	}
 	   	 	else if (answer.equals ("0")) break;
 		}
