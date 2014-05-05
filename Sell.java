@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class Sell{
+public class Sell extends PcParts{
 	private String name, saleDate;
 	private int phone, saleNo=1, Price;
 	private double fp;
@@ -22,8 +22,13 @@ public class Sell{
 		phone = input.nextInt();
 		System.out.println("Sale date : ");
 		saleDate = input.nextLine();
-		fp = thing.getPrice()* (1 - thing.getSale()/100);                  //finding the final price
-		System.out.println("The final price is : "+ fp +" Euros.");
+		if (thing.isHardware == true){
+			fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
+			System.out.println("The final price is : "+ fp +" Euros.");
+		}else{
+			fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
+			System.out.println("The final price is : "+ fp +" Euros.");
+		}
 		saleNo++;
 	}
 	
