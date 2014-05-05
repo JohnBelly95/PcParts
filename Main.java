@@ -23,6 +23,9 @@ public class Main{
 	public static void createOrdersList(){
 		OrderList ordersList = new OrderList();
 	}
+	public static void createSoldList(){
+		SoldList soldList = new SoldList();
+	}
 	public static void GUI(){
 		while (true){
 			System.out.println("1. View products available");
