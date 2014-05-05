@@ -62,14 +62,24 @@ public class Main{
 	   	 	}
 			else if (answer.equals ("2")){
 				//System.out.println("test");
-				ordersList.showOrders();
+				showOrders();
 
 			}
 			else if (answer.equals ("3")){
 				//System.out.println("test");
-				soldList.showSales();
+				showSales();
 	   	 	}
 	   	 	else if (answer.equals ("0")) break;
+		}
+	}	
+	public static void showOrders(){
+		for (int i=0; i < orderList.size(); i++){
+			System.out.println(orderList.get(i));
+		}
+	}
+	public static void showSales(){
+		for (int i=0; i < soldList.size(); i++){
+			System.out.println(soldList.get(i));
 		}
 	}	
 	public static boolean Exists ( PcParts thing ){	
