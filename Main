@@ -38,7 +38,7 @@ public class Main{
 	   	 	System.out.println("3. Viewing sales");
 	   	 	System.out.println("0. Exit");
 	   	 	System.out.print("> ");
-	   	 	answer = input.nextLine();
+	   	 	answer = input.next();
 
 			if (answer.equals ("1")){
 				PcParts thing = Questions();
@@ -48,7 +48,7 @@ public class Main{
 				if (Exists(thing)){
 
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
-					decision = input.nextLine(); //(den exw dhlwsei thn metavliti buy)
+					decision = input.next(); //(den exw dhlwsei thn metavliti buy)
 
 					if ( decision == "Y"){
 						Sell sl = new Sell(thing);
@@ -57,7 +57,7 @@ public class Main{
 
 				}else{
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
-					decision = input.nextLine(); 
+					decision = input.next(); 
 					if ( decision == "Y"){
 						Order odr = new Order(thing);
 						ordersList.add(odr);
@@ -107,14 +107,14 @@ public class Main{
 	public static PcParts Questions(){
 		while(j<2){
 			System.out.println("What does the customer want ?");
-			str = input.nextLine();
+			str = input.next();
 			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				x1 = input.nextLine();
+				x1 = input.next();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
-				x2 = input.nextLine();
+				x2 = input.next();
 				System.out.println("Manufacturer is set to: " + x2);
 				System.out.println("Please enter the year the desired product was released. ");
 				z1 = input.nextInt();
@@ -216,7 +216,7 @@ public class Main{
 	
 	public static PcParts Click(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What connection type is the customer ordering ?");
-		connection = input.nextLine();
+		connection = input.next();
 		x1 = modelName;
 		x2 = manufacturer;
 		z1 = modelYear;
