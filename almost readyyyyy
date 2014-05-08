@@ -8,6 +8,7 @@ public class Order extends PcParts{
 	private PcParts thing;
 	private Scanner input = new Scanner(System.in);
 	private double fp;
+	public static boolean status;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 	
 	
@@ -35,7 +36,8 @@ public class Order extends PcParts{
 		System.out.println("Is the desired item on sale ? (Y/N)");
 		System.out.print(">");
 		str = input.nextLine();
-		if(str.equals("Y")){
+		status = false; // false means expected order
+		/*if(str.equals("Y")){
 			if (thing.isHardware == true){
 				fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
 				System.out.println("The final price is : "+ fp +" Euros.");
@@ -43,9 +45,11 @@ public class Order extends PcParts{
 				fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
 				System.out.println("The final price is : "+ fp +" Euros.");
 			}
-			orderNo++;
-			//thing.applySale();
-		}
+		}else{
+			fp = thing.getPrice();
+		}*/
+		fp = thing.getPrice();
+		orderNo++;
 	}
 	
 	public String toString(){
