@@ -2,8 +2,6 @@ public class CPU extends Hardware{
 	private double Speed;
 	private int CoreCount;
 	private static boolean isHardware;
-	private static final String AMD = "TYPE_AMD";
-	private static final String Intel = "TYPE_INTEL";
 	public CPU(){
 		super();
 		Speed = 2.9;
