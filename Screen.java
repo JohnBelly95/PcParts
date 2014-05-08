@@ -16,15 +16,17 @@ public class Screen extends Peripherals{
 		HDMIport = 0;
 		DVIport = 0;
 		COMPOSITEport = 0;
+		isHardware = super.isHardware;
 	}
 	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price, isHardware);
+		super(modelName, Manufacturer, modelYear, Price);
 		this.Type = Type;
 		this.Size = Size;
 		this.Resolution = Resolution;
 		this.HDMIport = HDMIport;
 		this.DVIport = DVIport;
 		this.COMPOSITEport = COMPOSITEport;
+		isHardware = super.isHardware;
 	}
 	public String toString(){
 		System.out.println("===============================================================");

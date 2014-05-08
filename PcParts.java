@@ -3,6 +3,7 @@ public class PcParts{
 	private String Manufacturer;
 	private int modelYear;
 	private int Price;
+	public boolean isHardware;
 
 	public PcParts(){
 		modelName = "Shizzle";

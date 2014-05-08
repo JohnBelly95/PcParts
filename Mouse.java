@@ -6,12 +6,14 @@ public class Mouse extends Peripherals{
 		super();
 		Connection = "Wired" ;
 		Technology = "Laser" ;
+		isHardware = super.isHardware;
 	}
 	
 	public Mouse(String Connection, String Technology, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price, isHardware);
+		super(modelName, Manufacturer, modelYear, Price);
 		this.Connection = Connection;
 		this.Technology = Technology ;
+		isHardware = super.isHardware;
 	}
 	
 	public String getConnection(){

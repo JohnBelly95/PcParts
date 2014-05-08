@@ -1,11 +1,9 @@
 public class Peripherals extends PcParts{
-	public boolean isHardware;
+	public boolean isHardware = false;
 	public Peripherals (){
 		super();
-		isHardware = false;
 	}
-	public Peripherals(String modelName, String Manufacturer, int modelYear, int Price, boolean isHardware){
+	public Peripherals(String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
-		isHardware = false;
 	}
 }
