@@ -5,7 +5,7 @@ public class Printer extends Peripherals{
 	
 	public Printer(){
 		super();
-		PrintingType = "Wired" ;
+		PrintingType = "Colored" ;
 		Technology = "Laser" ;
 		isHardware = super.isHardware;
 	}
