@@ -2,6 +2,7 @@ public class HardDrive extends Hardware{
 	private String Type;
 	private int Size;
 	private double Width;
+	private static boolean isHardware;
 	
 	public HardDrive(){
 		super();
@@ -10,7 +11,7 @@ public class HardDrive extends Hardware{
 		Width= 3.5;	//megethos (inches)
 	}
 	public HardDrive(String Type, int Size, int Width,  String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		/*switch(Type){
 			case"DDR":
 				this.Type = "DDR";

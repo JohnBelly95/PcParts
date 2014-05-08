@@ -1,6 +1,7 @@
 public class CPU extends Hardware{
 	private double Speed;
 	private int CoreCount;
+	private static boolean isHardware;
 	private static final String AMD = "TYPE_AMD";
 	private static final String Intel = "TYPE_INTEL";
 	public CPU(){
@@ -9,7 +10,7 @@ public class CPU extends Hardware{
 		CoreCount = 2;
 	}
 	public CPU(double Speed, int CoreCount, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		this.Speed = Speed;
 		this.CoreCount = CoreCount;
 	}

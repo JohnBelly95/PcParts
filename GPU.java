@@ -1,6 +1,7 @@
 public class GPU extends Hardware{
 	private String Chipset;
 	private int Memory;
+	private static boolean isHardware;
 
 	public GPU(){
 		super();
@@ -9,7 +10,7 @@ public class GPU extends Hardware{
 	}
 
 	public GPU(String Chipset, int Memory, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		this.Chipset = Chipset;
 		this.Memory = Memory;
 	}

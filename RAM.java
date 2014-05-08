@@ -1,6 +1,7 @@
 public class RAM extends Hardware{
 	private String Type;
 	private int Size, Speed;
+	private static boolean isHardware;
 	
 	public RAM(){
 		super();
@@ -9,7 +10,7 @@ public class RAM extends Hardware{
 		Speed= 2000;		
 	}
 	public RAM(String Type, int Size, int Speed,  String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		this.Type = Type;
 		this.Size = Size;
 		this.Speed=Speed;

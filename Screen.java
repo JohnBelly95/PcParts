@@ -6,6 +6,7 @@ public class Screen extends Peripherals{
 	private int HDMIport;
 	private int DVIport;
 	private int COMPOSITEport;
+	private static boolean isHardware;
 	
 	public Screen(){
 		super();
@@ -17,7 +18,7 @@ public class Screen extends Peripherals{
 		COMPOSITEport = 0;
 	}
 	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		this.Type = Type;
 		this.Size = Size;
 		this.Resolution = Resolution;

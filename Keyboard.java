@@ -1,12 +1,13 @@
 public class Keyboard extends Peripherals{
 	private String Connection;
+	private static boolean isHardware;
 	public Keyboard(){
 		super();
 		Connection = "Wired" ;
 	}
 	
 	public Keyboard(String Connection, String modelName, String Manufacturer, int modelYear, int Price){
-		super(modelName, Manufacturer, modelYear, Price);
+		super(modelName, Manufacturer, modelYear, Price, isHardware);
 		this.Connection = Connection;
 	}
 	
