@@ -3,10 +3,10 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class Main{
-	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1;
-	private static double clock,diameter;
-	private static boolean check;
+	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision, name, expectedDate;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone;
+	private static double clock,diameter,fp;
+	private static boolean check, status;
 	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
@@ -26,10 +26,42 @@ public class Main{
 		peripheralSale = input.nextInt();
 	}
 	public static void createStock(){
-		//Starting Stock goes here
+		//Starting Stock goes here		
+		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
+		Stock MoBo = new Stock(Z87k);
+		shopStock.add(MoBo);
+		
 		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
 		Stock CPU1 = new Stock(i54670k);
 		shopStock.add(CPU1);
+		
+		PcParts sf4390 = new GPU("AMD",4,"sf-4390","Radeon",2012,30);
+		Stock GPU1 = new Stock(sf4390);
+		shopStock.add(GPU1);
+		
+		PcParts kr4520 = new RAM("DDR",4,1600,"kr-4520","Kingston",2014,10);
+		Stock RAM1 = new Stock(kr4520);
+		shopStock.add(RAM1);
+		
+		PcParts Barracuda = new HardDrive("SSD",750,3.5,"Barracuda","Seagate",2014,30);
+		Stock HDRV1 = new Stock(Barracuda);
+		shopStock.add(HDRV1);
+		
+		PcParts en33s = new Screen("LED",20,"1600x900",1,2,2,"en-33s","LG",2011,83);
+		Stock SCR1 = new Stock(en33s);
+		shopStock.add(SCR1);
+		
+		PcParts hvk806 = new Keyboard("wireless","hv-k806","Havit",2012,5);
+		Stock KB1 = new Stock(hvk806);
+		shopStock.add(KB1);
+		
+		PcParts msq50 = new Mouse("wired","optical","msq-50","Roccat",2010,3);
+		Stock MS1 = new Stock(msq50);
+		shopStock.add(MS1);
+		
+		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
+		Stock PR1 = new Stock(mg2550);
+		shopStock.add(PR1);
 	}
 	public static void GUI(){
 		while (true){
@@ -41,28 +73,78 @@ public class Main{
 	   	 	answer = input.next();
 
 			if (answer.equals ("1")){
-				PcParts thing = Questions();
+				System.out.println("What does the customer want ?");
+				str = input.next();
+				PcParts thing = Questions1(str);
 				System.out.println(thing);
 
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing)){
-
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
 					decision = input.next(); //(den exw dhlwsei thn metavliti buy)
-
-					if ( decision == "Y"){
-						Sell sl = new Sell(thing);
+					if ( decision.equals("Y")){
+						PcParts item = Questions2(str,x1,x2,z1,z2);
+						System.out.println("You will now be asked to input the customers credentials");
+						System.out.println("Please enter the customer's full name.");
+						System.out.print(">");
+						name = input.nextLine();
+						System.out.println("Please enter the customer's phone.");
+						System.out.print(">");
+						phone = input.nextInt();
+						System.out.println("Is the desired item on sale ? (Y/N)");
+						System.out.print(">");
+						str = input.nextLine();
+						if(str.equals("Y")){
+							if (thing.isHardware == true){
+								fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
+								System.out.println("The final price is : "+ fp +" Euros.");
+							}else{
+								fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
+								System.out.println("The final price is : "+ fp +" Euros.");
+							}
+						}else{
+							fp = thing.getPrice();
+						}
+						Sell sl = new Sell(item, name, phone, fp);
 						soldList.add(sl);
-					}else break;
+					}else ;
 
 				}else{
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
 					decision = input.next(); 
-					if ( decision == "Y"){
-						Order odr = new Order(thing);
+					if ( decision.equals("Y")){
+						PcParts item = Questions2(str,x1,x2,z1,z2);
+						System.out.println("You will now be asked to input the customers credentials");
+						System.out.println("Please enter the customer's full name.");
+						System.out.print(">");
+						name = input.next();
+						System.out.println("Please enter the customer's phone.");
+						System.out.print(">");
+						phone = input.nextInt();
+						System.out.println("When do we expect the item to be available ?");
+						System.out.print(">");
+						expectedDate = input.next();
+						System.out.println("Is the desired item on sale ? (Y/N)");
+						System.out.print(">");
+						str = input.nextLine();
+						status = false; // false means expected order
+						if(str.equals("Y")){
+							if (item.isHardware == true){
+								fp = item.getPrice()* (1 - HWSale/100);                  //finding the final price
+								System.out.println("The final price is : "+ fp +" Euros.");
+							}else{
+								fp = item.getPrice()* (1 - peripheralSale/100);                  //finding the final price
+								System.out.println("The final price is : "+ fp +" Euros.");
+							}
+						}else{
+							fp = item.getPrice();
+						}
+						Order odr = new Order(item, name, phone,expectedDate,fp);
 						ordersList.add(odr);
-					}//else //break;
-					
+						System.out.println("Order set.");
+					}else if(decision.equals("N")){
+						System.out.println("Order Canceled");
+					}
 				}
 				//break;
 	   	 	}
@@ -91,23 +173,16 @@ public class Main{
 	public static boolean Exists ( PcParts thing ){	
 		check = false;
 		for(int i=0; i < shopStock.size(); i++){
-			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer())){
-				if (thing.getmodelName().equals(shopStock.get(i).getmodelName())){
-					if (thing.getmodelYear() == shopStock.get(i).getmodelYear()){
-						if (thing.getPrice() == (shopStock.get(i).getPrice())){
-							check = true;
-						}
-					}
-				}
+			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer()) && thing.getmodelName().equals(shopStock.get(i).getmodelName()) && thing.getmodelYear() == shopStock.get(i).getmodelYear() && thing.getPrice() == shopStock.get(i).getPrice() && shopStock.get(i).getAvailableStock() > 0){
+				check = true;
+				System.out.println("yo");
 			}
 		}
 		return check;
 	}
 
-	public static PcParts Questions(){
-		while(j<2){
-			System.out.println("What does the customer want ?");
-			str = input.next();
+	public static PcParts Questions1(String str){
+		while(true){
 			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
@@ -122,6 +197,20 @@ public class Main{
 				System.out.println("Please enter the price of the desired product. ");
 				z2 = input.nextInt();
 				System.out.println("Price entered was: " + z2);
+				item = new PcParts(x1,x2,z1,z2);
+				break;
+				
+			}else{
+				System.out.println("There was an error during the process. The process will now restart.");
+				System.out.println("What does the customer want ?");
+				str = input.next();
+			}
+		}
+		return item;
+	}
+	public static PcParts Questions2(String str, String x1, String x2, int z1, int z2){
+		while(j<2){
+			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
 				switch(str){
 					case"Motherboard":
 						item = MoBo(x1,x2,z1,z2);
@@ -162,8 +251,6 @@ public class Main{
 					default:
 						break;
 				}
-			}else{
-				System.out.println("There was an error during the process. The process will now restart.");
 			}
 		}
 		return item;

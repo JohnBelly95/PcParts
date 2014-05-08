@@ -16,30 +16,12 @@ public class Sell extends PcParts{
 		date="12/12/12";
 	}
 	
-	public Sell (PcParts thing){
-		System.out.println("You will now be asked to input the customers credentials");
-		System.out.println("Please enter the customer's full name.");
-		System.out.print(">");
-		name = input.nextLine();
-		System.out.println("Please enter the customer's phone.");
-		System.out.print(">");
-		phone = input.nextInt();
+	public Sell (PcParts thing, String name, int phone, double fp){
+		this.thing = thing;
+		this.name = name;
+		this.phone = phone;
+		this.fp = fp;
 		Date date = new Date();
-		System.out.println("Is the desired item on sale ? (Y/N)");
-		System.out.print(">");
-		str = input.nextLine();
-		/*if(str.equals("Y")){
-			if (thing.isHardware == true){
-				fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
-				System.out.println("The final price is : "+ fp +" Euros.");
-			}else{
-				fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
-				System.out.println("The final price is : "+ fp +" Euros.");
-			}
-		}else{
-			fp = thing.getPrice();
-		}*/
-		fp = thing.getPrice();
 		saleNo++;
 	}
 	

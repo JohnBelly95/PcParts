@@ -20,35 +20,13 @@ public class Order extends PcParts{
 		Order cpu = new Order("GP",123,"12/12/12","12/12/12",i54670k);
 		System.out.println(cpu.thing.getManufacturer());
 	}*/
-	public Order(PcParts thing){
-		System.out.println("You will now be asked to input the customers credentials");
-		System.out.println("Please enter the customer's full name.");
-		System.out.print(">");
-		name = input.nextLine();
-		System.out.println("Please enter the customer's phone.");
-		System.out.print(">");
-		phone = input.nextInt();
-		System.out.println("When do we expect the item to be available ?");
-		System.out.print(">");
-		expectedDate = input.nextLine();
-		Date date = new Date();
+	public Order(PcParts thing, String name, int phone, String expectedDate, double fp){
 		this.thing = thing;
-		System.out.println("Is the desired item on sale ? (Y/N)");
-		System.out.print(">");
-		str = input.nextLine();
-		status = false; // false means expected order
-		/*if(str.equals("Y")){
-			if (thing.isHardware == true){
-				fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
-				System.out.println("The final price is : "+ fp +" Euros.");
-			}else{
-				fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
-				System.out.println("The final price is : "+ fp +" Euros.");
-			}
-		}else{
-			fp = thing.getPrice();
-		}*/
-		fp = thing.getPrice();
+		this.name = name;
+		this.phone = phone;
+		this.expectedDate= expectedDate;
+		this.fp = fp;
+		Date date = new Date();
 		orderNo++;
 	}
 	

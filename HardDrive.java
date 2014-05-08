@@ -11,7 +11,7 @@ public class HardDrive extends Hardware{
 		Width= 3.5;	//megethos (inches)
 		isHardware = super.isHardware;
 	}
-	public HardDrive(String Type, int Size, int Width,  String modelName, String Manufacturer, int modelYear, int Price){
+	public HardDrive(String Type, int Size, double Width,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		/*switch(Type){
 			case"DDR":
