@@ -105,45 +105,50 @@ public class Main{
 						}else{
 							fp = thing.getPrice();
 						}
-						Sell sl = new Sell(item, name, phone, fp);
+						Sell sl = new Sell(part, name, phone, fp);
 						soldList.add(sl);
 					}else ;
 
 				}else{
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
 					decision = input.next(); 
-					if ( decision.equals("Y")){
-						PcParts item = Questions2(str,x1,x2,z1,z2);
-						System.out.println("You will now be asked to input the customers credentials");
-						System.out.println("Please enter the customer's full name.");
-						System.out.print(">");
-						name = input.next();
-						System.out.println("Please enter the customer's phone.");
-						System.out.print(">");
-						phone = input.nextInt();
-						System.out.println("When do we expect the item to be available ?");
-						System.out.print(">");
-						expectedDate = input.next();
-						System.out.println("Is the desired item on sale ? (Y/N)");
-						System.out.print(">");
-						str = input.nextLine();
-						status = false; // false means expected order
-						if(str.equals("Y")){
-							if (item.isHardware == true){
-								fp = item.getPrice()* (1 - HWSale/100);                  //finding the final price
-								System.out.println("The final price is : "+ fp +" Euros.");
+					while(true){
+						if ( decision.equals("Y")){
+							PcParts item = Questions2(str,x1,x2,z1,z2);
+							System.out.println("You will now be asked to input the customers credentials");
+							System.out.println("Please enter the customer's full name.");
+							System.out.print(">");
+							name = input.nextLine();
+							System.out.println("Please enter the customer's phone.");
+							System.out.print(">");
+							phone = input.nextInt();
+							System.out.println("When do we expect the item to be available ?");
+							System.out.print(">");
+							expectedDate = input.next();
+							System.out.println("Is the desired item on sale ? (Y/N)");
+							System.out.print(">");
+							str = input.nextLine();
+							status = false; // false means expected order
+							if(str.equals("Y")){
+								if (item.isHardware == true){
+									fp = item.getPrice()* (1 - HWSale/100);                  //finding the final price
+									System.out.println("The final price is : "+ fp +" Euros.");
+								}else{
+									fp = item.getPrice()* (1 - peripheralSale/100);                  //finding the final price
+									System.out.println("The final price is : "+ fp +" Euros.");
+								}
 							}else{
-								fp = item.getPrice()* (1 - peripheralSale/100);                  //finding the final price
-								System.out.println("The final price is : "+ fp +" Euros.");
+								fp = item.getPrice();
+								break;
 							}
-						}else{
-							fp = item.getPrice();
-						}
-						Order odr = new Order(item, name, phone,expectedDate,fp);
-						ordersList.add(odr);
-						System.out.println("Order set.");
-					}else if(decision.equals("N")){
-						System.out.println("Order Canceled");
+							Order odr = new Order(item, name, phone,expectedDate,fp);
+							ordersList.add(odr);
+							System.out.println("Order set.");
+							break;
+						}else if(decision.equals("N")){
+							System.out.println("Order Canceled");
+							break;
+						}else System.out.println("You entered an invalid character. Please try again.");
 					}
 				}
 				//break;
