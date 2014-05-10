@@ -76,6 +76,15 @@ public class Main{
 			if (answer.equals ("1")){
 				System.out.println(shopStock);
 				System.out.println("What does the customer want ?");
+				System.out.println("1. Motherboard");
+				System.out.println("2. CPU");
+				System.out.println("3. GPU");
+				System.out.println("4. RAM memory");
+				System.out.println("5. Hard Drive");
+				System.out.println("6. Screen");
+				System.out.println("7. Keyboard");
+				System.out.println("8. Mouse");
+				System.out.println("9. Printer");
 				str = input.next();
 				PcParts thing = Questions1(str);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
@@ -188,7 +197,7 @@ public class Main{
 
 	public static PcParts Questions1(String str){
 		while(true){
-			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
+			if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
 				x1 = input.next();
@@ -208,6 +217,17 @@ public class Main{
 			}else{
 				System.out.println("There was an error during the process. The process will now restart.");
 				System.out.println("What does the customer want ?");
+				str = input.next();
+				System.out.println("1. Motherboard");
+				System.out.println("2. CPU");
+				System.out.println("3. GPU");
+				System.out.println("4. RAM memory");
+				System.out.println("5. Hard Drive");
+				System.out.println("6. Screen");
+				System.out.println("7. Keyboard");
+				System.out.println("8. Mouse");
+				System.out.println("9. Printer");
+				System.out.print("> ");
 				str = input.next();
 			}
 		}
