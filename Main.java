@@ -63,7 +63,6 @@ public class Main{
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
 		
-		System.out.println(shopStock.size());
 	}
 	public static void GUI(){
 		while (true){
