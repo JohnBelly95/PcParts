@@ -179,7 +179,7 @@ public class Main{
 		check = false;
 		item = thing;
 		for(int i=0; i < shopStock.size(); i++){
-			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer()) && thing.getmodelName().equals(shopStock.get(i).getmodelName()) && thing.getmodelYear() == shopStock.get(i).getmodelYear() && thing.getPrice() == shopStock.get(i).getPrice() && shopStock.get(i).getAvailableStock() > 0){
+			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer()) && thing.getmodelName().equals(shopStock.get(i).getmodelName()) && thing.getmodelYear() == shopStock.get(i).getmodelYear() && shopStock.get(i).getAvailableStock() > 0){
 				check = true;
 			}
 		}
