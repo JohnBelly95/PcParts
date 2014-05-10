@@ -92,7 +92,7 @@ public class Main{
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions2(str,x1,x2,z1,z2);//questions3()
+						part = Questions3(str,x1,x2,z1,z2);//questions3()
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -279,6 +279,56 @@ public class Main{
 			}
 		}
 		return item;
+	}
+	public static Questions3(String str, String x1, String x2, int z1, int z2){
+		for(int i=0; i < shopStock.size(); i++){
+			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
+				while(j<2){
+					if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
+						switch(str){
+							case"1":
+								item = Motherboard(shopStock.get(i).getChip(),shopStock.get(i).getRAMSize(),shopStock.get(i).getExpansionSlots(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"2":
+								item = CPU(shopStock.get(i).getSpeed(),shopStock.get(i).getCoreCount(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"4":
+								item = RAM(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getSpeed(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"5":
+								item = HardDrive(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getWidth(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"7":
+								item = Keyboard(shopStock.get(i).getConnection(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"8":
+								item = Mouse(shopStock.get(i).getConnection(),shopStock.get(i).getTechnology(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"9":
+								item = Printer(shopStock.get(i).getPrintingType(),shopStock.get(i).getTechnology(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"6":
+								item = Screen(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getResolution();shopStock.get(i).getHDMIport(),shopStock.get(i).getDVIport(),shopStock.get(i).getCOMPOSITEport(),x1,x2,z1,z2);
+								j++;
+								break;
+							case"3":
+								item = GPU(shopStock.get(i).getChipset(),shopStock.get(i).getMemory(),x1,x2,z1,z2);
+								j++;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+			}
+		}
 	}
 	public static PcParts MoBo(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the chip supported by the motherboard.");
