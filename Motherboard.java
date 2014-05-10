@@ -36,6 +36,6 @@ public class Motherboard extends Hardware{
 	}
 	public String toString(){
 		System.out.println("===============================================================");
-		return("This is a Motherboard from " + getManufacturer() + " from " + getmodelYear() + ". It supports up to " + RAMSize + " GB of RAM and has " + ExpansionSlots + "Expansion Slots. It's a "+ getmodelName() + " model for the " + Chip + " Chipset. Its price is " + getPrice() + " Euros.");
+		return("This is a Motherboard from " + getManufacturer() + " from " + getmodelYear() + ". It supports up to " + RAMSize + " GB of RAM and has " + ExpansionSlots + " Expansion Slots. It's a "+ getmodelName() + " model for the " + Chip + " Chipset. Its price is " + getPrice() + " Euros.");
 	}//This is here for testing purposes feel free to ignore.
 }
