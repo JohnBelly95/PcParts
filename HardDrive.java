@@ -13,20 +13,6 @@ public class HardDrive extends Hardware{
 	}
 	public HardDrive(String Type, int Size, double Width,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
-		/*switch(Type){
-			case"DDR":
-				this.Type = "DDR";
-				break;
-			case"DDR2": 
-				this.Type = "DDR2";
-				break;
-			case"DDR3": 
-				this.Type = "DDR3";
-				break;
-			default: 
-				this.Type = "Invalid Memory Type";
-				break;
-		}*/
 		this.Size = Size;
 		this.Width=Width;
 		isHardware = super.isHardware;

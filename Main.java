@@ -206,7 +206,7 @@ public class Main{
 		return check;
 	}
 
-	public static PcParts Questions1(String str, String str2){
+	public static PcParts Questions1(String str1, String str2){
 		while(true){
 			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
