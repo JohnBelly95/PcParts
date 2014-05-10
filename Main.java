@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class Main{
-	private static String chip, printingType, type, technology, connection, resolution, str, x1, x2, answer, decision, name, expectedDate;
+	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone;
 	private static double clock,diameter,fp;
 	private static boolean check, status;
@@ -76,17 +76,24 @@ public class Main{
 			if (answer.equals ("1")){
 				System.out.println(shopStock);
 				System.out.println("What does the customer want ?");
-				System.out.println("1. Motherboard");
-				System.out.println("2. CPU");
-				System.out.println("3. GPU");
-				System.out.println("4. RAM memory");
-				System.out.println("5. Hard Drive");
-				System.out.println("6. Screen");
-				System.out.println("7. Keyboard");
-				System.out.println("8. Mouse");
-				System.out.println("9. Printer");
-				str = input.next();
-				PcParts thing = Questions1(str);
+				System.out.println("1. Hardware");
+				System.out.println("2. Peripherals");
+				str1 = input.next();
+				if(str1 == "1"){
+					System.out.println("1. Motherboard");
+					System.out.println("2. CPU");
+					System.out.println("3. GPU");
+					System.out.println("4. RAM memory");
+					System.out.println("5. Hard Drive");
+					str2 = input.next();
+				}else if(str1 == "2"){
+					System.out.println("1. Screen");
+					System.out.println("2. Keyboard");
+					System.out.println("3. Mouse");
+					System.out.println("4. Printer");
+					str2 = input.next();
+				}
+				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing, shopStock)){
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
@@ -96,11 +103,8 @@ public class Main{
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
-<<<<<<< HEAD
 						System.out.println(" ");
-=======
 						input.nextLine();
->>>>>>> ed130dc6638dfeb6d9eb271470c964fba7e80c53
 						name = input.nextLine();
 						System.out.println("Please enter the customer's phone.");
 						System.out.print(">");
@@ -110,11 +114,14 @@ public class Main{
 						input.nextLine();
 						str = input.nextLine();
 						if(str.equals("Y")){
-							if (thing.isHardware == true){
-								fp = thing.getPrice()* (1 - Main.HWSale/100);                  //finding the final price
+							System.out.println("yo");
+							if (part.isHardware == true){
+								System.out.println("yot");
+								fp = thing.getPrice()* (1 - HWSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}else{
-								fp = thing.getPrice()* (1 - Main.peripheralSale/100);                  //finding the final price
+								System.out.println("yon");
+								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}
 						}else{
@@ -199,9 +206,9 @@ public class Main{
 		return check;
 	}
 
-	public static PcParts Questions1(String str){
+	public static PcParts Questions1(String str, String str2){
 		while(true){
-			if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
+			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
 				x1 = input.next();
@@ -221,18 +228,23 @@ public class Main{
 			}else{
 				System.out.println("There was an error during the process. The process will now restart.");
 				System.out.println("What does the customer want ?");
-				str = input.next();
-				System.out.println("1. Motherboard");
-				System.out.println("2. CPU");
-				System.out.println("3. GPU");
-				System.out.println("4. RAM memory");
-				System.out.println("5. Hard Drive");
-				System.out.println("6. Screen");
-				System.out.println("7. Keyboard");
-				System.out.println("8. Mouse");
-				System.out.println("9. Printer");
-				System.out.print("> ");
-				str = input.next();
+				System.out.println("1. Hardware");
+				System.out.println("2. Peripherals");
+				str1 = input.next();
+				if(str1 == "1"){
+					System.out.println("1. Motherboard");
+					System.out.println("2. CPU");
+					System.out.println("3. GPU");
+					System.out.println("4. RAM memory");
+					System.out.println("5. Hard Drive");
+					str2 = input.next();
+				}else if(str1 == "2"){
+					System.out.println("1. Screen");
+					System.out.println("2. Keyboard");
+					System.out.println("3. Mouse");
+					System.out.println("4. Printer");
+					str2 = input.next();
+				}
 			}
 		}
 		return item;
@@ -284,55 +296,13 @@ public class Main{
 		}
 		return item;
 	}
-	public static Questions3(String str, String x1, String x2, int z1, int z2){
+	public static PcParts Questions3(String str, String x1, String x2, int z1, int z2){
 		for(int i=0; i < shopStock.size(); i++){
 			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
-				while(j<2){
-					if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
-						switch(str){
-							case"1":
-								item = Motherboard(shopStock.get(i).getChip(),shopStock.get(i).getRAMSize(),shopStock.get(i).getExpansionSlots(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"2":
-								item = CPU(shopStock.get(i).getSpeed(),shopStock.get(i).getCoreCount(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"4":
-								item = RAM(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getSpeed(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"5":
-								item = HardDrive(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getWidth(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"7":
-								item = Keyboard(shopStock.get(i).getConnection(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"8":
-								item = Mouse(shopStock.get(i).getConnection(),shopStock.get(i).getTechnology(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"9":
-								item = Printer(shopStock.get(i).getPrintingType(),shopStock.get(i).getTechnology(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"6":
-								item = Screen(shopStock.get(i).getType(),shopStock.get(i).getSize(),shopStock.get(i).getResolution();shopStock.get(i).getHDMIport(),shopStock.get(i).getDVIport(),shopStock.get(i).getCOMPOSITEport(),x1,x2,z1,z2);
-								j++;
-								break;
-							case"3":
-								item = GPU(shopStock.get(i).getChipset(),shopStock.get(i).getMemory(),x1,x2,z1,z2);
-								j++;
-								break;
-							default:
-								break;
-						}
-					}
-				}
+				item = shopStock.get(i).getThing();
 			}
 		}
+		return item;
 	}
 	public static PcParts MoBo(String modelName,String manufacturer,int modelYear,int price){
 		System.out.println("Please enter the chip supported by the motherboard.");

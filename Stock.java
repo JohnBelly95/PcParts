@@ -8,6 +8,9 @@ public class Stock extends PcParts{
 		this.thing = thing;
 		availableStock = 2;
 	}
+	public PcParts getThing(){
+		return thing;
+	}
 	public int getAvailableStock(){
 		return availableStock;
 	}
