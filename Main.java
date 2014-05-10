@@ -35,7 +35,7 @@ public class Main{
 		Stock CPU1 = new Stock(i54670k);
 		shopStock.add(CPU1);
 		
-		PcParts sf4390 = new GPU("AMD",3,"r9-280x","Radeon",2012,280);
+		PcParts sf4390 = new GPU("AMD",4,"sf-4390","Radeon",2012,30);
 		Stock GPU1 = new Stock(sf4390);
 		shopStock.add(GPU1);
 		
@@ -96,6 +96,7 @@ public class Main{
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
+						System.out.println(" ");
 						name = input.nextLine();
 						System.out.println("Please enter the customer's phone.");
 						System.out.print(">");
