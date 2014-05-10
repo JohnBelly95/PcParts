@@ -90,9 +90,9 @@ public class Main{
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing, shopStock)){
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
-					decision = input.next(); //(den exw dhlwsei thn metavliti buy)
+					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions2(str,x1,x2,z1,z2);
+						part = Questions2(str,x1,x2,z1,z2);//questions3()
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -163,12 +163,10 @@ public class Main{
 				//break;
 	   	 	}
 			else if (answer.equals ("2")){
-				//System.out.println("test");
 				showOrders();
 
 			}
 			else if (answer.equals ("3")){
-				//System.out.println("test");
 				showSales();
 	   	 	}
 	   	 	else if (answer.equals ("0")) break;
@@ -235,41 +233,41 @@ public class Main{
 	}
 	public static PcParts Questions2(String str, String x1, String x2, int z1, int z2){
 		while(j<2){
-			if(str.equals("Motherboard")||str.equals("CPU")||str.equals("RAM")||str.equals("Hard Drive")||str.equals("GPU")||str.equals("Keyboard")||str.equals("Mouse")||str.equals("Printer")||str.equals("Screen")){
+			if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
 				switch(str){
-					case"Motherboard":
+					case"1":
 						item = MoBo(x1,x2,z1,z2);
 						j++;
 						break;
-					case"CPU":
+					case"2":
 						item = Prossesor(x1,x2,z1,z2);
 						j++;
 						break;
-					case"RAM":
+					case"4":
 						item = Memory(x1,x2,z1,z2);
 						j++;
 						break;
-					case"Hard Drive":
+					case"5":
 						item = SSHD(x1,x2,z1,z2);
 						j++;
 						break;
-					case"Keyboard":
+					case"7":
 						item = Click(x1,x2,z1,z2);
 						j++;
 						break;
-					case"Mouse":
+					case"8":
 						item = Mice(x1,x2,z1,z2);
 						j++;
 						break;
-					case"Printer":
+					case"9":
 						item = Paper(x1,x2,z1,z2);
 						j++;
 						break;
-					case"Screen":
+					case"6":
 						item = View(x1,x2,z1,z2);
 						j++;
 						break;
-					case"GPU":
+					case"3":
 						item = Graphics(x1,x2,z1,z2);
 						j++;
 						break;
