@@ -89,19 +89,21 @@ public class Main{
 				PcParts thing = Questions1(str);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
 				if (Exists(thing, shopStock)){
-					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
+					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
 						part = Questions2(str,x1,x2,z1,z2);//questions3()
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
+						input.nextLine();
 						name = input.nextLine();
 						System.out.println("Please enter the customer's phone.");
 						System.out.print(">");
 						phone = input.nextInt();
 						System.out.println("Is the desired item on sale ? (Y/N)");
 						System.out.print(">");
+						input.nextLine();
 						str = input.nextLine();
 						if(str.equals("Y")){
 							if (thing.isHardware == true){
