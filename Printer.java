@@ -33,6 +33,7 @@ public class Printer extends Peripherals{
 	}
 	
 	public String toString(){
+		System.out.println("===============================================================");
 		return("This is an " + getManufacturer() + " " + getmodelName() + " Printer from " + getmodelYear() +", with " + PrintingType + " printing type and " + Technology + " technology " + ". It's price is " + getPrice() + " Euros.");
 	}
 

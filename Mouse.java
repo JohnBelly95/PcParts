@@ -32,6 +32,7 @@ public class Mouse extends Peripherals{
 	}
 	
 	public String toString(){
+		System.out.println("===============================================================");
 		return("This is an " + getManufacturer() + " " + getmodelName() + " Mouse from " + getmodelYear() +", with " + Connection + " connection and " + Technology + " technology " + ". It's price is " + getPrice() + " Euros.");
 	}
 	

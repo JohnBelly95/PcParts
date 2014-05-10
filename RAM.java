@@ -36,6 +36,7 @@ public class RAM extends Hardware{
 		this.Speed = Speed;
 	}
 	public String toString(){
+		System.out.println("===============================================================");
 		return("This is a bundle of " + getmodelName() + " " + Size + " GB " + Type + " " + Speed +" Ghz RAM. It's from " + getManufacturer() + " manufactured in "+ getmodelYear() + " and it costs " + getPrice() + " Euros.");
 	}
 }

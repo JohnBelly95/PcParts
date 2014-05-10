@@ -1,8 +1,8 @@
 public class PcParts{
-	private String modelName;
-	private String Manufacturer;
-	private int modelYear;
-	private int Price;
+	public String modelName;
+	public String Manufacturer;
+	public int modelYear;
+	public int Price;
 	public boolean isHardware;
 
 	public PcParts(){
@@ -41,5 +41,7 @@ public class PcParts{
 	public void setPrice(int Price){
 		this.Price = Price;
 	}
-	
+	public String toString(){
+		return ("This is a PcPart generic Item.");
+	}
 }

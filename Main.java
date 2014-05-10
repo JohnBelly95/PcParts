@@ -12,7 +12,7 @@ public class Main{
 	private static List<Stock> shopStock = new ArrayList<Stock>();
 	private static List<Order> ordersList = new ArrayList<Order>();
 	private static List<Sell> soldList = new ArrayList<Sell>();
-	private static PcParts item;
+	private static PcParts item, part;
 
 	public static void main(String[] args) {
 		Initiate();
@@ -31,7 +31,7 @@ public class Main{
 		Stock MoBo = new Stock(Z87k);
 		shopStock.add(MoBo);
 		
-		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
+		CPU i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
 		Stock CPU1 = new Stock(i54670k);
 		shopStock.add(CPU1);
 		
@@ -62,6 +62,8 @@ public class Main{
 		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
+		
+		System.out.println(shopStock.size());
 	}
 	public static void GUI(){
 		while (true){
@@ -73,17 +75,16 @@ public class Main{
 	   	 	answer = input.next();
 
 			if (answer.equals ("1")){
+				System.out.println(shopStock);
 				System.out.println("What does the customer want ?");
 				str = input.next();
 				PcParts thing = Questions1(str);
-				System.out.println(thing);
-
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
-				if (Exists(thing)){
+				if (Exists(thing, shopStock)){
 					System.out.println("The product exists. Are you interesting in buying this product? (Y/N)");
 					decision = input.next(); //(den exw dhlwsei thn metavliti buy)
 					if ( decision.equals("Y")){
-						PcParts item = Questions2(str,x1,x2,z1,z2);
+						part = Questions2(str,x1,x2,z1,z2);
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -170,12 +171,12 @@ public class Main{
 			System.out.println(soldList.get(i));
 		}
 	}	
-	public static boolean Exists ( PcParts thing ){	
+	public static boolean Exists ( PcParts thing, List<Stock> shopStock ){	
 		check = false;
+		item = thing;
 		for(int i=0; i < shopStock.size(); i++){
 			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer()) && thing.getmodelName().equals(shopStock.get(i).getmodelName()) && thing.getmodelYear() == shopStock.get(i).getmodelYear() && thing.getPrice() == shopStock.get(i).getPrice() && shopStock.get(i).getAvailableStock() > 0){
 				check = true;
-				System.out.println("yo");
 			}
 		}
 		return check;

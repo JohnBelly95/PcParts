@@ -32,6 +32,7 @@ public class GPU extends Hardware{
 	}
 
 	public String toString(){
+		System.out.println("===============================================================");
 		return ("This is a GPU from " + getManufacturer() + " from " + getmodelYear() + ". It has " + Memory + " GB of memory and it's a "+ getmodelName() + " model for the " + Chipset + " Chipset. Its price is " + getPrice() + " Euros.");
 	}
 }

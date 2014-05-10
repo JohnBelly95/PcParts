@@ -22,6 +22,7 @@ public class Keyboard extends Peripherals{
 	}
 	
 	public String toString(){
+		System.out.println("===============================================================");
 		return("This is an " + getManufacturer() + " " + getmodelName() + " Keyboard from " + getmodelYear() +", with " + Connection + " connection "  + ". It's price is " + getPrice() + " Euros.");
 	}
 	
