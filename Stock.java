@@ -19,7 +19,7 @@ public class Stock extends PcParts{
 	}
 	public String toString(){
 		System.out.println(thing);
-		return ("===");
+		return ("");
 	}
 	public String getManufacturer(){
 		return thing.Manufacturer;

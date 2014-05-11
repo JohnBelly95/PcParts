@@ -99,7 +99,7 @@ public class Main{
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions3(str,x1,x2,z1,z2);//questions3()
+						part = Questions3();//questions3()
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -115,11 +115,11 @@ public class Main{
 						str = input.nextLine();
 						if(str.equals("Y")){
 							System.out.println("yo");
-							if (part.isHardware == true){
+							if (str1 == "1"){
 								System.out.println("yot");
 								fp = thing.getPrice()* (1 - HWSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
-							}else{
+							}else if(str1 == "2"){
 								System.out.println("yon");
 								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
@@ -296,10 +296,11 @@ public class Main{
 		}
 		return item;
 	}
-	public static PcParts Questions3(String str, String x1, String x2, int z1, int z2){
+	public static PcParts Questions3(){
 		for(int i=0; i < shopStock.size(); i++){
 			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
 				item = shopStock.get(i).getThing();
+				shopStock.get(i).setAvailableStock(shopStock.get(i).getAvailableStock() - 1);
 			}
 		}
 		return item;
