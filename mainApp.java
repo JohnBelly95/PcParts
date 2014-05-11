@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 import java.util.ArrayList;
 
-public class Main{
+public class mainApp{
 	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone, reply;
 	private static double clock,diameter,fp;
 	private static boolean check, status;
 	public static int HWSale, peripheralSale;
@@ -94,12 +94,12 @@ public class Main{
 					str2 = input.next();
 				}
 				PcParts thing = Questions1(str1,str2);
-				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion.epistrofi true/false
+				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
 				if (Exists(thing, shopStock)){
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions3();//questions3()
+						part = Questions3();
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -173,7 +173,6 @@ public class Main{
 						}else System.out.println("You entered an invalid character. Please try again.");
 					}
 				}
-				//break;
 	   	 	}
 			else if (answer.equals ("2")){
 				showOrders();
@@ -187,8 +186,21 @@ public class Main{
 	}	
 	public static void showOrders(){
 		for (int i=0; i < ordersList.size(); i++){
+			System.out.println((i+1) + ". ");
 			System.out.println(ordersList.get(i));
 		}
+		/*System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
+		System.out.print(">");
+		input.nextInt();
+		reply = input.nextInt();
+		if ( reply==0){
+			break;
+		}else{
+			reply--;
+			if 
+			
+		}*/
+		
 	}
 	public static void showSales(){
 		for (int i=0; i < soldList.size(); i++){
