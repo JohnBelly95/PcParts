@@ -31,6 +31,13 @@ public class Order extends PcParts{
 		orderNo++;
 	}
 	
+	public boolean getstatus(){
+		return status;
+	}
+	public void setstatus(){
+		this.status = status;
+	}
+	
 	public PcParts getthing(){
 		return thing;
 	}	
