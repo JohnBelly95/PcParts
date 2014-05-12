@@ -27,6 +27,7 @@ public class Order extends PcParts{
 		this.expectedDate= expectedDate;
 		this.fp = fp;
 		Date date = new Date();
+		status = false;
 		orderNo++;
 	}
 	
