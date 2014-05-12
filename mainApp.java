@@ -208,7 +208,7 @@ public class mainApp{
 				//to status prepei na ginei pinakas
 				//status[reply--] = true;
 				System.out.println("The order's status is now 'Available' .");
-				Sell sl = new Sell(ordersList.get(reply--).getthing, ordersList.get(reply--).getname, ordersList.get(reply--).getphone, ordersList.get(reply--).getfp);//prepei na paroume ta stoixeia apo tin order
+				Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
 				soldList.add(sl);	
 			}
 			break;
