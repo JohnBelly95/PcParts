@@ -143,6 +143,7 @@ public class mainApp{
 							System.out.println("You will now be asked to input the customers credentials");
 							System.out.println("Please enter the customer's full name.");
 							System.out.print(">");
+							input.nextLine();
 							name = input.nextLine();
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
