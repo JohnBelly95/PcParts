@@ -30,6 +30,34 @@ public class Order extends PcParts{
 		orderNo++;
 	}
 	
+	public PcParts getthing(){
+		return thing;
+	}	
+	public void setthing(PcParts thing){
+		this.thing = thing;
+	}
+	
+	public String getname(){
+		return name;
+	}	
+	public void setname(String name){
+		this.name = name;
+	}
+	
+	public int getphone(){
+		return phone;
+	}	
+	public void setphone(int phone){
+		this.phone = phone;
+	}
+	
+	public double getfp(){
+		return fp;
+	}	
+	public void setfp(double fp){
+		this.fp = fp;
+	}
+	
 	public String toString(){
 		return ("The customer's name is: "+name+ " and his phone is: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
 	}

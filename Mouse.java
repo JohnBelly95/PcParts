@@ -18,15 +18,14 @@ public class Mouse extends Peripherals{
 	
 	public String getConnection(){
 		return Connection;
-	}
-	
+	}	
 	public void setConnection(String Connection){
 		this.Connection = Connection;
 	}
+	
 	public String getTechnology(){
 		return Technology;
 	}
-	
 	public void setTechnology(String Technology){
 		this.Technology = Technology;
 	}

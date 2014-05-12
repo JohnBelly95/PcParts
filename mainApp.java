@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class mainApp{
-	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate;
+	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate, response;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone, reply;
 	private static double clock,diameter,fp;
 	private static boolean check, status;
@@ -189,18 +189,32 @@ public class mainApp{
 			System.out.println((i+1) + ". ");
 			System.out.println(ordersList.get(i));
 		}
-		/*System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
+		System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
 		System.out.print(">");
 		input.nextInt();
 		reply = input.nextInt();
 		if ( reply==0){
 			break;
+		}else{			
+			if (reply-- > ordersList.size()){
+				System.out.println("You picked "+reply+" . There are not so many orders to list.");
+				System.out.println("Please try again !");
+				break;
+			}
+			break;		
 		}else{
-			reply--;
-			if 
-			
-		}*/
-		
+			System.out.println(ordersList.get(reply--));
+			System.out.println("Would you like to change the order's status ? (Y/N) ");
+			input.nextLine();
+			response = input.nextLine();
+			if(str.equals("Y")){
+				//to status prepei na ginei pinakas
+				//status[reply--] = true;
+				System.out.println("The order's status is now 'Available' .");
+				Sell sl = new Sell(ordersList.get(reply--).getthing, ordersList.get(reply--).getname, ordersList.get(reply--).getphone, ordersList.get(reply--).getfp);//prepei na paroume ta stoixeia apo tin order
+				soldList.add(sl);				
+			}			
+		}		
 	}
 	public static void showSales(){
 		for (int i=0; i < soldList.size(); i++){
