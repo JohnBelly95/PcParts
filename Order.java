@@ -34,7 +34,7 @@ public class Order extends PcParts{
 	public boolean getStatus(){
 		return status;
 	}
-	public void setStatus(){
+	public void setStatus(status){
 		this.status = status;
 	}
 	
