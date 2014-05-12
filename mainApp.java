@@ -135,7 +135,7 @@ public class mainApp{
 					decision = input.next(); 
 					while(true){
 						if ( decision.equals("Y")){
-							PcParts item = Questions2(str,x1,x2,z1,z2);
+							PcParts item = Questions2(str2,x1,x2,z1,z2);
 							System.out.println("You will now be asked to input the customers credentials");
 							System.out.println("Please enter the customer's full name.");
 							System.out.print(">");
