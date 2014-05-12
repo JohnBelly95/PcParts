@@ -201,22 +201,19 @@ public class mainApp{
 			}else if (reply-- > ordersList.size()){
 				System.out.println("You picked "+reply+" . There are not so many orders to list.");
 				System.out.println("Please try again !");
-				//break;
 			}else{
 				System.out.println(ordersList.get(reply--));
 				System.out.println("Would you like to change the order's status ? (Y/N) ");
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
-					//to status prepei na ginei pinakas
-					//status[reply--] = true;
 					System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
+					//Order.get(reply--).setstatus() = true;
 					soldList.add(sl);	
 				}
 				break;
 			}
-			//break;
 		}
 	}
 	public static void showSales(){
