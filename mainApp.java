@@ -143,6 +143,7 @@ public class mainApp{
 							System.out.println("You will now be asked to input the customers credentials");
 							System.out.println("Please enter the customer's full name.");
 							System.out.print(">");
+							input.nextLine();
 							name = input.nextLine();
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
@@ -152,6 +153,7 @@ public class mainApp{
 							expectedDate = input.next();
 							System.out.println("Is the desired item on sale ? (Y/N)");
 							System.out.print(">");
+							input.nextLine();
 							str = input.nextLine();
 							if(str.equals("Y")){
 								if (item.isHardware == true){
