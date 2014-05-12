@@ -31,38 +31,38 @@ public class Order extends PcParts{
 		orderNo++;
 	}
 	
-	public boolean getstatus(){
+	public boolean getStatus(){
 		return status;
 	}
-	public void setstatus(){
+	public void setStatus(){
 		this.status = status;
 	}
 	
-	public PcParts getthing(){
+	public PcParts getThing(){
 		return thing;
 	}	
-	public void setthing(PcParts thing){
+	public void setThing(PcParts thing){
 		this.thing = thing;
 	}
 	
-	public String getname(){
+	public String getName(){
 		return name;
 	}	
-	public void setname(String name){
+	public void setName(String name){
 		this.name = name;
 	}
 	
-	public int getphone(){
+	public int getPhone(){
 		return phone;
 	}	
-	public void setphone(int phone){
+	public void setPhone(int phone){
 		this.phone = phone;
 	}
 	
-	public double getfp(){
+	public double getFP(){
 		return fp;
 	}	
-	public void setfp(double fp){
+	public void setFP(double fp){
 		this.fp = fp;
 	}
 	

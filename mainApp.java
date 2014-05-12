@@ -116,13 +116,10 @@ public class mainApp{
 						input.nextLine();
 						str = input.nextLine();
 						if(str.equals("Y")){
-							System.out.println("yo");
-							if (str1 == "1"){
-								System.out.println("yot");
+							if (str1.equals("1")){
 								fp = thing.getPrice()* (1 - HWSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
-							}else if(str1 == "2"){
-								System.out.println("yon");
+							}else if(str1.equals("2")){
 								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}
@@ -152,13 +149,12 @@ public class mainApp{
 							System.out.println("Is the desired item on sale ? (Y/N)");
 							System.out.print(">");
 							str = input.nextLine();
-							status = false; // false means expected order
 							if(str.equals("Y")){
 								if (item.isHardware == true){
-									fp = item.getPrice()* (1 - HWSale/100);                  //finding the final price
+									fp = item.getPrice()* (1 - HWSale/100);
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}else{
-									fp = item.getPrice()* (1 - peripheralSale/100);                  //finding the final price
+									fp = item.getPrice()* (1 - peripheralSale/100);
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}
 							}else{
@@ -208,10 +204,9 @@ public class mainApp{
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
-					//to status prepei na ginei pinakas
-					//status[reply--] = true;
+					ordersList.get(reply--).setStatus(true);
 					System.out.println("The order's status is now 'Available' .");
-					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
+					Sell sl = new Sell(ordersList.get(reply--).getThing(), ordersList.get(reply--).getName(), ordersList.get(reply--).getPhone(), ordersList.get(reply--).getFP());
 					soldList.add(sl);	
 				}
 				break;
