@@ -79,14 +79,16 @@ public class mainApp{
 				System.out.println("1. Hardware");
 				System.out.println("2. Peripherals");
 				str1 = input.next();
-				if(str1 == "1"){
+				if(str1.equals("1")){
+					System.out.println("What does the customer want ?");
 					System.out.println("1. Motherboard");
 					System.out.println("2. CPU");
 					System.out.println("3. GPU");
 					System.out.println("4. RAM memory");
 					System.out.println("5. Hard Drive");
 					str2 = input.next();
-				}else if(str1 == "2"){
+				}else if(str1.equals("2")){
+					System.out.println("What does the customer want ?");
 					System.out.println("1. Screen");
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
@@ -193,27 +195,29 @@ public class mainApp{
 		System.out.print(">");
 		input.nextInt();
 		reply = input.nextInt();
-		if ( reply==0){
-			break;
-		}else if (reply-- > ordersList.size()){
-			System.out.println("You picked "+reply+" . There are not so many orders to list.");
-			System.out.println("Please try again !");
-			//break;
-		}else{
-			System.out.println(ordersList.get(reply--));
-			System.out.println("Would you like to change the order's status ? (Y/N) ");
-			input.nextLine();
-			response = input.nextLine();
-			if(str.equals("Y")){
-				//to status prepei na ginei pinakas
-				//status[reply--] = true;
-				System.out.println("The order's status is now 'Available' .");
-				Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
-				soldList.add(sl);	
+		while(true){
+			if ( reply==0){
+				break;
+			}else if (reply-- > ordersList.size()){
+				System.out.println("You picked "+reply+" . There are not so many orders to list.");
+				System.out.println("Please try again !");
+				//break;
+			}else{
+				System.out.println(ordersList.get(reply--));
+				System.out.println("Would you like to change the order's status ? (Y/N) ");
+				input.nextLine();
+				response = input.nextLine();
+				if(str.equals("Y")){
+					//to status prepei na ginei pinakas
+					//status[reply--] = true;
+					System.out.println("The order's status is now 'Available' .");
+					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
+					soldList.add(sl);	
+				}
+				break;
 			}
-			break;
+			//break;
 		}
-		//break;
 	}
 	public static void showSales(){
 		for (int i=0; i < soldList.size(); i++){
