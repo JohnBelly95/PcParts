@@ -211,7 +211,6 @@ public class mainApp{
 				}
 				break;
 			}
-			//break;
 		}
 	}
 	public static void showSales(){
