@@ -200,19 +200,19 @@ public class mainApp{
 		while(true){
 			if ( reply==0){
 				break;
-			}else if (reply-- > ordersList.size()){
+			}else if (reply-1 > ordersList.size()){
 				System.out.println("You picked "+reply+" . There are not so many orders to list.");
 				System.out.println("Please try again !");
 			}else{
-				System.out.println(ordersList.get(reply--));
+				System.out.println(ordersList.get(reply-1));
 				System.out.println("Would you like to change the order's status ? (Y/N) ");
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
 					status = true;
-					ordersList.get(reply--).setStatus(status);
+					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
-					Sell sl = new Sell(ordersList.get(reply--).getThing(), ordersList.get(reply--).getName(), ordersList.get(reply--).getPhone(), ordersList.get(reply--).getFP());
+					Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
 					soldList.add(sl);	
 				}
 				break;
