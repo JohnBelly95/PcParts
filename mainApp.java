@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 public class mainApp{
 	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate, response;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, phone, reply;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, reply;
+	public static long phone;
 	private static double clock,diameter,fp;
 	private static boolean check, status;
 	public static int HWSale, peripheralSale;
@@ -114,7 +115,7 @@ public class mainApp{
 						name = input.nextLine();
 						System.out.println("Please enter the customer's phone.");
 						System.out.print(">");
-						phone = input.nextInt();
+						phone = input.nextLong();
 						System.out.println("Is the desired item on sale ? (Y/N)");
 						System.out.print(">");
 						input.nextLine();
@@ -147,7 +148,7 @@ public class mainApp{
 							name = input.nextLine();
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
-							phone = input.nextInt();
+							phone = input.nextLong();
 							System.out.println("When do we expect the item to be available ?");
 							System.out.print(">");
 							expectedDate = input.next();
@@ -209,9 +210,9 @@ public class mainApp{
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
-
-					System.out.println("The order's status is now 'Available' .");
+					/*					System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
+					*/
 					status = true;
 					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
