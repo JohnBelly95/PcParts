@@ -1,20 +1,17 @@
 public class Printer extends Peripherals{
 	private String PrintingType;
 	private String Technology;
-	private static boolean isHardware;
 	
 	public Printer(){
 		super();
 		PrintingType = "Colored" ;
 		Technology = "Laser" ;
-		isHardware = super.isHardware;
 	}
 	
 	public Printer(String PrintingType, String Technology, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.PrintingType = PrintingType;
 		this.Technology = Technology;
-		isHardware = super.isHardware;
 	}
 	
 	public String getPrintingType(){

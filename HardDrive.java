@@ -2,20 +2,17 @@ public class HardDrive extends Hardware{
 	private String Type;
 	private int Size;
 	private double Width;
-	private static boolean isHardware;
 	
 	public HardDrive(){
 		super();
 		Type = "HDD";
 		Size = 1000;    //choritikotita (GB)
 		Width= 3.5;	//megethos (inches)
-		isHardware = super.isHardware;
 	}
 	public HardDrive(String Type, int Size, double Width,  String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Size = Size;
 		this.Width=Width;
-		isHardware = super.isHardware;
 	}
 	public String getType(){
 		return Type;

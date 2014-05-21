@@ -1,5 +1,4 @@
 public class Peripherals extends PcParts{
-	public boolean isHardware = false;
 	public Peripherals (){
 		super();
 	}

@@ -1,20 +1,17 @@
 public class GPU extends Hardware{
 	private String Chipset;
 	private int Memory;
-	private static boolean isHardware;
 
 	public GPU(){
 		super();
 		Chipset = " ";
 		Memory = 0;
-		isHardware = super.isHardware;
 	}
 
 	public GPU(String Chipset, int Memory, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
 		this.Chipset = Chipset;
 		this.Memory = Memory;
-		isHardware = super.isHardware;
 	}
 
 	public String getChipset(){

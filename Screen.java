@@ -3,7 +3,6 @@ public class Screen extends Peripherals{
 	private String Type, Resolution;
 	private double Size;
 	private int HDMIport, DVIport, COMPOSITEport;
-	private static boolean isHardware;
 	
 	public Screen(){
 		super();
@@ -13,7 +12,6 @@ public class Screen extends Peripherals{
 		HDMIport = 0;
 		DVIport = 0;
 		COMPOSITEport = 0;
-		isHardware = super.isHardware;
 	}
 	public Screen(String Type, double Size, String Resolution, int HDMIport, int DVIport, int COMPOSITEport, String modelName, String Manufacturer, int modelYear, int Price){
 		super(modelName, Manufacturer, modelYear, Price);
@@ -23,7 +21,6 @@ public class Screen extends Peripherals{
 		this.HDMIport = HDMIport;
 		this.DVIport = DVIport;
 		this.COMPOSITEport = COMPOSITEport;
-		isHardware = super.isHardware;
 	}
 	
 	public String getType(){

@@ -1,5 +1,4 @@
 public class Hardware extends PcParts{
-	public boolean isHardware = true;
 	public Hardware(){
 		super();
 	}
