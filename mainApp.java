@@ -212,6 +212,9 @@ public class mainApp{
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
+
+					System.out.println("The order's status is now 'Available' .");
+					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
 					status = true;
 					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
