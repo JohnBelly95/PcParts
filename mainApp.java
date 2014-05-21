@@ -11,6 +11,7 @@ public class mainApp{
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, reply;
 	public static long phone;
 	private static double clock,diameter,fp;
+	private static long phone;
 	private static boolean check, status;
 	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
@@ -120,9 +121,11 @@ public class mainApp{
 						System.out.print(">");
 						input.nextLine();
 						str = input.nextLine();
+						int k = thing.getPrice();
+						System.out.println("Sale is "+ HWSale);
 						if(str.equals("Y")){
 							if (str1.equals("1")){
-								fp = thing.getPrice()* (1 - HWSale/100);                  //finding the final price
+								fp = k* (1 - HWSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}else if(str1.equals("2")){
 								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
@@ -196,7 +199,7 @@ public class mainApp{
 		}
 		System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
 		System.out.print(">");
-		input.nextInt();
+		input.nextLine();
 		reply = input.nextInt();
 		while(true){
 			if ( reply==0){
@@ -210,7 +213,7 @@ public class mainApp{
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
-					/*					System.out.println("The order's status is now 'Available' .");
+					/*System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
 					*/
 					status = true;
@@ -244,10 +247,11 @@ public class mainApp{
 			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				x1 = input.next();
+				input.nextLine();
+				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
-				x2 = input.next();
+				x2 = input.nextLine();
 				System.out.println("Manufacturer is set to: " + x2);
 				System.out.println("Please enter the year the desired product was released. ");
 				z1 = input.nextInt();

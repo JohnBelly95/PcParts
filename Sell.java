@@ -3,7 +3,8 @@ import java.text.*;
 
 public class Sell extends PcParts{
 	private String name, date, str;
-	private int phone, saleNo=1, Price;
+	private int saleNo=1, Price;
+	private long phone;
 	private double fp;
 	private PcParts thing;
 	
@@ -16,7 +17,7 @@ public class Sell extends PcParts{
 		date="12/12/12";
 	}
 	
-	public Sell (PcParts thing, String name, int phone, double fp){
+	public Sell (PcParts thing, String name, long phone, double fp){
 		this.thing = thing;
 		this.name = name;
 		this.phone = phone;

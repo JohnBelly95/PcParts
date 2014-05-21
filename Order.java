@@ -4,7 +4,8 @@ import java.text.*;
 
 public class Order extends PcParts{
 	private String name, expectedDate, state, str;
-	private int phone, orderNo=1, price, sale;
+	private int orderNo=1, price, sale;
+	private long phone;
 	private PcParts thing;
 	private Scanner input = new Scanner(System.in);
 	private double fp;
@@ -20,7 +21,7 @@ public class Order extends PcParts{
 		Order cpu = new Order("GP",123,"12/12/12","12/12/12",i54670k);
 		System.out.println(cpu.thing.getManufacturer());
 	}*/
-	public Order(PcParts thing, String name, int phone, String expectedDate, double fp){
+	public Order(PcParts thing, String name, long phone, String expectedDate, double fp){
 		this.thing = thing;
 		this.name = name;
 		this.phone = phone;
@@ -52,7 +53,7 @@ public class Order extends PcParts{
 		this.name = name;
 	}
 	
-	public int getPhone(){
+	public long getPhone(){
 		return phone;
 	}	
 	public void setPhone(int phone){
