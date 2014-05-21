@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class mainApp{
 	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate, response;
 	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, reply;
-	public static long phone;
 	private static double clock,diameter,fp;
 	private static long phone;
 	private static boolean check, status;
@@ -84,7 +83,8 @@ public class mainApp{
 				System.out.println("What does the customer want ?");
 				System.out.println("1. Hardware");
 				System.out.println("2. Peripherals");
-				str1 = input.next();
+				input.nextLine();
+				str1 = input.nextLine();
 				if(str1.equals("1")){
 					System.out.println("What does the customer want ?");
 					System.out.println("1. Motherboard");
@@ -92,14 +92,16 @@ public class mainApp{
 					System.out.println("3. GPU");
 					System.out.println("4. RAM memory");
 					System.out.println("5. Hard Drive");
-					str2 = input.next();
+					input.nextLine();
+					str2 = input.nextLine();
 				}else if(str1.equals("2")){
 					System.out.println("What does the customer want ?");
 					System.out.println("1. Screen");
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
-					str2 = input.next();
+					input.nextLine();
+					str2 = input.nextLine();
 				}
 				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
