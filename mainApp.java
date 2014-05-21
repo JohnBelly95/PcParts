@@ -479,4 +479,21 @@ public class mainApp{
 		HardDrive HDRV = new HardDrive(type, size, width, x1, x2, z1, z2);
 		return HDRV;
 	}
+	public void txtwriter() throws FileNotFoundException, IOException {
+		try {
+			input = new BufferedReader(new FileReader("STOCK_LIST.txt"));
+			output = new BufferedWriter(new FileWriter("STOCK_LIST.txt"));
+			String inputLine = null;
+			while((inputLine = input.readLine()) != null)
+				System.out.println(inputLine);
+		}
+		catch(IOException ex) {
+			System.err.println("An IOException was caught!");
+            ex.printStackTrace();
+        }
+		output.write("STOCK_LIST\n{");
+		
+		output.write("\n}");
+		output.close();
+	}
 }
