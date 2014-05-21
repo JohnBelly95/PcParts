@@ -1,3 +1,7 @@
+/*
+ZACHARIADIS IOANNIS P3130063 2o EKSAMINO
+DERVI THEODORA      P3130051 2o EKSAMINO
+*/
 import java.io.*;
 import java.util.*;
 import java.util.ArrayList;
@@ -116,13 +120,10 @@ public class mainApp{
 						input.nextLine();
 						str = input.nextLine();
 						if(str.equals("Y")){
-							System.out.println("yo");
-							if (str1 == "1"){
-								System.out.println("yot");
+							if (str1.equals("1")){
 								fp = thing.getPrice()* (1 - HWSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
-							}else if(str1 == "2"){
-								System.out.println("yon");
+							}else if(str1.equals("2")){
 								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}
@@ -138,10 +139,11 @@ public class mainApp{
 					decision = input.next(); 
 					while(true){
 						if ( decision.equals("Y")){
-							PcParts item = Questions2(str,x1,x2,z1,z2);
+							PcParts item = Questions2(str2,x1,x2,z1,z2);
 							System.out.println("You will now be asked to input the customers credentials");
 							System.out.println("Please enter the customer's full name.");
 							System.out.print(">");
+							input.nextLine();
 							name = input.nextLine();
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
@@ -151,14 +153,14 @@ public class mainApp{
 							expectedDate = input.next();
 							System.out.println("Is the desired item on sale ? (Y/N)");
 							System.out.print(">");
+							input.nextLine();
 							str = input.nextLine();
-							status = false; // false means expected order
 							if(str.equals("Y")){
 								if (item.isHardware == true){
-									fp = item.getPrice()* (1 - HWSale/100);                  //finding the final price
+									fp = item.getPrice()* (1 - HWSale/100);
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}else{
-									fp = item.getPrice()* (1 - peripheralSale/100);                  //finding the final price
+									fp = item.getPrice()* (1 - peripheralSale/100);
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}
 							}else{
@@ -198,18 +200,22 @@ public class mainApp{
 		while(true){
 			if ( reply==0){
 				break;
-			}else if (reply-- > ordersList.size()){
+			}else if (reply-1 > ordersList.size()){
 				System.out.println("You picked "+reply+" . There are not so many orders to list.");
 				System.out.println("Please try again !");
 			}else{
-				System.out.println(ordersList.get(reply--));
+				System.out.println(ordersList.get(reply-1));
 				System.out.println("Would you like to change the order's status ? (Y/N) ");
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
+
 					System.out.println("The order's status is now 'Available' .");
-					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());//prepei na paroume ta stoixeia apo tin order
-					//Order.get(reply--).setstatus() = true;
+					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
+					status = true;
+					ordersList.get(reply-1).setStatus(status);
+					System.out.println("The order's status is now 'Available' .");
+					Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
 					soldList.add(sl);	
 				}
 				break;
