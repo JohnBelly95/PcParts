@@ -101,7 +101,8 @@ public class mainApp{
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
 					//input.nextLine();
-					str2 = input.nextLine();
+					int help = input.nextInt()+5 ;
+					str2 = Integer.toString(help);
 				}
 				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
@@ -196,8 +197,8 @@ public class mainApp{
 	}	
 	public static void showOrders(){
 		for (int i=0; i < ordersList.size(); i++){
-			System.out.println((i+1) + ". ");
-			System.out.println(ordersList.get(i));
+			//System.out.println((i+1) + ". ");
+			System.out.println((i+1) + ". \n" + ordersList.get(i));
 		}
 		System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
 		System.out.print(">");
@@ -246,10 +247,11 @@ public class mainApp{
 
 	public static PcParts Questions1(String str1, String str2){
 		while(true){
-			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")))){
+			if(str2.equals("1")||str2.equals("2")||str2.equals("4")||str2.equals("5")||str2.equals("3")||str2.equals("7")||str2.equals("8")||str2.equals("9")||str2.equals("6")){
+			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				//input.nextLine();
+				input.next();
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
@@ -282,7 +284,8 @@ public class mainApp{
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
-					str2 = input.next();
+					int help = input.nextInt()+5 ;
+					str2 = Integer.toString(help);
 				}
 			}
 		}
