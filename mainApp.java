@@ -83,7 +83,8 @@ public class mainApp{
 				System.out.println("What does the customer want ?");
 				System.out.println("1. Hardware");
 				System.out.println("2. Peripherals");
-				str1 = input.next();
+				input.nextLine();
+				str1 = input.nextLine();
 				if(str1.equals("1")){
 					System.out.println("What does the customer want ?");
 					System.out.println("1. Motherboard");
@@ -91,14 +92,17 @@ public class mainApp{
 					System.out.println("3. GPU");
 					System.out.println("4. RAM memory");
 					System.out.println("5. Hard Drive");
-					str2 = input.next();
+					//input.nextLine();
+					str2 = input.nextLine();
 				}else if(str1.equals("2")){
 					System.out.println("What does the customer want ?");
 					System.out.println("1. Screen");
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
-					str2 = input.next();
+					//input.nextLine();
+					int help = input.nextInt()+5 ;
+					str2 = Integer.toString(help);
 				}
 				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
@@ -115,7 +119,7 @@ public class mainApp{
 						name = input.nextLine();
 						System.out.println("Please enter the customer's phone.");
 						System.out.print(">");
-						phone = input.nextInt();
+						phone = input.nextLong();
 						System.out.println("Is the desired item on sale ? (Y/N)");
 						System.out.print(">");
 						input.nextLine();
@@ -193,8 +197,8 @@ public class mainApp{
 	}	
 	public static void showOrders(){
 		for (int i=0; i < ordersList.size(); i++){
-			System.out.println((i+1) + ". ");
-			System.out.println(ordersList.get(i));
+			//System.out.println((i+1) + ". ");
+			System.out.println((i+1) + ". \n" + ordersList.get(i));
 		}
 		System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
 		System.out.print(">");
@@ -212,9 +216,9 @@ public class mainApp{
 				input.nextLine();
 				response = input.nextLine();
 				if(str.equals("Y")){
-
-					System.out.println("The order's status is now 'Available' .");
+					/*System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
+					*/
 					status = true;
 					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
@@ -243,10 +247,11 @@ public class mainApp{
 
 	public static PcParts Questions1(String str1, String str2){
 		while(true){
-			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")))){
+			if(str2.equals("1")||str2.equals("2")||str2.equals("4")||str2.equals("5")||str2.equals("3")||str2.equals("7")||str2.equals("8")||str2.equals("9")||str2.equals("6")){
+			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				input.nextLine();
+				input.next();
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
@@ -279,7 +284,8 @@ public class mainApp{
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
-					str2 = input.next();
+					int help = input.nextInt()+5 ;
+					str2 = Integer.toString(help);
 				}
 			}
 		}
@@ -290,39 +296,39 @@ public class mainApp{
 			if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
 				switch(str){
 					case"1":
-						item = MoBo(x1,x2,z1,z2);
+						item = MoBo(x1,x2,z1,z2);//motherboard
 						j++;
 						break;
 					case"2":
-						item = Prossesor(x1,x2,z1,z2);
+						item = Prossesor(x1,x2,z1,z2);//CPU
 						j++;
 						break;
 					case"4":
-						item = Memory(x1,x2,z1,z2);
+						item = Memory(x1,x2,z1,z2);//RAM
 						j++;
 						break;
 					case"5":
-						item = SSHD(x1,x2,z1,z2);
+						item = SSHD(x1,x2,z1,z2);//HardDrive
 						j++;
 						break;
 					case"7":
-						item = Click(x1,x2,z1,z2);
+						item = Click(x1,x2,z1,z2);//keyboard
 						j++;
 						break;
 					case"8":
-						item = Mice(x1,x2,z1,z2);
+						item = Mice(x1,x2,z1,z2);//mouse
 						j++;
 						break;
 					case"9":
-						item = Paper(x1,x2,z1,z2);
+						item = Paper(x1,x2,z1,z2);//printer
 						j++;
 						break;
 					case"6":
-						item = View(x1,x2,z1,z2);
+						item = View(x1,x2,z1,z2);//screen
 						j++;
 						break;
 					case"3":
-						item = Graphics(x1,x2,z1,z2);
+						item = Graphics(x1,x2,z1,z2);//GPU
 						j++;
 						break;
 					default:
@@ -472,5 +478,22 @@ public class mainApp{
 		z2 = price;
 		HardDrive HDRV = new HardDrive(type, size, width, x1, x2, z1, z2);
 		return HDRV;
+	}
+	public void txtwriter() throws FileNotFoundException, IOException {
+		try {
+			input = new BufferedReader(new FileReader("STOCK_LIST.txt"));
+			output = new BufferedWriter(new FileWriter("STOCK_LIST.txt"));
+			String inputLine = null;
+			while((inputLine = input.readLine()) != null)
+				System.out.println(inputLine);
+		}
+		catch(IOException ex) {
+			System.err.println("An IOException was caught!");
+            ex.printStackTrace();
+        }
+		output.write("STOCK_LIST\n{");
+		
+		output.write("\n}");
+		output.close();
 	}
 }
