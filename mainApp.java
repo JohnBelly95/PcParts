@@ -92,7 +92,7 @@ public class mainApp{
 					System.out.println("3. GPU");
 					System.out.println("4. RAM memory");
 					System.out.println("5. Hard Drive");
-					input.nextLine();
+					//input.nextLine();
 					str2 = input.nextLine();
 				}else if(str1.equals("2")){
 					System.out.println("What does the customer want ?");
@@ -100,7 +100,7 @@ public class mainApp{
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
 					System.out.println("4. Printer");
-					input.nextLine();
+					//input.nextLine();
 					str2 = input.nextLine();
 				}
 				PcParts thing = Questions1(str1,str2);
@@ -246,10 +246,10 @@ public class mainApp{
 
 	public static PcParts Questions1(String str1, String str2){
 		while(true){
-			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")))){
+			if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				input.nextLine();
+				//input.nextLine();
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
@@ -293,39 +293,39 @@ public class mainApp{
 			if(str.equals("1")||str.equals("2")||str.equals("4")||str.equals("5")||str.equals("3")||str.equals("7")||str.equals("8")||str.equals("9")||str.equals("6")){
 				switch(str){
 					case"1":
-						item = MoBo(x1,x2,z1,z2);
+						item = MoBo(x1,x2,z1,z2);//motherboard
 						j++;
 						break;
 					case"2":
-						item = Prossesor(x1,x2,z1,z2);
+						item = Prossesor(x1,x2,z1,z2);//CPU
 						j++;
 						break;
 					case"4":
-						item = Memory(x1,x2,z1,z2);
+						item = Memory(x1,x2,z1,z2);//RAM
 						j++;
 						break;
 					case"5":
-						item = SSHD(x1,x2,z1,z2);
+						item = SSHD(x1,x2,z1,z2);//HardDrive
 						j++;
 						break;
 					case"7":
-						item = Click(x1,x2,z1,z2);
+						item = Click(x1,x2,z1,z2);//keyboard
 						j++;
 						break;
 					case"8":
-						item = Mice(x1,x2,z1,z2);
+						item = Mice(x1,x2,z1,z2);//mouse
 						j++;
 						break;
 					case"9":
-						item = Paper(x1,x2,z1,z2);
+						item = Paper(x1,x2,z1,z2);//printer
 						j++;
 						break;
 					case"6":
-						item = View(x1,x2,z1,z2);
+						item = View(x1,x2,z1,z2);//screen
 						j++;
 						break;
 					case"3":
-						item = Graphics(x1,x2,z1,z2);
+						item = Graphics(x1,x2,z1,z2);//GPU
 						j++;
 						break;
 					default:
