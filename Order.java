@@ -14,7 +14,11 @@ public class Order extends PcParts{
 	//prepei na perasoume se mia metavliti th mera tis paraggelias
 	
 	public Order(){
-		
+		thing = null;
+		name = null;
+		phone = null;
+		expectedDate = null;
+		fp = null;
 	}
 	/*public static void main(String[] args) {											//for testing purposes.
 		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
@@ -68,6 +72,6 @@ public class Order extends PcParts{
 	}
 	
 	public String toString(){
-		return ("The customer's name is: "+name+ " and his phone is: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
+		return ("NAME: "+name+ "PHONE: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
 	}
 }
