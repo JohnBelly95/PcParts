@@ -162,6 +162,9 @@ public class TextReader{
 							}//{ KLEINEI
 						}
 					}//STOCK_LIST KLEINEI
+					if(line.trim().equals("}"){
+						line = reader.readLine();
+					}
 				}
 			}
 		}
