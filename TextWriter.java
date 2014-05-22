@@ -34,7 +34,7 @@ public class TextWriter{
 	public void OrderTextWriter(List<Order> orderList){
 		this.orderList = orderList;
 		try {
-			output = new BufferedWriter(new FileWriter("STOCK_LIST.txt"));
+			output = new BufferedWriter(new FileWriter("ORDER_LIST.txt"));
 			output.write("ORDER_LIST\n{");
 			for(int i=0; i<orderList.size(); i++){
 				output.write("\n\tORDER\n\t{" + orderList.get(i) + "\n\t}",0,(orderList.get(i).toString().length() + 12));
