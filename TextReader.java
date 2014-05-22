@@ -121,36 +121,36 @@ public class TextReader{
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													if(line.trim().equals("TYPE:"){
+													if(line.trim().equals("TYPE: "){
 														line = reader.readLine();
 														if(line != null){
-															if(line.trim().equals("RAM"){
+															if(line.trim().substring(6).trim().equals("RAM"){
 																product = new RAM();
-																readRAM(product);
-															}else if(line.trim().equals("CPU"){
+																readRAM(3);
+															}else if(line.trim().substring(6).trim().equals("CPU"){
 																product = new CPU();
-																readCPU(product);
-															}else if(line.trim().equals("GPU"){
+																readCPU(3);
+															}else if(line.trim().substring(6).trim().equals("GPU"){
 																product = new GPU();
-																readGPU(product);
-															}else if(line.trim().equals("HARDDRIVE"){
+																readGPU(3);
+															}else if(line.trim().substring(6).trim().equals("HARDDRIVE"){
 																product = new HardDrive();
-																readHARDDRIVE(product);
-															}else if(line.trim().equals("MOTHERBOARD"){
+																readHARDDRIVE(3);
+															}else if(line.trim().substring(6).trim().equals("MOTHERBOARD"){
 																product = new Motherboard();
-																readMOTHERBOARD(product);
-															}else if(line.trim().equals("KEYBOARD"){
+																readMOTHERBOARD(3);
+															}else if(line.trim().substring(6).trim().equals("KEYBOARD"){
 																product = new Keyboard();
-																readKEYBOARD(product);
-															}else if(line.trim().equals("MOUSE"){
+																readKEYBOARD(3);
+															}else if(line.trim().substring(6).trim().equals("MOUSE"){
 																product = new Mouse();
-																readMOUSE(product);
-															}else if(line.trim().equals("MONITOR"){
+																readMOUSE(3);
+															}else if(line.trim().substring(6).trim().equals("MONITOR"){
 																product = new Screen();
-																readMONITOR(product);
-															}else if(line.trim().equals("PRINTER"){
+																readMONITOR(3);
+															}else if(line.trim().substring(6).trim().equals("PRINTER"){
 																product =  new Printer();
-																readPRINTER(product);
+																readPRINTER(3);
 															}
 														}
 													}//TYPE KLEINEI
@@ -208,7 +208,6 @@ public class TextReader{
 	}
 	public void readRAM(){//RAM RAM RAM RAM RAM RAM RAM RAM RAM
 		
-		product = new RAM();
 		readITEM();
 		if (!line.trim().equals("MODEL_TYPE: ")) {
 			line = reader.readLine();
