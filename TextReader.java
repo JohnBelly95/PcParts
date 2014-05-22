@@ -76,21 +76,25 @@ public class TextReader{
 		}*/
 
 		try{
-			line = reader.readLine();
-			while (line !=null){
-				if (!line.trim().equals(" ")) {
-					if (line.trim().equals("ORDER_LIST")) {
-						line = reader.readLine();
-						if (line != null){
-							if (line.trim().equals("{")) {
-								line = reader.readLine();
-								if (line != null){
-									if (line.trim().equals("ORDER")) {
-										line = reader.readLine();
-										if (line != null){
-											if (line.trim().equals("{")) {
-												line = reader.readLine();
-												//anagnorisi metavlitwn
+			reader = input.readLine();
+			while (reader !=null){
+				if (!reader.trim().equals(" ")) {
+					if (reader.trim().equals("ORDER_LIST")) {
+						reader = input.readLine();
+						if (reader != null){
+							if (reader.trim().equals("{")) {
+								reader = input.readLine();
+								if (reader != null){
+									if (reader.trim().equals("ORDER")) {
+										reader = input.readLine();
+										if (reader != null){
+											if (reader.trim().equals("{")) {
+												reader = input.readLine();
+												if (reader != null){
+													if (reader.trim().startsWith("TYPE: ")) { 
+														if (reader.trim().substring(6).trim().equals("CPU")) {
+															product = new CPU();
+												}
 											}
 										}
 									}
