@@ -72,6 +72,6 @@ public class Order extends PcParts{
 	}
 	
 	public String toString(){
-		return ("NAME: "+name+ "PHONE: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
+		return ("NAME: "+name+ "PHONE: " +phone+thing+ "FINAL_PRICE: "+fp+ "ARRIVAL_DATE: " +expectedDate);
 	}
 }
