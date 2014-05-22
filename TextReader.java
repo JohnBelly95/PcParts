@@ -8,7 +8,7 @@ public class TextReader{
 	private List<Order> orderList;
 	private List<Sell> soldList;
 	static BufferedReader input;
-
+	static PcParts product = null;
 	String line;
 	BufferReader reader = null;
 
@@ -104,6 +104,7 @@ public class TextReader{
 	}
 
 	public void SoldTextReader(List<Sell> soldList){
+		this.soldList = soldList;
 		try{
 			line = reader.readLine();
 			while (line !=null){
@@ -124,23 +125,32 @@ public class TextReader{
 														line = reader.readLine();
 														if(line != null){
 															if(line.trim().equals("RAM"){
-																readRAM();
+																product = new RAM();
+																readRAM(product);
 															}else if(line.trim().equals("CPU"){
-																readCPU();
+																product = new CPU();
+																readCPU(product);
 															}else if(line.trim().equals("GPU"){
-																readGPU();
+																product = new GPU();
+																readGPU(product);
 															}else if(line.trim().equals("HARDDRIVE"){
-																readHARDDRIVE();
+																product = new HardDrive();
+																readHARDDRIVE(product);
 															}else if(line.trim().equals("MOTHERBOARD"){
-																readMOTHERBOARD();
+																product = new Motherboard();
+																readMOTHERBOARD(product);
 															}else if(line.trim().equals("KEYBOARD"){
-																readRKEYBOARD();
+																product = new Keyboard();
+																readKEYBOARD(product);
 															}else if(line.trim().equals("MOUSE"){
-																readMOUSE();
+																product = new Mouse();
+																readMOUSE(product);
 															}else if(line.trim().equals("MONITOR"){
-																readMONITOR();
+																product = new Screen();
+																readMONITOR(product);
 															}else if(line.trim().equals("PRINTER"){
-																readPRINTER();
+																product =  new Printer();
+																readPRINTER(product);
 															}
 														}
 													}//TYPE KLEINEI
@@ -158,6 +168,7 @@ public class TextReader{
 		catch(IOException e){
 			System.err.println("An IOException was caught);
 		}
+		return
 	}
 	public void readITEM(){//ITEM
 		if (!line.trim().equals("MODEL_NAME: ")) {
@@ -196,17 +207,19 @@ public class TextReader{
 		}
 	}
 	public void readRAM(){//RAM RAM RAM RAM RAM RAM RAM RAM RAM
+		
+		product = new RAM();
 		readITEM();
 		if (!line.trim().equals("MODEL_TYPE: ")) {
 			line = reader.readLine();
 			if(line != null){
-				RAM.setType(line);
+				((RAM)product).setType(line);
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().equals("SIZE: ")) {
 						line = reader.readInt();
 						if(line != null){
-							RAM.setSize(line);
+							((RAM)product).setSize(line);
 							line = reader.readLine();
 							if (line != null){
 								if (line.trim().equals("SPEED: ")){
