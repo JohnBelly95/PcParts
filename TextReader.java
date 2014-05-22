@@ -76,25 +76,21 @@ public class TextReader{
 		}*/
 
 		try{
-			reader = input.readLine();
-			while (reader !=null){
-				if (!reader.trim().equals(" ")) {
-					if (reader.trim().equals("ORDER_LIST")) {
-						reader = input.readLine();
-						if (reader != null){
-							if (reader.trim().equals("{")) {
-								reader = input.readLine();
-								if (reader != null){
-									if (reader.trim().equals("ORDER")) {
-										reader = input.readLine();
-										if (reader != null){
-											if (reader.trim().equals("{")) {
-												reader = input.readLine();
-												if (reader != null){
-													if (reader.trim().startsWith("TYPE: ")) { 
-														if (reader.trim().substring(6).trim().equals("CPU")) {
-															product = new CPU();
-												}
+			line = reader.readLine();
+			while (line !=null){
+				if (!line.trim().equals(" ")) {
+					if (line.trim().equals("ORDER_LIST")) {
+						line = reader.readLine();
+						if (line != null){
+							if (line.trim().equals("{")) {
+								line = reader.readLine();
+								if (line != null){
+									if (line.trim().equals("ORDER")) {
+										line = reader.readLine();
+										if (line != null){
+											if (line.trim().equals("{")) {
+												line = reader.readLine();
+												//anagnorisi metavlitwn
 											}
 										}
 									}
@@ -108,7 +104,60 @@ public class TextReader{
 	}
 
 	public void SoldTextReader(List<Sell> soldList){
-
+		try{
+			line = reader.readLine();
+			while (line !=null){
+				if (!line.trim().equals(" ")) {
+					if (line.trim().equals("SOLD_LIST")) {
+						line = reader.readLine();
+						if (line != null){
+							if (line.trim().equals("{")) {
+								line = reader.readLine();
+								if (line != null){
+									if (line.trim().equals("SOLD")) {
+										line = reader.readLine();
+										if (line != null){
+											if (line.trim().equals("{")) {
+												line = reader.readLine();
+												if(line != null){
+													if(line.trim().equals("TYPE:"){
+														line = reader.readLine();
+														if(line != null){
+															if(line.trim().equals("RAM"){
+																readRAM();
+															}else if(line.trim().equals("CPU"){
+																readCPU();
+															}else if(line.trim().equals("GPU"){
+																readGPU();
+															}else if(line.trim().equals("HARDDRIVE"){
+																readHARDDRIVE();
+															}else if(line.trim().equals("MOTHERBOARD"){
+																readMOTHERBOARD();
+															}else if(line.trim().equals("KEYBOARD"){
+																readRKEYBOARD();
+															}else if(line.trim().equals("MOUSE"){
+																readMOUSE();
+															}else if(line.trim().equals("MONITOR"){
+																readMONITOR();
+															}else if(line.trim().equals("PRINTER"){
+																readPRINTER();
+															}
+														}
+													}//TYPE KLEINEI
+												}
+											}//{ KLEINEI
+										}
+									}//ITEM KLEINEI
+								}
+							}//{ KLEINEI
+						}
+					}//STOCK_LIST KLEINEI
+				}
+			}
+		}
+		catch(IOException e){
+			System.err.println("An IOException was caught);
+		}
 	}
 	public void readITEM(){//ITEM
 		if (!line.trim().equals("MODEL_NAME: ")) {
