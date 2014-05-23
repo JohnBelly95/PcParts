@@ -144,6 +144,8 @@ public class TextReader{
 					}// ORDER_LIST KLEINEI 
 				}
 			}
+		}catch(IOException e){
+			System.err.println("An IOException was caught");
 		}
 	}
 
@@ -151,14 +153,15 @@ public class TextReader{
 		this.soldList = soldList;
 		try{
 			line = reader.readLine();
-			while (line !=null){
+			if (line !=null){
+				System.out.println("File was opened correctly");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equals("SOLD_LIST")) {
 						line = reader.readLine();
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
-								if (line != null){
+								while(line != null){
 									if (line.trim().equals("SOLD")) {
 										line = reader.readLine();
 										if (line != null){
@@ -565,5 +568,4 @@ public class TextReader{
 			}
 		}
 	}
-}
 }

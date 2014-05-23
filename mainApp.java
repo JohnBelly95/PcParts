@@ -31,6 +31,9 @@ public class mainApp{
 		peripheralSale = input.nextInt();
 	}
 	public static void createStock(){  //Edw tha mpoune ta FileReader. Ena gia to kathena.
+		StockTextReader(shopStock);
+		OrderTextReader(ordersList);
+		SoldTextReader(soldList);
 		//Starting Stock goes here		
 		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
@@ -138,6 +141,8 @@ public class mainApp{
 						}
 						Sell sl = new Sell(part, name, phone, fp);
 						soldList.add(sl);
+						SoldTextWriter(soldList);
+						StockTextWriter(shopStock);
 						//Edw tha mpoune ta TextWriter gia Stock kai Sold.
 					}else ;
 
@@ -175,6 +180,7 @@ public class mainApp{
 							}
 							Order odr = new Order(item, name, phone,expectedDate,fp);
 							ordersList.add(odr);
+							OrderTextWriter(ordersList);
 							// Edw tha mpei to TextWriter gia to Order.
 							System.out.println("Order set.");
 							break;

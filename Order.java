@@ -18,7 +18,7 @@ public class Order extends PcParts{
 		name = null;
 		phone = 2102121236;
 		expectedDate = null;
-		orderDate = null
+		orderDate = null;
 		fp = 20.0;
 	}
 	/*public static void main(String[] args) {											//for testing purposes.
