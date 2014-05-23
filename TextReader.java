@@ -33,24 +33,33 @@ public class TextReader{
 														line = reader.readLine();
 														if(line != null){
 															if(line.trim().equals("RAM"){
-																readRAM();
+																product = new RAM();
+																readRAM(1);
 															}else if(line.trim().equals("CPU"){
-																readCPU();
+																product = new CPU();
+																readCPU(1);
 															}else if(line.trim().equals("GPU"){
-																readGPU();
+																product = new GPU();
+																readGPU(1);
 															}else if(line.trim().equals("HARDDRIVE"){
-																readHARDDRIVE();
+																product = new Harddrive();
+																readHARDDRIVE(1);
 															}else if(line.trim().equals("MOTHERBOARD"){
-																readMOTHERBOARD();
+																product = new Motherboard();
+																readMOTHERBOARD(1);
 															}else if(line.trim().equals("KEYBOARD"){
-																readRKEYBOARD();
+																product = new Keyboard();
+																readRKEYBOARD(1);
 															}else if(line.trim().equals("MOUSE"){
-																readMOUSE();
-															}else if(line.trim().equals("MONITOR"){
+																product = new Mouse();
+																readMOUSE(1);
+															}else if(line.trim(1).equals("MONITOR"){
+																product = new Screen();
 																readMONITOR();
-															}else if(line.trim().equals("PRINTER"){
+															}else if(line.trim(1).equals("PRINTER"){
+																product = new Printer();
 																readPRINTER();
-															}
+															}else break;
 														}
 													}//TYPE KLEINEI
 												}
@@ -64,7 +73,9 @@ public class TextReader{
 				}
 			}
 		}
-			
+		catch(IOException e){
+			System.err.println("An IOException was caught");
+		}
 	}
 
 	public void OrderTextReader(List<Order> orderList){
@@ -388,8 +399,8 @@ public class TextReader{
 					((Screen)product).setType(line.substring(6).trim());
 				}else if(line.trim().equals("SIZE: ")) {
 					((Screen)product).setSize(Double.parseDouble(line.substring(6).trim()));
-				}else if(line.trim().equals("PORTS: ")) {//             S  T  A     I  D  I A     G  I  A      T O    P  O  R  T  S
-					((Screen)product).set/* PORTS */(Integer.parseInt(line.substring(7).trim())));
+				}else if(line.trim().equals("PORTS: ")) {
+					((Screen)product).setPorts(Integer.parseInt(line.substring(7).trim())));
 				}else if(line.trim().equals("RESOLUSION: ")) {
 					((Screen)product).setResolution(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
