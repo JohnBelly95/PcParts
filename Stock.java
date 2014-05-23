@@ -4,6 +4,10 @@ public class Stock extends PcParts{
 	private PcParts thing;
 	private int availableStock;
 	
+	public Stock(){
+		thing = null;
+		availableStock = 0;
+	}
 	public Stock(PcParts thing){
 		this.thing = thing;
 		availableStock = 2;

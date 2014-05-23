@@ -10,6 +10,9 @@ public class TextReader{
 	static PcParts product = null;
 	String line;
 	BufferReader reader = null;
+	Stock stk = new Stock() ;
+	Order ord = new Order();
+	Sell sl = new Sell();
 
 	public void StockTextReader(List<Stock> stockList){
 		try{
@@ -49,16 +52,16 @@ public class TextReader{
 																readMOTHERBOARD(1);
 															}else if(line.trim().equals("KEYBOARD")){
 																product = new Keyboard();
-																readRKEYBOARD(1);
+																readKEYBOARD(1);
 															}else if(line.trim().equals("MOUSE")){
 																product = new Mouse();
 																readMOUSE(1);
 															}else if(line.trim().equals("MONITOR")){
 																product = new Screen();
-																readMONITOR();
+																readMONITOR(1);
 															}else if(line.trim().equals("PRINTER")){
 																product = new Printer();
-																readPRINTER();
+																readPRINTER(1);
 															}else if(line.trim().equals("}")){
 																line = reader.readLine();
 																if(line.trim().equals("}")) break;
@@ -156,22 +159,14 @@ public class TextReader{
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 		}
-		catch(IOException e){
-			System.err.println("An IOException was caught");
-		}
 	}
 
 	public void SoldTextReader(List<Sell> soldList){
 		this.soldList = soldList;
 		try{
 			line = reader.readLine();
-<<<<<<< HEAD
 			if (line !=null){
 				System.out.println("File was opened correctly");
-=======
-			if(line !=null){
-				System.out.println("File is opened");
->>>>>>> 1895f33e46530dd2e474142b2bbc3159c6dab322
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equals("SOLD_LIST")) {
 						line = reader.readLine();
@@ -240,9 +235,7 @@ public class TextReader{
 	}
 	
 	public void readRAM(int num){//  RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAAAAAAAAAM
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -253,7 +246,7 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((RAM)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((RAM)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((RAM)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("MODEL_TYPE: ")) {
 					((RAM)product).setmodelType(line.substring(12).trim());
 				}else if(line.trim().equals("SIZE: ")) {
@@ -261,7 +254,7 @@ public class TextReader{
 				}else if(line.trim().equals("SPEED: ")){
 					((RAM)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -273,15 +266,16 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readCPU(int num){  //           C     P     U
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -292,13 +286,13 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((CPU)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((CPU)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((CPU)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("SPEED: ")) {
 					((CPU)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("CORES: ")){
 					((CPU)product).setCoreCount(line.substring(7).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -310,16 +304,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readGPU(int num){ //                         G         P         U
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -330,13 +325,13 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((GPU)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((GPU)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((GPU)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("CHIPSET: ")) {
 					((GPU)product).setChipset(line.substring(9).trim());
 				}else if(line.trim().equals("MEMORY: ")) {
-					((GPU)product).setSpeed(Integer.parseInt(line.substring(8).trim()));
+					((GPU)product).setMemory(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -348,35 +343,36 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readHARDDRIVE(int num){ //               H   A   R   D   D   R   I   V   E
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
 				if (line.trim().equals("MODEL_NAME: ")) {
-					((Harddrive)product).setmodelName(line.substring(12).trim());
+					((HardDrive)product).setmodelName(line.substring(12).trim());
 				}else if(line.trim().equals("YEAR: ")) {
-					((Harddrive)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
+					((HardDrive)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
-					((Harddrive)product).setManufacturer(line.substring(14).trim());
+					((HardDrive)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Harddrive)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((HardDrive)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("TYPE: ")) {
-					((Harddrive)product).setType(line.substring(6).trim());
+					((HardDrive)product).setType(line.substring(6).trim());
 				}else if(line.trim().equals("WIDTH: ")) {
-					((Harddrive)product).setWidth(Double.parseDouble(line.substring(7).trim()));
+					((HardDrive)product).setWidth(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("SIZE: ")) {
-					((Harddrive)product).setSize(Integer.parseInt(line.substring(6).trim()));
+					((HardDrive)product).setSize(Integer.parseInt(line.substring(6).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -388,16 +384,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readMOTHERBOARD(int num){  //           M   O   T   H   E   R   B   O   A   R   D
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -408,7 +405,7 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Motherboard)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Motherboard)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((Motherboard)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("CHIP: ")) {
 					((Motherboard)product).setChip(line.substring(6).trim());
 				}else if(line.trim().equals("SIZE: ")) {
@@ -416,7 +413,7 @@ public class TextReader{
 				}else if(line.trim().equals("GATES: ")) {
 					((Motherboard)product).setExpansionSlots(Integer.parseInt(line.substring(7).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -428,16 +425,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readMONITOR(int num){  //                           S   C   R   E   E   N
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -448,7 +446,7 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Screen)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Screen)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((Screen)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("TYPE: ")) {
 					((Screen)product).setType(line.substring(6).trim());
 				}else if(line.trim().equals("SIZE: ")) {
@@ -458,7 +456,7 @@ public class TextReader{
 				}else if(line.trim().equals("RESOLUSION: ")) {
 					((Screen)product).setResolution(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -470,16 +468,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readKEYBOARD(int num){         //                       K   E   Y   B   O   A   R   D
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -490,11 +489,11 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Keyboard)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Keyboard)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((Keyboard)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("CONNECTION: ")) {
 					((Keyboard)product).setConnection(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -506,16 +505,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readMOUSE(int num){ //                  M  O  U  S  E
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -526,13 +526,13 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Mouse)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Mouse)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((Mouse)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("TECHNOLOGY: ")) {
 					((Mouse)product).setTechnology(line.substring(12).trim());
 				}else if(line.trim().equals("CONNECTION: ")) {
 					((Mouse)product).setConnection(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -544,16 +544,17 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 	public void readPRINTER(int num){ //                         P   R   I   N   T   E   R
-		stk = new Stock(product);
-		ord = new Order(product);
-		sl = new Sell(product);
+		
 		while(true){
 			line = reader.readLine();
 			if(line != null){
@@ -570,7 +571,7 @@ public class TextReader{
 				}else if(line.trim().equals("PRINTER_TYPE: ")) {
 					((Printer)product).setPrintingType(line.substring(14).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
-					stk.setsavailableStock(line.substring(8).trim());
+					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
 					ord.setName(line.substring(6).trim());
 				}else if(num == 2 && line.trim().equals("PHONE: ")){
@@ -582,10 +583,13 @@ public class TextReader{
 				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
-					sl.setPhone(line.substring(7).trim());
+					sl.setPhone(Long.parseLong(line.substring(7).trim()));
 				}else break;
 				
 			}
+			stk.setThing(product);
+			ord.setThing(product);
+			sl.setThing(product);
 		}
 	}
 }
