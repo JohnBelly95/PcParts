@@ -64,11 +64,13 @@ public class Screen extends Peripherals{
     public void setCOMPOSITEport(int COMPOSITEport){
         this.COMPOSITEport = COMPOSITEport;
     }
+	
 
 	public String Ports(){
 		String str = null;
 		if(COMPOSITEport > 0){
 			str = str + "\n\t\tCOMPOSITE_PORTS :"+COMPOSITEport;
+			
 		}
 		if(DVIport > 0){
 			str = str+"\n\t\tDVI_PORTS :"+DVIport;

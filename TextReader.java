@@ -9,7 +9,7 @@ public class TextReader{
 	static BufferedReader input;
 	static PcParts product = null;
 	String line;
-	BufferReader reader = null;
+	BufferedReader reader = null;
 	Stock stk = new Stock() ;
 	Order ord = new Order();
 	Sell sl = new Sell();
@@ -45,7 +45,7 @@ public class TextReader{
 																product = new GPU();
 																readGPU(1);
 															}else if(line.trim().equals("HARDDRIVE")){
-																product = new Harddrive();
+																product = new HardDrive();
 																readHARDDRIVE(1);
 															}else if(line.trim().equals("MOTHERBOARD")){
 																product = new Motherboard();
@@ -248,7 +248,7 @@ public class TextReader{
 				}else if(line.trim().equals("PRICE: ")){
 					((RAM)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("MODEL_TYPE: ")) {
-					((RAM)product).setmodelType(line.substring(12).trim());
+					((RAM)product).setType(line.substring(12).trim());
 				}else if(line.trim().equals("SIZE: ")) {
 					((RAM)product).setSize(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("SPEED: ")){
@@ -290,7 +290,7 @@ public class TextReader{
 				}else if(line.trim().equals("SPEED: ")) {
 					((CPU)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("CORES: ")){
-					((CPU)product).setCoreCount(line.substring(7).trim());
+					((CPU)product).setCoreCount(Integer.parseInt(line.substring(7).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
 					stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
 				}else if(num == 2 && line.trim().equals("NAME: ")){
