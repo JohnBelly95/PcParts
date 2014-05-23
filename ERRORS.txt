@@ -12,6 +12,13 @@
 
 -type hard drive ekxwreitai ws null
 
--reader.close(); !!!!!!!
+-anoigma/kleisimo arxeiou    reader.close(); !!!!!!!
  
 -na checkaroume me printlnth methodo date se order/sell
+
+-screen ports , string or int?
+
+-kefalai/peza sthn textreader
+
+-readers twn files???
+
