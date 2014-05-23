@@ -12,7 +12,7 @@ public class mainApp{
 	private static double clock,diameter,fp, width;
 	private static long phone;
 	private static boolean check, status;
-	private static int HWSale, peripheralSale;
+	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
 	private static List<Order> ordersList = new ArrayList<Order>();
@@ -249,7 +249,7 @@ public class mainApp{
 			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				input.nextLine();
+				input.next();				//?????????????????????????????????????
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
@@ -465,7 +465,7 @@ public class mainApp{
 
 	public static PcParts SSHD(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What Hard drive type is the customer ordering ?");
-		type = input.next();
+		type = input.nextLine();											//????????????????????????????????????????
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
 		width = input.nextDouble();
 		System.out.println("What size (GB) is the customer ordering ?");
