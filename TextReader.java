@@ -211,12 +211,10 @@ public class TextReader{
 					}*/
 				}
 			}
-		}
-		catch(IOException e){
+		}catch(IOException e){
 			System.err.println("An IOException was caught");
 		}
-		return
-	}
+	}//return
 	
 	public void readRAM(int num){//  RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAAAAAAAAAM
 		stk = new Stock(product);
@@ -567,4 +565,5 @@ public class TextReader{
 			}
 		}
 	}
+}
 }
