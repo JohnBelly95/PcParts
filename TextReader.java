@@ -451,8 +451,12 @@ public class TextReader{
 					((Screen)product).setType(line.substring(6).trim());
 				}else if(line.trim().equals("SIZE: ")) {
 					((Screen)product).setSize(Double.parseDouble(line.substring(6).trim()));
-				}else if(line.trim().equals("PORTS: ")) {
-					((Screen)product).setPorts(Integer.parseInt(line.substring(7).trim()));
+				}else if(line.trim().equals("HDMIPORT: ")) {
+					((Screen)product).setHDMIport(Integer.parseInt(line.substring(10).trim()));
+				}else if(line.trim().equals("DVIPORT: ")) {
+					((Screen)product).setDVIport(Integer.parseInt(line.substring(9).trim()));
+				}else if(line.trim().equals("COMPOSITEPORT: ")) {
+					((Screen)product).setCOMPOSITEport(Integer.parseInt(line.substring(15).trim()));
 				}else if(line.trim().equals("RESOLUSION: ")) {
 					((Screen)product).setResolution(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){

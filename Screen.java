@@ -65,25 +65,9 @@ public class Screen extends Peripherals{
         this.COMPOSITEport = COMPOSITEport;
     }
 	
-
-	public String Ports(){
-		String str = null;
-		if(COMPOSITEport > 0){
-			str = str + "\n\t\tCOMPOSITE_PORTS :"+COMPOSITEport;
-			
-		}
-		if(DVIport > 0){
-			str = str+"\n\t\tDVI_PORTS :"+DVIport;
-		}
-		if(HDMIport > 0){
-			str = str + "\n\t\tHDMI_PORTS :" + HDMIport;
-		}
-		return  str;
-		//na checkaroume ti ektupwnei
-	}
 	
     public String toString(){
-        return String.format("\n\t\tTYPE: MONITOR" +super.toString() + "\n\t\tTECHNOLOGY: " + this.Type  + "\n\t\tSIZE: " + this.Size  + "\n\t\tPORTS: " + Ports() + "\n\t\tRESOLUSION: " + this.Resolution);
+        return String.format("\n\t\tTYPE: MONITOR" +super.toString() + "\n\t\tTECHNOLOGY: " + this.Type  + "\n\t\tSIZE: " + this.Size  + "\n\t\tHDMIPORT: " + getHDMIport() + "\n\t\tDVIPORT: " + getDVIport() +"\n\t\tCOMPOSITEPORT: " + getCOMPOSITEport() + "\n\t\tRESOLUSION: " + this.Resolution);
     }
      
 }

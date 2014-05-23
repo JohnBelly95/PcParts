@@ -8,15 +8,10 @@
 
 -182 : DEN STAMATAEI NA KANEI TO PRINTLN
 
--model name prob 252 mainApp
--type hard drive null
+-model name prob 252 mainApp ekxwreitai ws space
 
--sth sell den exoume kamia get/set methodo
-
--get/set gia hmerominies sti sell kai order
-
--sell / order na dw tis date metavlites
+-type hard drive ekxwreitai ws null
 
 -reader.close(); !!!!!!!
  
--na checkaroume me printlnth methodo date se get/sell
+-na checkaroume me printlnth methodo date se order/sell
