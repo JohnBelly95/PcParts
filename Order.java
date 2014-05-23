@@ -3,7 +3,7 @@ import java.util.*;
 import java.text.*;
 
 public class Order extends PcParts{
-	private String name, expectedDate;
+	private String name, expectedDate, orderDate;
 	private int orderNo=1;
 	private long phone;
 	private PcParts thing;
@@ -18,6 +18,7 @@ public class Order extends PcParts{
 		name = null;
 		phone = 2102121236;
 		expectedDate = null;
+		orderDate = null
 		fp = 20.0;
 	}
 	/*public static void main(String[] args) {											//for testing purposes.
@@ -29,9 +30,11 @@ public class Order extends PcParts{
 		this.thing = thing;
 		this.name = name;
 		this.phone = phone;
-		this.expectedDate= expectedDate;
+		this.expectedDate = expectedDate;
 		this.fp = fp;
-		Date date = new Date();
+		Date today = new Date();					//??einai ok??
+		orderDate = formatter.format(today); //??einai ok??
+		System.out.println(orderDate);            // THA TO SVHSW!!!!!!!!!!
 		status = false;
 		orderNo++;
 	}
@@ -69,6 +72,27 @@ public class Order extends PcParts{
 	}	
 	public void setFP(double fp){
 		this.fp = fp;
+	}
+	
+	public String getExpectedDate(){
+		return expectedDate;
+	}
+	public void setExpectedDate(String ExpectedDate){
+		this.expectedDate = expectedDate;
+	}
+	
+	public int getOrderNo(){
+		return orderNo;
+	}
+	public void setOrderNo(int orderNo){
+		this.orderNo = orderNo;
+	}
+	
+	public String getOrderDate(){
+		return orderDate;
+	}
+	public void setOrderDate(String orderDate){
+		this.orderDate = orderDate;
 	}
 	
 	public String toString(){

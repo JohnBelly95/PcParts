@@ -12,3 +12,5 @@
 -type hard drive null
 
 -sth sell den exoume kamia get/set methodo
+
+-get/set gia hmerominies sti sell kai order
