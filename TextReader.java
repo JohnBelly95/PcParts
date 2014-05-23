@@ -162,7 +162,7 @@ public class TextReader{
 															}else if(line.trim().substring(6).trim().equals("PRINTER"){
 																product =  new Printer();
 																readPRINTER(3);
-															}
+															}else break;
 														}
 													}//TYPE KLEINEI
 												}
@@ -173,9 +173,9 @@ public class TextReader{
 							}//{ KLEINEI
 						}
 					}//STOCK_LIST KLEINEI
-					if(line.trim().equals("}"){
+					/*if(line.trim().equals("}"){
 						line = reader.readLine();
-					}
+					}*/
 				}
 			}
 		}
