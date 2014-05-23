@@ -587,8 +587,4 @@ public class TextReader{
 			}
 		}
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1895f33e46530dd2e474142b2bbc3159c6dab322
