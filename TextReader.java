@@ -206,32 +206,41 @@ public class TextReader{
 			}
 		}
 	}
-	public void readRAM(){//RAM RAM RAM RAM RAM RAM RAM RAM RAM
-		
-		readITEM();
-		if (!line.trim().equals("MODEL_TYPE: ")) {
+	public void readRAM(num){ // RAM RAM RAM RAM RAM RAM RAM
+		stk = new Stock(product);
+		ord = new Order(product);
+		sl = new Sell(product);
+		while(true){
 			line = reader.readLine();
 			if(line != null){
-				((RAM)product).setType(line);
-				line = reader.readLine();
-				if(line != null){
-					if (line.trim().equals("SIZE: ")) {
-						line = reader.readInt();
-						if(line != null){
-							((RAM)product).setSize(line);
-							line = reader.readLine();
-							if (line != null){
-								if (line.trim().equals("SPEED: ")){
-									line = reader.readInt();
-									if (line != null){
-										RAM.setSpeed(line);
-
-										
-									}
-								}
-							}
-						}
-					}
+				if (line.trim().equals("MODEL_NAME: ")) {
+					((RAM)product).setmodelName(line.substring(12).trim());
+				}else if(line.trim().equals("YEAR: ")) {
+					((RAM)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
+				}else if(line.trim().equals("MANUFACTURER: ")){
+					((RAM)product).setManufacturer(line.substring(14).trim());
+				}else if(line.trim().equals("PRICE: "){
+					((RAM)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+				}else if(line.trim().equals("MODEL_TYPE: ")) {
+					((RAM)product).setmodelType(line.substring(12).trim());
+				}else if(line.trim().equals("SIZE: ")) {
+					((RAM)product).setSize(Integer.parseInt(line.substring(6).trim()));
+				}else if(line.trim().equals("SPEED: ")){
+					((RAM)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
+				}else if(num == 1){
+					stk.setsavailableStock(line.substring(8).trim());
+				}else if(num == 2 && line.trim().equals("")){
+					ord.setStatus(line.substring().trim());
+				}else if(num == 2 && line.trim().equals("NAME: ")){
+					ord.setName(line.substring(6).trim());
+				}else if(num == 2 && line.trim().equals("")){
+					ord.setPhone(Long.parseLong(line.substring().trim()));
+				}else if(num == 2 && line.trim().equals("")){
+					ord.setFP(Double.parseDouble(line.substring().trim()));
+				}else if(num == 3 && line.trim().equals(""){
+				}else if(num == 3 && line.trim().equals(""){
+				}else if(num == 3 && line.trim().equals(""){
+				
 				}
 			}
 		}
