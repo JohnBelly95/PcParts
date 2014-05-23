@@ -16,9 +16,9 @@ public class Order extends PcParts{
 	public Order(){
 		thing = null;
 		name = null;
-		phone = null;
+		phone = 2102121236;
 		expectedDate = null;
-		fp = null;
+		fp = 20.0;
 	}
 	/*public static void main(String[] args) {											//for testing purposes.
 		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
