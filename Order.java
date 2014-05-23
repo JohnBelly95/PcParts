@@ -3,15 +3,15 @@ import java.util.*;
 import java.text.*;
 
 public class Order extends PcParts{
-	private String name, expectedDate, state, str;
-	private int orderNo=1, price, sale;
+	private String name, expectedDate;
+	private int orderNo=1;
 	private long phone;
 	private PcParts thing;
 	private Scanner input = new Scanner(System.in);
 	private double fp;
 	public static boolean status;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-	
+	//prepei na perasoume se mia metavliti th mera tis paraggelias
 	
 	public Order(){
 		

@@ -9,12 +9,47 @@ public class TextReader{
 	static BufferedReader input;
 	static PcParts product = null;
 	
+	String line;
+	BufferReader reader = null;
+	
 	public void StockTextReader(List<Stock> stockList){
 		
 	}
 	
 	public void OrderTextReader(List<Order> orderList){
-	
+		/*try{
+			elegxos an oi paraggelies perilamvanontai sta diathesima proionta
+		}
+		catch(){
+			eidopoihsh
+		}*/
+		
+		try{
+			line = reader.readLine();
+			while (line !=null){
+				if (!line.trim().equals(" ")) {
+					if (line.trim().equals("ORDER_LIST")) {
+						line = reader.readLine();
+						if (line != null){
+							if (line.trim().equals("{")) {
+								line = reader.readLine();
+								if (line != null){
+									if (line.trim().equals("ORDER")) {
+										line = reader.readLine();
+										if (line != null){
+											if (line.trim().equals("{")) {
+												line = reader.readLine();
+												//anagnorisi metavlitwn
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	public List<Sell> SoldTextReader(List<Sell> soldList){
