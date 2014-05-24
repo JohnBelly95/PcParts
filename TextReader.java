@@ -14,7 +14,7 @@ public class TextReader{
 	Order ord = new Order();
 	Sell sl = new Sell();
 	
-	//dhlwsh k dhmiourgia twn txt
+	/*//dhlwsh k dhmiourgia twn txt
 	File f_stock = null;
 	File f_order = null;
 	File f_sales = null;
@@ -51,7 +51,7 @@ public class TextReader{
 		reader = new BufferedReader(new InputStreamReader(new FileInputStream(f_sales)));
 	} catch (FileNotFoundException e) {
 		System.err.println("Error opening sales file!");
-	}
+	}*/
 
 	public void StockTextReader(List<Stock> stockList){
 		try{
@@ -662,9 +662,9 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 		}
 	}
-	try {
+	/*try {
 		reader.close();
 	} catch (IOException e) {
 		System.err.println("Error closing file.");
-	}
+	}*/
 }
