@@ -115,7 +115,7 @@ public class mainApp{
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions3();
+						part = Questions3(x1,x2,z1,z2);
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -346,7 +346,7 @@ public class mainApp{
 		}
 		return item;
 	}
-	public static PcParts Questions3(){
+	public static PcParts Questions3(String x1, String x2, int z1, int z2){
 		for(int i=0; i < shopStock.size(); i++){
 			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
 				item = shopStock.get(i).getThing();

@@ -28,11 +28,11 @@ public class TextReader{
 		}
 		try{
 			line = reader.readLine();
-			while(line !=null){
+			if(line !=null){
 				System.out.println("The file has opened.lalala");
 				if (!line.trim().equals(" ")) {
 					System.out.println("bhke");
-					if (line.trim().equalsIgnoreCase("STOCK_LIST")) {
+					if (line.trim().startsWith("STOCK_LIST")) {
 						line = reader.readLine();
 						System.out.println("ksanabhke");
 						if (line != null){
@@ -42,55 +42,57 @@ public class TextReader{
 								while(line != null){
 									System.out.println("skase");
 									line = reader.readLine();
-									if (line.trim().equalsIgnoreCase("ITEM")) {
-										System.out.println("eide to item");
-										line = reader.readLine();
-										System.out.println("2");
-										if (line != null){
-											if (line.trim().equals("{")) {
-												line = reader.readLine();
-												if(line != null){
-													if(line.trim().startsWith("TYPE: ")){
-														System.out.println("3");
-														//line = reader.readLine();
-														if(line != null){
-															if(line.trim().equalsIgnoreCase("RAM")){
-																product = new RAM();
-																readRAM(1);
-															}else if(line.trim().equalsIgnoreCase("CPU")){
-																product = new CPU();
-																readCPU(1);
-															}else if(line.trim().equalsIgnoreCase("GPU")){
-																product = new GPU();
-																readGPU(1);
-															}else if(line.trim().equalsIgnoreCase("HARDDRIVE")){
-																product = new HardDrive();
-																readHARDDRIVE(1);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																product = new Motherboard();
-																readMOTHERBOARD(1);
-															}else if(line.trim().equalsIgnoreCase("KEYBOARD")){
-																product = new Keyboard();
-																readKEYBOARD(1);
-															}else if(line.trim().equalsIgnoreCase("MOUSE")){
-																product = new Mouse();
-																readMOUSE(1);
-															}else if(line.trim().equalsIgnoreCase("MONITOR")){
-																product = new Screen();
-																readMONITOR(1);
-															}else if(line.trim().equalsIgnoreCase("PRINTER")){
-																product = new Printer();
-																readPRINTER(1);
-															}else if(line.trim().equals("}")){
-																line = reader.readLine();
-																if(line.trim().equals("}")) break;
-															}else System.out.println("This product is not in the available product list.");
-														}
-													}else System.out.println("There is no product type.");//TYPE KLEINEI
-												}
-											}//{ KLEINEI
-										}
-									}//ITEM KLEINEI
+									if(line != null){
+										if (line.trim().startsWith("ITEM")) {
+											System.out.println("eide to item");
+											line = reader.readLine();
+											System.out.println("2");
+											if (line != null){
+												if (line.trim().equals("{")) {
+													line = reader.readLine();
+													if(line != null){
+														if(line.trim().startsWith("TYPE:")){
+															System.out.println("3");
+															//line = reader.readLine();
+															if(line != null){
+																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	product = new RAM();
+																	readRAM(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	product = new CPU();
+																	readCPU(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	product = new GPU();
+																	readGPU(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	product = new HardDrive();
+																	readHARDDRIVE(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	product = new Motherboard();
+																	readMOTHERBOARD(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	product = new Keyboard();
+																	readKEYBOARD(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	product = new Mouse();
+																	readMOUSE(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	product = new Screen();
+																	readMONITOR(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	product = new Printer();
+																	readPRINTER(1);
+																}else if(line.trim().equals("}")){
+																	line = reader.readLine();
+																	if(line.trim().equals("}")) break;
+																}else System.out.println("This product is not in the available product list.");
+															}
+														}else System.out.println("There is no product type.");//TYPE KLEINEI
+													}
+												}//{ KLEINEI
+											}
+										}//ITEM KLEINEI
+									}
 								}
 							}//{ KLEINEI
 						}
@@ -130,55 +132,63 @@ public class TextReader{
 			if(line !=null){
 				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
-					if (line.trim().equalsIgnoreCase("ORDER_LIST")) {
+					System.out.println("1");
+					if (line.trim().startsWith("ORDER_LIST")) {
 						line = reader.readLine();
+						System.out.println("2");
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
+								System.out.println("3");
 								while(line != null){
-									if (line.trim().equalsIgnoreCase("ORDER")) {
+									if (line.trim().startsWith("ORDER")) {
 										line = reader.readLine();
+										System.out.println("4");
 										if (line != null){
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
+												System.out.println("5");
 												if(line != null){
-													if(line.trim().equalsIgnoreCase("TYPE: ")){
-														line = reader.readLine();
-														if(line != null){
-															if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																product = new RAM();
-																readRAM(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																product = new CPU();
-																readCPU(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																product = new GPU();
-																readGPU(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																product = new HardDrive();
-																readHARDDRIVE(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																product = new Motherboard();
-																readMOTHERBOARD(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																product = new Keyboard();
-																readKEYBOARD(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																product = new Mouse();
-																readMOUSE(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																product = new Screen();
-																readMONITOR(2);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																product =  new Printer();
-																readPRINTER(2);
-																//readPRINTER(3);
-															}else if(line.trim().equals("}")){
-																line = reader.readLine();
-																if(line.trim().equals("}")) break;
-															}else System.out.println("This product is not in the available product list.");
-														}
-													}//TYPE KLEINEI
+													System.out.println("6");
+													while(line.trim().startsWith("}")){
+														if(line.trim().startsWith("TYPE: ")){
+															System.out.println("7");
+															if(line != null){
+																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	product = new RAM();
+																	readRAM(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	product = new CPU();
+																	readCPU(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	product = new GPU();
+																	readGPU(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	product = new HardDrive();
+																	readHARDDRIVE(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	product = new Motherboard();
+																	readMOTHERBOARD(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	product = new Keyboard();
+																	readKEYBOARD(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	product = new Mouse();
+																	readMOUSE(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	product = new Screen();
+																	readMONITOR(2);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	product =  new Printer();
+																	readPRINTER(2);
+																	//readPRINTER(3);
+																}else if(line.trim().equals("}")){
+																	line = reader.readLine();
+																	if(line.trim().equals("}")) break;
+																}else System.out.println("This product is not in the available product list.");
+															}
+														}//TYPE KLEINEI
+													}
 												}
 											}// { KLEINEI 
 										}
@@ -216,19 +226,19 @@ public class TextReader{
 			if (line !=null){
 				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
-					if (line.trim().equalsIgnoreCase("SALES_LIST")) {
+					if (line.trim().startsWith("SALES_LIST")) {
 						line = reader.readLine();
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
 								while(line != null){
-									if (line.trim().equalsIgnoreCase("SOLD")) {
+									if (line.trim().startsWith("SOLD")) {
 										line = reader.readLine();
 										if (line != null){
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													if(line.trim().equalsIgnoreCase("TYPE: ")){
+													if(line.trim().startsWith("TYPE: ")){
 														line = reader.readLine();
 														if(line != null){
 															if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
@@ -292,34 +302,34 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((RAM)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((RAM)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((RAM)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((RAM)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("MODEL_TYPE: ")) {
-						((RAM)product).setType(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("SIZE: ")) {
-						((RAM)product).setSize(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("SPEED: ")){
-						((RAM)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((RAM)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((RAM)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((RAM)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((RAM)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("MODEL_TYPE: ")) {
+						((RAM)product).setType(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("SIZE: ")) {
+						((RAM)product).setSize(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("SPEED: ")){
+						((RAM)product).setSpeed(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 				}
 				stk.setThing(product);
@@ -335,32 +345,32 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((CPU)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((CPU)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((CPU)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((CPU)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("SPEED: ")) {
-						((CPU)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("CORES: ")){
-						((CPU)product).setCoreCount(Integer.parseInt(line.substring(7).trim()));
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((CPU)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((CPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((CPU)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((CPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("SPEED: ")) {
+						((CPU)product).setSpeed(Double.parseDouble(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("CORES: ")){
+						((CPU)product).setCoreCount(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -377,32 +387,32 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((GPU)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((GPU)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((GPU)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((GPU)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("CHIPSET: ")) {
-						((GPU)product).setChipset(line.substring(9).trim());
-					}else if(line.trim().equalsIgnoreCase("MEMORY: ")) {
-						((GPU)product).setMemory(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((GPU)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((GPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((GPU)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((GPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("CHIPSET: ")) {
+						((GPU)product).setChipset(line.trim().substring(9).trim());
+					}else if(line.trim().startsWith("MEMORY: ")) {
+						((GPU)product).setMemory(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -419,34 +429,34 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((HardDrive)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((HardDrive)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((HardDrive)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((HardDrive)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("TYPE: ")) {
-						((HardDrive)product).setType(line.substring(6).trim());
-					}else if(line.trim().equalsIgnoreCase("WIDTH: ")) {
-						((HardDrive)product).setWidth(Double.parseDouble(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("SIZE: ")) {
-						((HardDrive)product).setSize(Integer.parseInt(line.substring(6).trim()));
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((HardDrive)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((HardDrive)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((HardDrive)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((HardDrive)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("TYPE: ")) {
+						((HardDrive)product).setType(line.trim().substring(6).trim());
+					}else if(line.trim().startsWith("WIDTH: ")) {
+						((HardDrive)product).setWidth(Double.parseDouble(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("SIZE: ")) {
+						((HardDrive)product).setSize(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -463,34 +473,34 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((Motherboard)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((Motherboard)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((Motherboard)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((Motherboard)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("CHIP: ")) {
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((Motherboard)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((Motherboard)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((Motherboard)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((Motherboard)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("CHIP: ")) {
 						((Motherboard)product).setChip(line.substring(6).trim());
-					}else if(line.trim().equalsIgnoreCase("SIZE: ")) {
-						((Motherboard)product).setRAMSize(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("GATES: ")) {
-						((Motherboard)product).setExpansionSlots(Integer.parseInt(line.substring(7).trim()));
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					}else if(line.trim().startsWith("SIZE: ")) {
+						((Motherboard)product).setRAMSize(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("GATES: ")) {
+						((Motherboard)product).setExpansionSlots(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -507,40 +517,40 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((Screen)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((Screen)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((Screen)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((Screen)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("TYPE: ")) {
-						((Screen)product).setType(line.substring(6).trim());
-					}else if(line.trim().equalsIgnoreCase("SIZE: ")) {
-						((Screen)product).setSize(Double.parseDouble(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("HDMIPORT: ")) {
-						((Screen)product).setHDMIport(Integer.parseInt(line.substring(10).trim()));
-					}else if(line.trim().equalsIgnoreCase("DVIPORT: ")) {
-						((Screen)product).setDVIport(Integer.parseInt(line.substring(9).trim()));
-					}else if(line.trim().equalsIgnoreCase("COMPOSITEPORT: ")) {
-						((Screen)product).setCOMPOSITEport(Integer.parseInt(line.substring(15).trim()));
-					}else if(line.trim().equalsIgnoreCase("RESOLUSION: ")) {
-						((Screen)product).setResolution(line.substring(12).trim());
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((Screen)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((Screen)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((Screen)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((Screen)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("TYPE: ")) {
+						((Screen)product).setType(line.trim().substring(6).trim());
+					}else if(line.trim().startsWith("SIZE: ")) {
+						((Screen)product).setSize(Double.parseDouble(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("HDMIPORT: ")) {
+						((Screen)product).setHDMIport(Integer.parseInt(line.trim().substring(10).trim()));
+					}else if(line.trim().startsWith("DVIPORT: ")) {
+						((Screen)product).setDVIport(Integer.parseInt(line.trim().substring(9).trim()));
+					}else if(line.trim().startsWith("COMPOSITEPORT: ")) {
+						((Screen)product).setCOMPOSITEport(Integer.parseInt(line.trim().substring(15).trim()));
+					}else if(line.trim().startsWith("RESOLUSION: ")) {
+						((Screen)product).setResolution(line.trim().substring(12).trim());
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -557,30 +567,30 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((Keyboard)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((Keyboard)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((Keyboard)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((Keyboard)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("CONNECTION: ")) {
-						((Keyboard)product).setConnection(line.substring(12).trim());
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((Keyboard)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((Keyboard)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((Keyboard)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((Keyboard)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("CONNECTION: ")) {
+						((Keyboard)product).setConnection(line.trim().substring(12).trim());
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -597,32 +607,32 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((Mouse)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((Mouse)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((Mouse)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((Mouse)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("TECHNOLOGY: ")) {
-						((Mouse)product).setTechnology(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("CONNECTION: ")) {
-						((Mouse)product).setConnection(line.substring(12).trim());
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((Mouse)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((Mouse)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((Mouse)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((Mouse)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("TECHNOLOGY: ")) {
+						((Mouse)product).setTechnology(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("CONNECTION: ")) {
+						((Mouse)product).setConnection(line.trim().substring(12).trim());
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}
@@ -639,32 +649,32 @@ public class TextReader{
 			while(true){
 				line = reader.readLine();
 				if(line != null){
-					if (line.trim().equalsIgnoreCase("MODEL_NAME: ")) {
-						((Printer)product).setmodelName(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("YEAR: ")) {
-						((Printer)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
-					}else if(line.trim().equalsIgnoreCase("MANUFACTURER: ")){
-						((Printer)product).setManufacturer(line.substring(14).trim());
-					}else if(line.trim().equalsIgnoreCase("PRICE: ")){
-						((Printer)product).setPrice(Integer.parseInt(line.substring(7).trim()));
-					}else if(line.trim().equalsIgnoreCase("TECHNOLOGY: ")) {
-						((Printer)product).setTechnology(line.substring(12).trim());
-					}else if(line.trim().equalsIgnoreCase("PRINTER_TYPE: ")) {
-						((Printer)product).setPrintingType(line.substring(14).trim());
-					}else if(num == 1 && line.trim().equalsIgnoreCase("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.substring(8).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("NAME: ")){
-						ord.setName(line.substring(6).trim());
-					}else if(num == 2 && line.trim().equalsIgnoreCase("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.substring(7).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.substring(13).trim()));
-					}else if(num == 2 && line.trim().equalsIgnoreCase("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.substring(14).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("NAME: ")){
-						sl.setName(line.substring(6).trim());
-					}else if(num == 3 && line.trim().equalsIgnoreCase("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.substring(7).trim()));
+					if (line.trim().startsWith("MODEL_NAME: ")) {
+						((Printer)product).setmodelName(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("YEAR: ")) {
+						((Printer)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+					}else if(line.trim().startsWith("MANUFACTURER: ")){
+						((Printer)product).setManufacturer(line.trim().substring(14).trim());
+					}else if(line.trim().startsWith("PRICE: ")){
+						((Printer)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+					}else if(line.trim().startsWith("TECHNOLOGY: ")) {
+						((Printer)product).setTechnology(line.trim().substring(12).trim());
+					}else if(line.trim().startsWith("PRINTER_TYPE: ")) {
+						((Printer)product).setPrintingType(line.trim().substring(14).trim());
+					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+					}else if(num == 2 && line.trim().startsWith("NAME: ")){
+						ord.setName(line.trim().substring(6).trim());
+					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+						ord.setExpectedDate(line.trim().substring(14).trim());
+					}else if(num == 3 && line.trim().startsWith("NAME: ")){
+						sl.setName(line.trim().substring(6).trim());
+					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
 					}else break;
 					
 				}

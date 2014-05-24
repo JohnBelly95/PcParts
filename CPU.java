@@ -14,7 +14,7 @@ public class CPU extends Hardware{
     public double getSpeed(){
         return Speed;
     }
-    public void setSpeed(int Speed){
+    public void setSpeed(double Speed){
         this.Speed = Speed;
     }
     public int getCoreCount(){
