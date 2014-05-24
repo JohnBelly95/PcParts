@@ -29,28 +29,22 @@ public class TextReader{
 		try{
 			line = reader.readLine();
 			if(line !=null){
-				System.out.println("The file has opened.lalala");
+				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
-					System.out.println("bhke");
 					if (line.trim().startsWith("STOCK_LIST")) {
 						line = reader.readLine();
-						System.out.println("ksanabhke");
 						if (line != null){
 							if (line.trim().equals("{")) {
-								System.out.println("ksanabhke");
-								//line = reader.readLine();
 								while(line != null){
-									System.out.println("skase");
 									line = reader.readLine();
 									if(line != null){
 										if (line.trim().startsWith("ITEM")) {
-											System.out.println("eide to item");
 											line = reader.readLine();
-											System.out.println("2");
 											if (line != null){
 												if (line.trim().equals("{")) {
 													line = reader.readLine();
 													if(line != null){
+<<<<<<< HEAD
 														while(line != "}"){
 															if(line.trim().startsWith("TYPE:")){
 																System.out.println("3");
@@ -98,6 +92,43 @@ public class TextReader{
 														}
 														line = reader.readLine();
 														if(line.trim().equals("}")) break;
+=======
+														if(line.trim().startsWith("TYPE:")){
+															if(line != null){
+																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	product = new RAM();
+																	readRAM(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	product = new CPU();
+																	readCPU(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	product = new GPU();
+																	readGPU(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	product = new HardDrive();
+																	readHARDDRIVE(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	product = new Motherboard();
+																	readMOTHERBOARD(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	product = new Keyboard();
+																	readKEYBOARD(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	product = new Mouse();
+																	readMOUSE(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	product = new Screen();
+																	readMONITOR(1);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	product = new Printer();
+																	readPRINTER(1);
+																}else if(line.trim().equals("}")){
+																	line = reader.readLine();
+																	if(line.trim().equals("}")) break;
+																}else System.out.println("This product is not in the available product list.");
+															}
+														}else System.out.println("There is no product type.");//TYPE KLEINEI
+>>>>>>> b1a036383de6b3e6b35e0cae1bbdbce732ef4a5e
 													}
 												}//{ KLEINEI
 											}
@@ -121,12 +152,6 @@ public class TextReader{
 	}
 
 	public void OrderTextReader(List<Order> orderList){
-		/*try{
-			elegxos an oi paraggelies perilamvanontai sta diathesima proionta
-		}
-		catch(){
-			eidopoihsh
-		}*/
 		try {
 			f = new File("ORDER_LIST.txt");
 		} catch (NullPointerException e) {
@@ -331,7 +356,7 @@ public class TextReader{
 		}
 	}
 	
-	public void readRAM(int num){//  RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAAAAAAAAAM
+	public void readRAM(int num){      //      R  A  M
 		try{
 			while(true){
 				line = reader.readLine();
@@ -364,6 +389,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 				}
 				stk.setThing(product);
@@ -405,6 +432,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -447,6 +476,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -491,6 +522,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -535,6 +568,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -585,6 +620,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -625,6 +662,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -667,6 +706,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -709,6 +750,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}

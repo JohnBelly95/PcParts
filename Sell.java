@@ -22,9 +22,8 @@ public class Sell extends PcParts{
 		this.name = name;
 		this.phone = phone;
 		this.fp = fp;
-		Date today = new Date();					//??einai ok??
-		String sellDate = formatter.format(today); //??einai ok??
-		System.out.println(sellDate);            // THA TO SVHSW!!!!!!!!!!
+		Date today = new Date();
+		String sellDate = formatter.format(today);
 		saleNo++;
 	}
 	

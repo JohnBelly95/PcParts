@@ -33,9 +33,9 @@ public class mainApp{
 	}
 	public static void createStock(){	//Edw tha mpoune ta FileReader. Ena gia to kathena.
 		
-		tr.StockTextReader(shopStock);
+		/*tr.StockTextReader(shopStock);
 		tr.OrderTextReader(ordersList);
-		tr.SoldTextReader(soldList);
+		tr.SoldTextReader(soldList);*/
 		//Starting Stock goes here		
 		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);

@@ -4,15 +4,14 @@
 
 -otan epeksergazomai mia order kai ths allazw to status,ok tin prosthetei sta sales alla paramenei sta orders(prepei na diagrafetai apta orders)
 
--den meiwnoume to stock otan kanoume mia pwlhsh
-
 -182 : DEN STAMATAEI NA KANEI TO PRINTLN
 
 -model name prob 252 mainApp ekxwreitai ws space
 
 -type hard drive ekxwreitai ws null
  
--na checkaroume me printlnth methodo date se order/sell
+-na checkaroume me printlnth methodo date se order/sell  -- -- > 25-May-2014
+-arrival date de dexetai kena
 
 -screen ports , string or int?
 
@@ -25,4 +24,6 @@ ITEM_TYPE, MODEL και PRICE είναι υποχρεωτικό να υπάρχουν. Αν δεν υπάρχουν, το
 Προσέξτε ότι για να δημιουργηθεί και αρχικοποιηθεί στιγμιότυπο από την κατάλληλη κλάση, πρέπει
 να διαβαστεί πρώτα το tag ΙΤΕΜ_TYPE. Όμως, το συγκεκριμένο tag μπορεί να μην είναι το πρώτο
 που συναντάτε μέσα στην οντότητα ΙΤΕΜ.
+
+-i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metavlhtes
 
