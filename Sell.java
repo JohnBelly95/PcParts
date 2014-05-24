@@ -49,13 +49,6 @@ public class Sell extends PcParts{
 		this.fp = fp;
 	}
 	
-	public Date getDate(){
-		return date;
-	}
-	public void setDate(Date date){
-		this.date = date;
-	}
-	
 	public int getSaleNo(){
 		return saleNo;
 	}

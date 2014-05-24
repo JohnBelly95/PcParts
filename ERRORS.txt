@@ -18,3 +18,5 @@
 -sell / order na dw tis date metavlites
 
 -reader.close(); !!!!!!!
+ 
+-na checkaroume me printlnth methodo date se get/sell
