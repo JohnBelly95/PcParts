@@ -14,14 +14,15 @@ public class TextReader{
 	public void StockTextReader(List<Stock> stockList){
 		try{
 			line = reader.readLine();
-			while (line !=null){
+			if(line !=null){
+				System.out.println("The file has opened");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equals("STOCK_LIST")) {
 						line = reader.readLine();
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
-								if (line != null){
+								while(line != null){
 									if (line.trim().equals("ITEM")) {
 										line = reader.readLine();
 										if (line != null){
@@ -52,13 +53,16 @@ public class TextReader{
 															}else if(line.trim().equals("MOUSE")){
 																product = new Mouse();
 																readMOUSE(1);
-															}else if(line.trim(1).equals("MONITOR")){
+															}else if(line.trim().equals("MONITOR")){
 																product = new Screen();
 																readMONITOR();
-															}else if(line.trim(1).equals("PRINTER")){
+															}else if(line.trim().equals("PRINTER")){
 																product = new Printer();
 																readPRINTER();
-															}else break;
+															}else if(line.trim().equals("}")){
+																line = reader.readLine();
+																if(line.trim().equals("}")) break;
+															}
 														}
 													}//TYPE KLEINEI
 												}
@@ -87,14 +91,15 @@ public class TextReader{
 
 		try{
 			line = reader.readLine();
-			while (line !=null){
+			if(line !=null){
+				System.out.println("The file has opened");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equals("ORDER_LIST")) {
 						line = reader.readLine();
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
-								if (line != null){
+								while(line != null){
 									if (line.trim().equals("ORDER")) {
 										line = reader.readLine();
 										if (line != null){
@@ -131,6 +136,9 @@ public class TextReader{
 															}else if(line.trim().substring(6).trim().equals("PRINTER")){
 																product =  new Printer();
 																readPRINTER(3);
+															}else if(line.trim().equals("}")){
+																line = reader.readLine();
+																if(line.trim().equals("}")) break;
 															}
 														}
 													}//TYPE KLEINEI
@@ -145,20 +153,24 @@ public class TextReader{
 				}
 			}
 		}
+		catch(IOException e){
+			System.err.println("An IOException was caught");
+		}
 	}
 
 	public void SoldTextReader(List<Sell> soldList){
 		this.soldList = soldList;
 		try{
 			line = reader.readLine();
-			while (line !=null){
+			if(line !=null){
+				System.out.println("File is opened");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equals("SOLD_LIST")) {
 						line = reader.readLine();
 						if (line != null){
 							if (line.trim().equals("{")) {
 								line = reader.readLine();
-								if (line != null){
+								while(line != null){
 									if (line.trim().equals("SOLD")) {
 										line = reader.readLine();
 										if (line != null){
@@ -195,7 +207,10 @@ public class TextReader{
 															}else if(line.trim().substring(6).trim().equals("PRINTER")){
 																product =  new Printer();
 																readPRINTER(3);
-															}else break;
+															}else if(line.trim().equals("}")){
+																line = reader.readLine();
+																if(line.trim().equals("}")) break;
+															}
 														}
 													}//TYPE KLEINEI
 												}
@@ -565,5 +580,4 @@ public class TextReader{
 			}
 		}
 	}
-}
 }
