@@ -13,7 +13,7 @@ public class TextReader2{
 	Order ord = new Order();
 	Sell sl = new Sell();
 	File f = null;
-	Map<String,String> map = new Map<String,String>;
+	Map<String,String> map = new HashMap<String,String>();
 	
 	public void StockTextReader(List<Stock> stockList){
 		try {
@@ -88,6 +88,9 @@ public class TextReader2{
 					}
 				}
 			}
+		}catch(IOException e){
+			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readCPU(int i){
