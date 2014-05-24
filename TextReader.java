@@ -50,44 +50,36 @@ public class TextReader{
 																System.out.println("3");
 																if(line != null){
 																	if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																		reader.reset();
 																		product = new RAM();
 																		readRAM(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																		reader.reset();
 																		product = new CPU();
 																		readCPU(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																		reader.reset();
 																		product = new GPU();
 																		readGPU(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																		reader.reset();
 																		product = new HardDrive();
 																		readHARDDRIVE(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																		reader.reset();
 																		product = new Motherboard();
 																		readMOTHERBOARD(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																		reader.reset();
 																		product = new Keyboard();
 																		readKEYBOARD(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																		reader.reset();
 																		product = new Mouse();
 																		readMOUSE(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																		reader.reset();
 																		product = new Screen();
 																		readMONITOR(1);
 																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																		reader.reset();
 																		product = new Printer();
 																		readPRINTER(1);
 																	}else System.out.println("This product is not in the available product list.");
 																}
 															}else System.out.println("There is no product type.");//TYPE KLEINEI
+															line = reader.readLine();
 														}
 														line = reader.readLine();
 														if(line.trim().equals("}")) break;
@@ -156,39 +148,30 @@ public class TextReader{
 															System.out.println("7");
 															if(line != null){
 																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																	reader.reset();
 																	product = new RAM();
 																	readRAM(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																	reader.reset();
 																	product = new CPU();
 																	readCPU(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																	reader.reset();
 																	product = new GPU();
 																	readGPU(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																	reader.reset();
 																	product = new HardDrive();
 																	readHARDDRIVE(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																	reader.reset();
 																	product = new Motherboard();
 																	readMOTHERBOARD(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																	reader.reset();
 																	product = new Keyboard();
 																	readKEYBOARD(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																	reader.reset();
 																	product = new Mouse();
 																	readMOUSE(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																	reader.reset();
 																	product = new Screen();
 																	readMONITOR(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																	reader.reset();
 																	product =  new Printer();
 																	readPRINTER(2);
 																}else System.out.println("This product is not in the available product list.");
@@ -255,39 +238,30 @@ public class TextReader{
 															line = reader.readLine();
 															if(line != null){
 																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																	reader.reset();
 																	product = new RAM();
 																	readRAM(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																	reader.reset();
 																	product = new CPU();
 																	readCPU(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																	reader.reset();
 																	product = new GPU();
 																	readGPU(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																	reader.reset();
 																	product = new HardDrive();
 																	readHARDDRIVE(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																	reader.reset();
 																	product = new Motherboard();
 																	readMOTHERBOARD(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																	reader.reset();
 																	product = new Keyboard();
 																	readKEYBOARD(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																	reader.reset();
 																	product = new Mouse();
 																	readMOUSE(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																	reader.reset();
 																	product = new Screen();
 																	readMONITOR(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																	reader.reset();
 																	product =  new Printer();
 																	readPRINTER(3);
 																}else System.out.println("This product is not in the available product list.");
@@ -320,6 +294,7 @@ public class TextReader{
 	
 	public void readRAM(int num){      //      R  A  M
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -366,7 +341,8 @@ public class TextReader{
 	}
 	public void readCPU(int num){  //           C     P     U
 		try{
-			while(true){
+			reader.reset();
+			while(line != "}"){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
@@ -411,6 +387,7 @@ public class TextReader{
 	}
 	public void readGPU(int num){ //                         G         P         U
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -456,6 +433,7 @@ public class TextReader{
 	}
 	public void readHARDDRIVE(int num){ //               H   A   R   D   D   R   I   V   E
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -503,6 +481,8 @@ public class TextReader{
 	}
 	public void readMOTHERBOARD(int num){  //           M   O   T   H   E   R   B   O   A   R   D
 		try{
+			reader.reset();
+			System.out.println("1");
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -550,6 +530,7 @@ public class TextReader{
 	}
 	public void readMONITOR(int num){  //                           S   C   R   E   E   N
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -603,6 +584,7 @@ public class TextReader{
 	}
 	public void readKEYBOARD(int num){         //                       K   E   Y   B   O   A   R   D
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -646,6 +628,7 @@ public class TextReader{
 	}
 	public void readMOUSE(int num){ //                  M  O  U  S  E
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -691,6 +674,7 @@ public class TextReader{
 	}
 	public void readPRINTER(int num){ //                         P   R   I   N   T   E   R
 		try{
+			reader.reset();
 			while(true){
 				line = reader.readLine();
 				if(line != null){
