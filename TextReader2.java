@@ -45,7 +45,8 @@ public class TextReader2{
 									while(line != "}"){
 										line = reader.readLine();
 										String split[] = line.trim().split(":").trim();
-										map.put(split[1],split[2]);
+										split[0] = split[0].toUpperCase();
+										map.put(split[0],split[1]);
 									}
 									if(map.containsKey("TYPE")){
 										if(map.get("TYPE").equalsIgnoreCase("CPU")){
