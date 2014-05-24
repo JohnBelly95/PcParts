@@ -66,6 +66,7 @@ public class Screen extends Peripherals{
 	}
 	
 	
+	
 	public String toString(){
 		System.out.println("===============================================================");
 		return("This is an " + getManufacturer() + " " + getmodelName() + " Screen from " + getmodelYear() +" , with " + Type + " type , " + Size + " inches , " +Resolution+ " pixels resolution , " +HDMIport+ " HDMI ports , " +DVIport+ " DVI ports and " +COMPOSITEport+ " Compose ports "  +". It's price is " + getPrice() + " Euros.");
