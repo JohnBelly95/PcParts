@@ -165,7 +165,7 @@ public class TextReader{
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													if(line.trim().equals("TYPE: "){
+													if(line.trim().equals("TYPE: ")){
 														line = reader.readLine();
 														if(line != null){
 															if(line.trim().substring(6).trim().equals("RAM")){
@@ -215,7 +215,7 @@ public class TextReader{
 		catch(IOException e){
 			System.err.println("An IOException was caught");
 		}
-		return
+		//return
 	}
 	
 	public void readRAM(int num){//  RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAAAAAAAAAM
@@ -231,7 +231,7 @@ public class TextReader{
 					((RAM)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((RAM)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((RAM)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("MODEL_TYPE: ")) {
 					((RAM)product).setmodelType(line.substring(12).trim());
@@ -270,7 +270,7 @@ public class TextReader{
 					((CPU)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((CPU)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((CPU)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("SPEED: ")) {
 					((CPU)product).setSpeed(Integer.parseInt(line.substring(7).trim()));
@@ -286,9 +286,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -308,7 +308,7 @@ public class TextReader{
 					((GPU)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((GPU)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((GPU)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("CHIPSET: ")) {
 					((GPU)product).setChipset(line.substring(9).trim());
@@ -324,9 +324,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -353,7 +353,7 @@ public class TextReader{
 				}else if(line.trim().equals("WIDTH: ")) {
 					((Harddrive)product).setWidth(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("SIZE: ")) {
-					((Harddrive)product).setSize(Integer.parseInt(line.substring(6).trim())));
+					((Harddrive)product).setSize(Integer.parseInt(line.substring(6).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
 					stk.setsavailableStock(line.substring(8).trim());
 				}else if(num == 2 && line.trim().equals("NAME: ")){
@@ -386,14 +386,14 @@ public class TextReader{
 					((Motherboard)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Motherboard)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Motherboard)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("CHIP: ")) {
 					((Motherboard)product).setChip(line.substring(6).trim());
 				}else if(line.trim().equals("SIZE: ")) {
 					((Motherboard)product).setRAMSize(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("GATES: ")) {
-					((Motherboard)product).setExpansionSlots(Integer.parseInt(line.substring(7).trim())));
+					((Motherboard)product).setExpansionSlots(Integer.parseInt(line.substring(7).trim()));
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
 					stk.setsavailableStock(line.substring(8).trim());
 				}else if(num == 2 && line.trim().equals("NAME: ")){
@@ -404,9 +404,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -433,7 +433,7 @@ public class TextReader{
 				}else if(line.trim().equals("SIZE: ")) {
 					((Screen)product).setSize(Double.parseDouble(line.substring(6).trim()));
 				}else if(line.trim().equals("PORTS: ")) {
-					((Screen)product).setPorts(Integer.parseInt(line.substring(7).trim())));
+					((Screen)product).setPorts(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("RESOLUSION: ")) {
 					((Screen)product).setResolution(line.substring(12).trim());
 				}else if(num == 1 && line.trim().equals("PIECES: ")){
@@ -542,7 +542,7 @@ public class TextReader{
 					((Printer)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Printer)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Printer)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("TECHNOLOGY: ")) {
 					((Printer)product).setTechnology(line.substring(12).trim());
@@ -558,7 +558,7 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
 				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
