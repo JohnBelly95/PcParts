@@ -33,9 +33,9 @@ public class mainApp{
 	}
 	public static void createStock(){	//Edw tha mpoune ta FileReader. Ena gia to kathena.
 		
-		/*tr.StockTextReader(shopStock);
+		tr.StockTextReader(shopStock);
 		tr.OrderTextReader(ordersList);
-		tr.SoldTextReader(soldList);*/
+		tr.SoldTextReader(soldList);
 		//Starting Stock goes here		
 		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
@@ -231,7 +231,8 @@ public class mainApp{
 					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
-					soldList.add(sl);	
+					soldList.add(sl);
+					ordersList.remove(reply-1);
 				}
 				break;
 			}
@@ -259,7 +260,7 @@ public class mainApp{
 			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				input.nextLine();				//?????????????????????????????????????
+				//input.nextLine();				//?????????????????????????????????????
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");

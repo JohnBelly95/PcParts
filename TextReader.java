@@ -42,13 +42,12 @@ public class TextReader{
 											line = reader.readLine();
 											if (line != null){
 												if (line.trim().equals("{")) {
+													reader.mark(1000);
 													line = reader.readLine();
 													if(line != null){
-<<<<<<< HEAD
 														while(line != "}"){
 															if(line.trim().startsWith("TYPE:")){
 																System.out.println("3");
-																//line = reader.readLine();
 																if(line != null){
 																	if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
 																		reader.reset();
@@ -92,43 +91,7 @@ public class TextReader{
 														}
 														line = reader.readLine();
 														if(line.trim().equals("}")) break;
-=======
-														if(line.trim().startsWith("TYPE:")){
-															if(line != null){
-																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																	product = new RAM();
-																	readRAM(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																	product = new CPU();
-																	readCPU(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																	product = new GPU();
-																	readGPU(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																	product = new HardDrive();
-																	readHARDDRIVE(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																	product = new Motherboard();
-																	readMOTHERBOARD(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																	product = new Keyboard();
-																	readKEYBOARD(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																	product = new Mouse();
-																	readMOUSE(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																	product = new Screen();
-																	readMONITOR(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																	product = new Printer();
-																	readPRINTER(1);
-																}else if(line.trim().equals("}")){
-																	line = reader.readLine();
-																	if(line.trim().equals("}")) break;
-																}else System.out.println("This product is not in the available product list.");
-															}
-														}else System.out.println("There is no product type.");//TYPE KLEINEI
->>>>>>> b1a036383de6b3e6b35e0cae1bbdbce732ef4a5e
+														//TYPE KLEINEI*/
 													}
 												}//{ KLEINEI
 											}
@@ -143,6 +106,7 @@ public class TextReader{
 		}
 		catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 		try {
 			reader.close();
@@ -227,7 +191,6 @@ public class TextReader{
 																	reader.reset();
 																	product =  new Printer();
 																	readPRINTER(2);
-																	//readPRINTER(3);
 																}else System.out.println("This product is not in the available product list.");
 															}
 														}else line = reader.readLine();//TYPE KLEINEI
@@ -247,6 +210,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 		try {
 			reader.close();
@@ -341,13 +305,11 @@ public class TextReader{
 							}//{ KLEINEI
 						}
 					}//STOCK_LIST KLEINEI
-					/*if(line.trim().equals("}"){
-						line = reader.readLine();
-					}*/
 				}
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 		try {
 			reader.close();
@@ -399,6 +361,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readCPU(int num){  //           C     P     U
@@ -443,6 +406,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readGPU(int num){ //                         G         P         U
@@ -487,6 +451,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readHARDDRIVE(int num){ //               H   A   R   D   D   R   I   V   E
@@ -533,6 +498,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readMOTHERBOARD(int num){  //           M   O   T   H   E   R   B   O   A   R   D
@@ -579,6 +545,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readMONITOR(int num){  //                           S   C   R   E   E   N
@@ -631,6 +598,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readKEYBOARD(int num){         //                       K   E   Y   B   O   A   R   D
@@ -673,6 +641,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readMOUSE(int num){ //                  M  O  U  S  E
@@ -717,6 +686,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	public void readPRINTER(int num){ //                         P   R   I   N   T   E   R
@@ -761,6 +731,7 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 }
