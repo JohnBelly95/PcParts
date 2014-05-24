@@ -1,4 +1,3 @@
-//skeutomai na ftiaksoume 9 antikeimena kai meta me tis set na tous dinoume tis times tous mia mia alla dn kserw pws h klassh 8a gurnaei to antikeimeno molis fiaxtei
 import java.io.*;
 import java.util.*;
 
@@ -101,14 +100,48 @@ public class TextReader{
 										if (line != null){
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
-												//anagnorisi metavlitwn
-											}
+												if(line != null){
+													if(line.trim().equals("TYPE: "){
+														line = reader.readLine();
+														if(line != null){
+															if(line.trim().substring(6).trim().equals("RAM"){
+																product = new RAM();
+																readRAM(3);
+															}else if(line.trim().substring(6).trim().equals("CPU"){
+																product = new CPU();
+																readCPU(3);
+															}else if(line.trim().substring(6).trim().equals("GPU"){
+																product = new GPU();
+																readGPU(3);
+															}else if(line.trim().substring(6).trim().equals("HARDDRIVE"){
+																product = new HardDrive();
+																readHARDDRIVE(3);
+															}else if(line.trim().substring(6).trim().equals("MOTHERBOARD"){
+																product = new Motherboard();
+																readMOTHERBOARD(3);
+															}else if(line.trim().substring(6).trim().equals("KEYBOARD"){
+																product = new Keyboard();
+																readKEYBOARD(3);
+															}else if(line.trim().substring(6).trim().equals("MOUSE"){
+																product = new Mouse();
+																readMOUSE(3);
+															}else if(line.trim().substring(6).trim().equals("MONITOR"){
+																product = new Screen();
+																readMONITOR(3);
+															}else if(line.trim().substring(6).trim().equals("PRINTER"){
+																product =  new Printer();
+																readPRINTER(3);
+															}
+														}
+													}//TYPE KLEINEI
+												}
+											}// { KLEINEI 
 										}
-									}
+									}// ORDER KLEINEI 
 								}
-							}
+							}// { KLEINEI
 						}
-					}
+					}// ORDER_LIST KLEINEI 
 				}
 			}
 		}
@@ -180,7 +213,7 @@ public class TextReader{
 			}
 		}
 		catch(IOException e){
-			System.err.println("An IOException was caught);
+			System.err.println("An IOException was caught");
 		}
 		return
 	}
