@@ -13,51 +13,23 @@ public class TextReader{
 	Stock stk = new Stock() ;
 	Order ord = new Order();
 	Sell sl = new Sell();
-	
-	/*//dhlwsh k dhmiourgia twn txt
-	File f_stock = null;
-	File f_order = null;
-	File f_sales = null;
-	
-	//finding files
-	try {
-		f_stock = new File(ITEM_LIST.txt);
-	} catch (NullPointerException e) {
-		System.err.println("Item file not found.");
-	}
-	try {
-		f_order = new File(ORDER_LIST.txt);
-	} catch (NullPointerException e) {
-		System.err.println("Order file not found.");
-	}
-	try {
-		f_sales = new File(SALES_LIST.txt);
-	} catch (NullPointerException e) {
-		System.err.println("Sales file not found.");
-	}
-	
-	//opening files
-	try {
-		reader = new BufferedReader(new InputStreamReader(new FileInputStream(f_stock)));
-	} catch (FileNotFoundException e) {
-		System.err.println("Error opening stock file!");
-	}
-	try {
-		reader = new BufferedReader(new InputStreamReader(new FileInputStream(f_order)));
-	} catch (FileNotFoundException e) {
-		System.err.println("Error opening order file!");
-	}
-	try {
-		reader = new BufferedReader(new InputStreamReader(new FileInputStream(f_sales)));
-	} catch (FileNotFoundException e) {
-		System.err.println("Error opening sales file!");
-	}*/
+	File f = null;
 
 	public void StockTextReader(List<Stock> stockList){
+		try {
+			f = new File("ITEM_LIST.txt");
+		} catch (NullPointerException e) {
+			System.err.println("Stock file not found.");
+		}
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+		} catch (FileNotFoundException e) {
+			System.err.println("Error opening stock file!");
+		}
 		try{
 			line = reader.readLine();
 			if(line !=null){
-				System.out.println("The file has opened");
+				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equalsIgnoreCase("STOCK_LIST")) {
 						line = reader.readLine();
@@ -121,6 +93,11 @@ public class TextReader{
 		catch(IOException e){
 			System.err.println("An IOException was caught");
 		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing stock file.");
+		}
 	}
 
 	public void OrderTextReader(List<Order> orderList){
@@ -130,11 +107,20 @@ public class TextReader{
 		catch(){
 			eidopoihsh
 		}*/
-
+		try {
+			f = new File("ORDER_LIST.txt");
+		} catch (NullPointerException e) {
+			System.err.println("Order file not found.");
+		}
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+		} catch (FileNotFoundException e) {
+			System.err.println("Error opening order file!");
+		}
 		try{
 			line = reader.readLine();
 			if(line !=null){
-				System.out.println("The file has opened");
+				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equalsIgnoreCase("ORDER_LIST")) {
 						line = reader.readLine();
@@ -198,14 +184,29 @@ public class TextReader{
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing order file.");
+		}
 	}
 
 	public void SoldTextReader(List<Sell> soldList){
 		this.soldList = soldList;
+		try {
+			f = new File("SALES_LIST.txt");
+		} catch (NullPointerException e) {
+			System.err.println("Sales file not found.");
+		}
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+		} catch (FileNotFoundException e) {
+			System.err.println("Error opening sales file!");
+		}
 		try{
 			line = reader.readLine();
 			if (line !=null){
-				System.out.println("File was opened correctly");
+				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
 					if (line.trim().equalsIgnoreCase("SALES_LIST")) {
 						line = reader.readLine();
@@ -270,6 +271,11 @@ public class TextReader{
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing sales file.");
 		}
 	}
 	
@@ -662,9 +668,4 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 		}
 	}
-	/*try {
-		reader.close();
-	} catch (IOException e) {
-		System.err.println("Error closing file.");
-	}*/
 }
