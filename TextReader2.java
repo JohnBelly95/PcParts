@@ -44,7 +44,7 @@ public class TextReader2{
 								if (line.trim().equals("{")) {
 									while(line != "}"){
 										line = reader.readLine();
-										String split[] = line.trim().split(": ");
+										String split[] = line.trim().split(":").trim();
 										map.put(split[1],split[2]);
 									}
 									if(map.containsKey("TYPE")){
@@ -88,5 +88,12 @@ public class TextReader2{
 				}
 			}
 		}
+	}
+	public void readCPU(int i){
+		product.setmodelName(map.get("MODEL_NAME"));
+		product.setManufacturer(map.get("MANUFACTURER"));
+		product.setPrice(Integer.parseInt(map.get("PRICE")));
+		product.setYear(Integer.parseInt(map.get("YEAR")));
+		
 	}
 }
