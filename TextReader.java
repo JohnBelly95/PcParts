@@ -346,7 +346,7 @@ public class TextReader{
 					((Harddrive)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Harddrive)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Harddrive)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("TYPE: ")) {
 					((Harddrive)product).setType(line.substring(6).trim());
@@ -364,9 +364,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -426,7 +426,7 @@ public class TextReader{
 					((Screen)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Screen)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Screen)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("TYPE: ")) {
 					((Screen)product).setType(line.substring(6).trim());
@@ -446,9 +446,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -468,7 +468,7 @@ public class TextReader{
 					((Keyboard)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Keyboard)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Keyboard)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("CONNECTION: ")) {
 					((Keyboard)product).setConnection(line.substring(12).trim());
@@ -482,9 +482,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
@@ -504,7 +504,7 @@ public class TextReader{
 					((Mouse)product).setmodelYear(Integer.parseInt(line.substring(6).trim()));
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Mouse)product).setManufacturer(line.substring(14).trim());
-				}else if(line.trim().equals("PRICE: "){
+				}else if(line.trim().equals("PRICE: ")){
 					((Mouse)product).setPrice(Double.parseDouble(line.substring(7).trim()));
 				}else if(line.trim().equals("TECHNOLOGY: ")) {
 					((Mouse)product).setTechnology(line.substring(12).trim());
@@ -520,9 +520,9 @@ public class TextReader{
 					ord.setFP(Double.parseDouble(line.substring(13).trim()));
 				}else if(num == 2 && line.trim().equals("ARRIVAL_DATE: ")){
 					ord.setExpectedDate(line.substring(14).trim());
-				}else if(num == 3 && line.trim().equals("NAME: "){
+				}else if(num == 3 && line.trim().equals("NAME: ")){
 					sl.setName(line.substring(6).trim());
-				}else if(num == 3 && line.trim().equals("PHONE: "){
+				}else if(num == 3 && line.trim().equals("PHONE: ")){
 					sl.setPhone(line.substring(7).trim());
 				}else break;
 				
