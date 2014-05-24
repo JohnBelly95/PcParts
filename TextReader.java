@@ -51,43 +51,53 @@ public class TextReader{
 												if (line.trim().equals("{")) {
 													line = reader.readLine();
 													if(line != null){
-														if(line.trim().startsWith("TYPE:")){
-															System.out.println("3");
-															//line = reader.readLine();
-															if(line != null){
-																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																	product = new RAM();
-																	readRAM(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																	product = new CPU();
-																	readCPU(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																	product = new GPU();
-																	readGPU(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																	product = new HardDrive();
-																	readHARDDRIVE(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																	product = new Motherboard();
-																	readMOTHERBOARD(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																	product = new Keyboard();
-																	readKEYBOARD(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																	product = new Mouse();
-																	readMOUSE(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																	product = new Screen();
-																	readMONITOR(1);
-																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																	product = new Printer();
-																	readPRINTER(1);
-																}else if(line.trim().equals("}")){
-																	line = reader.readLine();
-																	if(line.trim().equals("}")) break;
-																}else System.out.println("This product is not in the available product list.");
-															}
-														}else System.out.println("There is no product type.");//TYPE KLEINEI
+														while(line != "}"){
+															if(line.trim().startsWith("TYPE:")){
+																System.out.println("3");
+																//line = reader.readLine();
+																if(line != null){
+																	if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																		reader.reset();
+																		product = new RAM();
+																		readRAM(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																		reader.reset();
+																		product = new CPU();
+																		readCPU(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																		reader.reset();
+																		product = new GPU();
+																		readGPU(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																		reader.reset();
+																		product = new HardDrive();
+																		readHARDDRIVE(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																		reader.reset();
+																		product = new Motherboard();
+																		readMOTHERBOARD(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																		reader.reset();
+																		product = new Keyboard();
+																		readKEYBOARD(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																		reader.reset();
+																		product = new Mouse();
+																		readMOUSE(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																		reader.reset();
+																		product = new Screen();
+																		readMONITOR(1);
+																	}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																		reader.reset();
+																		product = new Printer();
+																		readPRINTER(1);
+																	}else System.out.println("This product is not in the available product list.");
+																}
+															}else System.out.println("There is no product type.");//TYPE KLEINEI
+														}
+														line = reader.readLine();
+														if(line.trim().equals("}")) break;
 													}
 												}//{ KLEINEI
 											}
@@ -142,49 +152,61 @@ public class TextReader{
 								System.out.println("3");
 								while(line != null){
 									if (line.trim().startsWith("ORDER")) {
+										reader.mark(1000);
 										line = reader.readLine();
 										System.out.println("4");
 										if (line != null){
 											if (line.trim().equals("{")) {
+												reader.mark(1000);
 												line = reader.readLine();
 												System.out.println("5");
 												if(line != null){
 													System.out.println("6");
-													while(line.trim().startsWith("}")){
+													while(!line.trim().startsWith("}")){
 														if(line.trim().startsWith("TYPE: ")){
 															System.out.println("7");
 															if(line != null){
 																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	reader.reset();
 																	product = new RAM();
 																	readRAM(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	reader.reset();
 																	product = new CPU();
 																	readCPU(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	reader.reset();
 																	product = new GPU();
 																	readGPU(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	reader.reset();
 																	product = new HardDrive();
 																	readHARDDRIVE(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	reader.reset();
 																	product = new Motherboard();
 																	readMOTHERBOARD(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	reader.reset();
 																	product = new Keyboard();
 																	readKEYBOARD(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	reader.reset();
 																	product = new Mouse();
 																	readMOUSE(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	reader.reset();
 																	product = new Screen();
 																	readMONITOR(2);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	reader.reset();
 																	product =  new Printer();
 																	readPRINTER(2);
 																	//readPRINTER(3);
 																}else System.out.println("This product is not in the available product list.");
 															}
-														}//TYPE KLEINEI
+														}else line = reader.readLine();//TYPE KLEINEI
+														
 													}
 													line = reader.readLine();
 													if(line.trim().equals("}")) break;
@@ -232,48 +254,60 @@ public class TextReader{
 								line = reader.readLine();
 								while(line != null){
 									if (line.trim().startsWith("SOLD")) {
+										reader.mark(1000);
 										line = reader.readLine();
 										if (line != null){
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													while(line != "}"){
-														if(line.trim().startsWith("TYPE: ")){
+													if(line.trim().startsWith("TYPE: ")){
+														while(line != "}"){
+															System.out.println("HI");
 															line = reader.readLine();
 															if(line != null){
 																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	reader.reset();
 																	product = new RAM();
 																	readRAM(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	reader.reset();
 																	product = new CPU();
 																	readCPU(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	reader.reset();
 																	product = new GPU();
 																	readGPU(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	reader.reset();
 																	product = new HardDrive();
 																	readHARDDRIVE(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	reader.reset();
 																	product = new Motherboard();
 																	readMOTHERBOARD(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	reader.reset();
 																	product = new Keyboard();
 																	readKEYBOARD(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	reader.reset();
 																	product = new Mouse();
 																	readMOUSE(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	reader.reset();
 																	product = new Screen();
 																	readMONITOR(3);
 																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	reader.reset();
 																	product =  new Printer();
 																	readPRINTER(3);
 																}else System.out.println("This product is not in the available product list.");
 															}
 														}//TYPE KLEINEI
+														line = reader.readLine();
+														if(line.trim().equals("}")) break;
 													}
-													line = reader.readLine();
-													if(line.trim().equals("}")) break;
+													
 												}
 											}//{ KLEINEI
 										}
