@@ -564,7 +564,7 @@ public class TextReader{
 				}else if(line.trim().equals("MANUFACTURER: ")){
 					((Printer)product).setManufacturer(line.substring(14).trim());
 				}else if(line.trim().equals("PRICE: ")){
-					((Printer)product).setPrice(Double.parseDouble(line.substring(7).trim()));
+					((Printer)product).setPrice(Integer.parseInt(line.substring(7).trim()));
 				}else if(line.trim().equals("TECHNOLOGY: ")) {
 					((Printer)product).setTechnology(line.substring(12).trim());
 				}else if(line.trim().equals("PRINTER_TYPE: ")) {
