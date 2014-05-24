@@ -28,6 +28,13 @@ public class Sell extends PcParts{
 		saleNo++;
 	}
 	
+	public PcParts getThing(){
+		return thing;
+	}	
+	public void setThing(PcParts thing){
+		this.thing = thing;
+	}
+	
 	public String getName(){
 		return name;
 	}

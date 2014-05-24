@@ -11,6 +11,10 @@ public class Stock extends PcParts{
 	public PcParts getThing(){
 		return thing;
 	}
+	public void setThing(PcParts thing){
+		this.thing = thing;
+	}
+	
 	public int getAvailableStock(){
 		return availableStock;
 	}
