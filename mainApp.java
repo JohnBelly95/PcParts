@@ -342,7 +342,7 @@ public class mainApp{
 		for(int i=0; i < shopStock.size(); i++){
 			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
 				item = shopStock.get(i).getThing();
-				shopStock.get(i).setAvailableStock(shopStock.get(i).getAvailableStock() - 1);
+				shopStock.get(i).setAvailableStock(shopStock.get(i).getAvailableStock() - 1); // <------meiwsh tou stock
 			}
 		}
 		return item;

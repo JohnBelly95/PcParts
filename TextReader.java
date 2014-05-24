@@ -106,31 +106,31 @@ public class TextReader{
 														if(line != null){
 															if(line.trim().substring(6).trim().equals("RAM")){
 																product = new RAM();
-																readRAM(3);
+																readRAM(2);
 															}else if(line.trim().substring(6).trim().equals("CPU")){
 																product = new CPU();
-																readCPU(3);
+																readCPU(2);
 															}else if(line.trim().substring(6).trim().equals("GPU")){
 																product = new GPU();
-																readGPU(3);
+																readGPU(2);
 															}else if(line.trim().substring(6).trim().equals("HARDDRIVE")){
 																product = new HardDrive();
-																readHARDDRIVE(3);
+																readHARDDRIVE(2);
 															}else if(line.trim().substring(6).trim().equals("MOTHERBOARD")){
 																product = new Motherboard();
-																readMOTHERBOARD(3);
+																readMOTHERBOARD(2);
 															}else if(line.trim().substring(6).trim().equals("KEYBOARD")){
 																product = new Keyboard();
-																readKEYBOARD(3);
+																readKEYBOARD(2);
 															}else if(line.trim().substring(6).trim().equals("MOUSE")){
 																product = new Mouse();
-																readMOUSE(3);
+																readMOUSE(2);
 															}else if(line.trim().substring(6).trim().equals("MONITOR")){
 																product = new Screen();
-																readMONITOR(3);
+																readMONITOR(2);
 															}else if(line.trim().substring(6).trim().equals("PRINTER")){
 																product =  new Printer();
-																readPRINTER(3);
+																readPRINTER(2);
 															}
 														}
 													}//TYPE KLEINEI

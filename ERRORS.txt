@@ -16,3 +16,5 @@
 -get/set gia hmerominies sti sell kai order
 
 -sell / order na dw tis date metavlites
+
+-reader.close(); !!!!!!!
