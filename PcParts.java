@@ -42,6 +42,6 @@ public class PcParts{
 		this.Price = Price;
 	}
 	public String toString(){
-		return ("This is a PcPart generic Item.");
+		return ("\n\t\tMODEL_NAME: "+getmodelName()+"\n\t\tMANUFACTURER: "+getManufacturer()+"\n\t\tYEAR: "+getmodelYear()+"\n\t\tPRICE: "+getPrice());
 	}
 }

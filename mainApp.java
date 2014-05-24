@@ -72,7 +72,7 @@ public class mainApp{
 		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
-		
+		tw.StockTextWriter(shopStock);
 	}
 	public static void GUI(){
 		while (true){

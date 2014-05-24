@@ -17,12 +17,12 @@ public class TextReader{
 
 	public void StockTextReader(List<Stock> stockList){
 		try {
-			f = new File("ITEM_LIST.txt");
+			f = new File("STOCK_LIST.txt");
 		} catch (NullPointerException e) {
 			System.err.println("Stock file not found.");
 		}
 		try {
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			reader = new BufferedReader(new FileReader(f));
 		} catch (FileNotFoundException e) {
 			System.err.println("Error opening stock file!");
 		}
@@ -194,7 +194,7 @@ public class TextReader{
 	public void SoldTextReader(List<Sell> soldList){
 		this.soldList = soldList;
 		try {
-			f = new File("SALES_LIST.txt");
+			f = new File("SOLD_LIST.txt");
 		} catch (NullPointerException e) {
 			System.err.println("Sales file not found.");
 		}
