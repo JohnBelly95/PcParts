@@ -77,8 +77,7 @@ public class Order extends PcParts{
 	public String getExpectedDate(){
 		return expectedDate;
 	}
-	public void setExpectedDate(String 
-	){
+	public void setExpectedDate(String ExpectedDate){
 		this.expectedDate = expectedDate;
 	}
 	
