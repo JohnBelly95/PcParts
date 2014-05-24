@@ -10,6 +10,7 @@ public class TextReader{
 	static PcParts product = null;
 	String line;
 	BufferedReader reader = null;
+	mainApp ma = new mainApp();
 	Stock stk = new Stock() ;
 	Order ord = new Order();
 	Sell sl = new Sell();
@@ -294,18 +295,24 @@ public class TextReader{
 	
 	public void readRAM(int num){      //      R  A  M
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i = 0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((RAM)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((RAM)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((RAM)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((RAM)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("MODEL_TYPE: ")) {
 						((RAM)product).setType(line.trim().substring(12).trim());
 					}else if(line.trim().startsWith("SIZE: ")) {
@@ -330,9 +337,7 @@ public class TextReader{
 						line = reader.readLine();
 					}else break;
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -341,18 +346,25 @@ public class TextReader{
 	}
 	public void readCPU(int num){  //           C     P     U
 		try{
+<<<<<<< HEAD
 			reader.reset();
 			while(line != "}"){
+=======
+			int i = 0;
+			while(true){
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((CPU)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((CPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((CPU)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((CPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("SPEED: ")) {
 						((CPU)product).setSpeed(Double.parseDouble(line.trim().substring(7).trim()));
 					}else if(line.trim().startsWith("CORES: ")){
@@ -376,9 +388,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -387,18 +397,24 @@ public class TextReader{
 	}
 	public void readGPU(int num){ //                         G         P         U
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i = 0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((GPU)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((GPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((GPU)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((GPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("CHIPSET: ")) {
 						((GPU)product).setChipset(line.trim().substring(9).trim());
 					}else if(line.trim().startsWith("MEMORY: ")) {
@@ -422,9 +438,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -433,18 +447,24 @@ public class TextReader{
 	}
 	public void readHARDDRIVE(int num){ //               H   A   R   D   D   R   I   V   E
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i=0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((HardDrive)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((HardDrive)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((HardDrive)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((HardDrive)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("TYPE: ")) {
 						((HardDrive)product).setType(line.trim().substring(6).trim());
 					}else if(line.trim().startsWith("WIDTH: ")) {
@@ -470,9 +490,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -481,19 +499,25 @@ public class TextReader{
 	}
 	public void readMOTHERBOARD(int num){  //           M   O   T   H   E   R   B   O   A   R   D
 		try{
+<<<<<<< HEAD
 			reader.reset();
 			System.out.println("1");
+=======
+			int i=0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((Motherboard)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((Motherboard)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((Motherboard)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((Motherboard)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("CHIP: ")) {
 						((Motherboard)product).setChip(line.substring(6).trim());
 					}else if(line.trim().startsWith("SIZE: ")) {
@@ -519,9 +543,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -530,18 +552,24 @@ public class TextReader{
 	}
 	public void readMONITOR(int num){  //                           S   C   R   E   E   N
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i=0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((Screen)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((Screen)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((Screen)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((Screen)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("TYPE: ")) {
 						((Screen)product).setType(line.trim().substring(6).trim());
 					}else if(line.trim().startsWith("SIZE: ")) {
@@ -584,18 +612,24 @@ public class TextReader{
 	}
 	public void readKEYBOARD(int num){         //                       K   E   Y   B   O   A   R   D
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i = 0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((Keyboard)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((Keyboard)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((Keyboard)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((Keyboard)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("CONNECTION: ")) {
 						((Keyboard)product).setConnection(line.trim().substring(12).trim());
 					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
@@ -617,9 +651,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -628,18 +660,24 @@ public class TextReader{
 	}
 	public void readMOUSE(int num){ //                  M  O  U  S  E
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i = 0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((Mouse)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((Mouse)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((Mouse)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((Mouse)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("TECHNOLOGY: ")) {
 						((Mouse)product).setTechnology(line.trim().substring(12).trim());
 					}else if(line.trim().startsWith("CONNECTION: ")) {
@@ -663,9 +701,7 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -674,18 +710,24 @@ public class TextReader{
 	}
 	public void readPRINTER(int num){ //                         P   R   I   N   T   E   R
 		try{
+<<<<<<< HEAD
 			reader.reset();
+=======
+			int i = 0;
+>>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
 					if (line.trim().startsWith("MODEL_NAME: ")) {
 						((Printer)product).setmodelName(line.trim().substring(12).trim());
+						i++;
 					}else if(line.trim().startsWith("YEAR: ")) {
 						((Printer)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
 					}else if(line.trim().startsWith("MANUFACTURER: ")){
 						((Printer)product).setManufacturer(line.trim().substring(14).trim());
 					}else if(line.trim().startsWith("PRICE: ")){
 						((Printer)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+						i++;
 					}else if(line.trim().startsWith("TECHNOLOGY: ")) {
 						((Printer)product).setTechnology(line.trim().substring(12).trim());
 					}else if(line.trim().startsWith("PRINTER_TYPE: ")) {
@@ -709,13 +751,13 @@ public class TextReader{
 					}else break;
 					
 				}
-				stk.setThing(product);
-				ord.setThing(product);
-				sl.setThing(product);
+				ma.CreateList(i, num, product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
 	}
+	
+	
 }
