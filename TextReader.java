@@ -173,13 +173,12 @@ public class TextReader{
 																	product =  new Printer();
 																	readPRINTER(2);
 																	//readPRINTER(3);
-																}else if(line.trim().equals("}")){
-																	line = reader.readLine();
-																	if(line.trim().equals("}")) break;
 																}else System.out.println("This product is not in the available product list.");
 															}
 														}//TYPE KLEINEI
 													}
+													line = reader.readLine();
+													if(line.trim().equals("}")) break;
 												}
 											}// { KLEINEI 
 										}
@@ -229,42 +228,43 @@ public class TextReader{
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													if(line.trim().startsWith("TYPE: ")){
-														line = reader.readLine();
-														if(line != null){
-															if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
-																product = new RAM();
-																readRAM(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
-																product = new CPU();
-																readCPU(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
-																product = new GPU();
-																readGPU(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
-																product = new HardDrive();
-																readHARDDRIVE(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
-																product = new Motherboard();
-																readMOTHERBOARD(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
-																product = new Keyboard();
-																readKEYBOARD(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
-																product = new Mouse();
-																readMOUSE(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
-																product = new Screen();
-																readMONITOR(3);
-															}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
-																product =  new Printer();
-																readPRINTER(3);
-															}else if(line.trim().equals("}")){
-																line = reader.readLine();
-																if(line.trim().equals("}")) break;
-															}else System.out.println("This product is not in the available product list.");
-														}
-													}//TYPE KLEINEI
+													while(line != "}"){
+														if(line.trim().startsWith("TYPE: ")){
+															line = reader.readLine();
+															if(line != null){
+																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
+																	product = new RAM();
+																	readRAM(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("CPU")){
+																	product = new CPU();
+																	readCPU(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("GPU")){
+																	product = new GPU();
+																	readGPU(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("HARDDRIVE")){
+																	product = new HardDrive();
+																	readHARDDRIVE(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
+																	product = new Motherboard();
+																	readMOTHERBOARD(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("KEYBOARD")){
+																	product = new Keyboard();
+																	readKEYBOARD(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOUSE")){
+																	product = new Mouse();
+																	readMOUSE(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("MONITOR")){
+																	product = new Screen();
+																	readMONITOR(3);
+																}else if(line.trim().substring(6).trim().equalsIgnoreCase("PRINTER")){
+																	product =  new Printer();
+																	readPRINTER(3);
+																}else System.out.println("This product is not in the available product list.");
+															}
+														}//TYPE KLEINEI
+													}
+													line = reader.readLine();
+													if(line.trim().equals("}")) break;
 												}
 											}//{ KLEINEI
 										}
