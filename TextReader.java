@@ -28,23 +28,31 @@ public class TextReader{
 		}
 		try{
 			line = reader.readLine();
-			if(line !=null){
-				System.out.println("The file has opened.");
+			while(line !=null){
+				System.out.println("The file has opened.lalala");
 				if (!line.trim().equals(" ")) {
+					System.out.println("bhke");
 					if (line.trim().equalsIgnoreCase("STOCK_LIST")) {
 						line = reader.readLine();
+						System.out.println("ksanabhke");
 						if (line != null){
 							if (line.trim().equals("{")) {
-								line = reader.readLine();
+								System.out.println("ksanabhke");
+								//line = reader.readLine();
 								while(line != null){
+									System.out.println("skase");
+									line = reader.readLine();
 									if (line.trim().equalsIgnoreCase("ITEM")) {
+										System.out.println("eide to item");
 										line = reader.readLine();
+										System.out.println("2");
 										if (line != null){
 											if (line.trim().equals("{")) {
 												line = reader.readLine();
 												if(line != null){
-													if(line.trim().equalsIgnoreCase("TYPE:")){
-														line = reader.readLine();
+													if(line.trim().startsWith("TYPE: ")){
+														System.out.println("3");
+														//line = reader.readLine();
 														if(line != null){
 															if(line.trim().equalsIgnoreCase("RAM")){
 																product = new RAM();
@@ -58,7 +66,7 @@ public class TextReader{
 															}else if(line.trim().equalsIgnoreCase("HARDDRIVE")){
 																product = new HardDrive();
 																readHARDDRIVE(1);
-															}else if(line.trim().equalsIgnoreCase("MOTHERBOARD")){
+															}else if(line.trim().substring(6).trim().equalsIgnoreCase("MOTHERBOARD")){
 																product = new Motherboard();
 																readMOTHERBOARD(1);
 															}else if(line.trim().equalsIgnoreCase("KEYBOARD")){
@@ -78,7 +86,7 @@ public class TextReader{
 																if(line.trim().equals("}")) break;
 															}else System.out.println("This product is not in the available product list.");
 														}
-													}//TYPE KLEINEI
+													}else System.out.println("There is no product type.");//TYPE KLEINEI
 												}
 											}//{ KLEINEI
 										}
