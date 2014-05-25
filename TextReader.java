@@ -295,11 +295,8 @@ public class TextReader{
 	
 	public void readRAM(int num){      //      R  A  M
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i = 0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -346,49 +343,47 @@ public class TextReader{
 	}
 	public void readCPU(int num){  //           C     P     U
 		try{
-<<<<<<< HEAD
 			reader.reset();
 			while(line != "}"){
-=======
-			int i = 0;
-			while(true){
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
-				line = reader.readLine();
-				if(line != null){
-					if (line.trim().startsWith("MODEL_NAME: ")) {
-						((CPU)product).setmodelName(line.trim().substring(12).trim());
-						i++;
-					}else if(line.trim().startsWith("YEAR: ")) {
-						((CPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
-					}else if(line.trim().startsWith("MANUFACTURER: ")){
-						((CPU)product).setManufacturer(line.trim().substring(14).trim());
-					}else if(line.trim().startsWith("PRICE: ")){
-						((CPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
-						i++;
-					}else if(line.trim().startsWith("SPEED: ")) {
-						((CPU)product).setSpeed(Double.parseDouble(line.trim().substring(7).trim()));
-					}else if(line.trim().startsWith("CORES: ")){
-						((CPU)product).setCoreCount(Integer.parseInt(line.trim().substring(7).trim()));
-					}else if(num == 1 && line.trim().startsWith("PIECES: ")){
-						stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
-					}else if(num == 2 && line.trim().startsWith("NAME: ")){
-						ord.setName(line.trim().substring(6).trim());
-					}else if(num == 2 && line.trim().startsWith("PHONE: ")){
-						ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
-					}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
-						ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
-					}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
-						ord.setExpectedDate(line.trim().substring(14).trim());
-					}else if(num == 3 && line.trim().startsWith("NAME: ")){
-						sl.setName(line.trim().substring(6).trim());
-					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
-						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
-					}else if (line.trim().startsWith("TYPE: ")){
-						line = reader.readLine();
-					}else break;
-					
+				int i = 0;
+				while(true){
+					line = reader.readLine();
+					if(line != null){
+						if (line.trim().startsWith("MODEL_NAME: ")) {
+							((CPU)product).setmodelName(line.trim().substring(12).trim());
+							i++;
+						}else if(line.trim().startsWith("YEAR: ")) {
+							((CPU)product).setmodelYear(Integer.parseInt(line.trim().substring(6).trim()));
+						}else if(line.trim().startsWith("MANUFACTURER: ")){
+							((CPU)product).setManufacturer(line.trim().substring(14).trim());
+						}else if(line.trim().startsWith("PRICE: ")){
+							((CPU)product).setPrice(Integer.parseInt(line.trim().substring(7).trim()));
+							i++;
+						}else if(line.trim().startsWith("SPEED: ")) {
+							((CPU)product).setSpeed(Double.parseDouble(line.trim().substring(7).trim()));
+						}else if(line.trim().startsWith("CORES: ")){
+							((CPU)product).setCoreCount(Integer.parseInt(line.trim().substring(7).trim()));
+						}else if(num == 1 && line.trim().startsWith("PIECES: ")){
+							stk.setAvailableStock(Integer.parseInt(line.trim().substring(8).trim()));
+						}else if(num == 2 && line.trim().startsWith("NAME: ")){
+							ord.setName(line.trim().substring(6).trim());
+						}else if(num == 2 && line.trim().startsWith("PHONE: ")){
+							ord.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+						}else if(num == 2 && line.trim().startsWith("FINAL_PRICE: ")){
+							ord.setFP(Double.parseDouble(line.trim().substring(13).trim()));
+						}else if(num == 2 && line.trim().startsWith("ARRIVAL_DATE: ")){
+							ord.setExpectedDate(line.trim().substring(14).trim());
+						}else if(num == 3 && line.trim().startsWith("NAME: ")){
+							sl.setName(line.trim().substring(6).trim());
+						}else if(num == 3 && line.trim().startsWith("PHONE: ")){
+							sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+						}else if (line.trim().startsWith("TYPE: ")){
+							line = reader.readLine();
+						}else break;
+						
+					}
+					ma.CreateList(i,num,product);
 				}
-				ma.CreateList(i,num,product);
 			}
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
@@ -397,11 +392,8 @@ public class TextReader{
 	}
 	public void readGPU(int num){ //                         G         P         U
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i = 0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -446,12 +438,8 @@ public class TextReader{
 		}
 	}
 	public void readHARDDRIVE(int num){ //               H   A   R   D   D   R   I   V   E
-		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i=0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -499,12 +487,9 @@ public class TextReader{
 	}
 	public void readMOTHERBOARD(int num){  //           M   O   T   H   E   R   B   O   A   R   D
 		try{
-<<<<<<< HEAD
 			reader.reset();
 			System.out.println("1");
-=======
 			int i=0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -552,11 +537,8 @@ public class TextReader{
 	}
 	public void readMONITOR(int num){  //                           S   C   R   E   E   N
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i=0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -612,11 +594,8 @@ public class TextReader{
 	}
 	public void readKEYBOARD(int num){         //                       K   E   Y   B   O   A   R   D
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i = 0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -660,11 +639,8 @@ public class TextReader{
 	}
 	public void readMOUSE(int num){ //                  M  O  U  S  E
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i = 0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
@@ -710,11 +686,8 @@ public class TextReader{
 	}
 	public void readPRINTER(int num){ //                         P   R   I   N   T   E   R
 		try{
-<<<<<<< HEAD
 			reader.reset();
-=======
 			int i = 0;
->>>>>>> 59a7b1b6e0fe3019f131a3492fc1add8a089b206
 			while(true){
 				line = reader.readLine();
 				if(line != null){
