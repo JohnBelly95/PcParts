@@ -13,7 +13,7 @@ public class TextReader2{
 	Order ord = new Order();
 	Sell sl = new Sell();
 	File f = null;
-	Map<String,String> map = new Map<String,String>;
+	Map<String,String> map = new HashMap<String,String>();
 	
 	public void StockTextReader(List<Stock> stockList){
 		try {
@@ -88,6 +88,9 @@ public class TextReader2{
 					}
 				}
 			}
+		}catch(IOException e){
+			System.err.println("An IOException was caught");
+			e.printStackTrace(System.out);
 		}
 	}
 	
@@ -248,6 +251,19 @@ public class TextReader2{
 		product.setManufacturer(map.get("MANUFACTURER"));
 		product.setPrice(Integer.parseInt(map.get("PRICE")));
 		product.setYear(Integer.parseInt(map.get("YEAR")));
-		
+		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED")));
+		((CPU)product).setCores(Integer.parseInt(map.get("CORES")));
+		if(i=1){
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+		}else if(i=2){
+			ord.setName(map.get("NAME"));
+			ord.setPhone(map.get("PHONE"));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+		}else if(i=3){
+			sl.setName(map.get("NAME"));
+			sl.setPhone(map.get("PHONE"));
+			sl.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
+		}
 	}
 }
