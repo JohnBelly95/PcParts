@@ -170,23 +170,23 @@ public class TextReader2{
 		}
 	}
 	
-	public void SoldTextReader(List<Stock> ordersList){
+	public void SoldTextReader(List<Stock> soldList){
 		try {
-			f = new File("ORDER_LIST.txt");
+			f = new File("SOLD_LIST.txt");
 		} catch (NullPointerException e) {
-			System.err.println("Order file not found.");
+			System.err.println("Sales file not found.");
 		}
 		try {
 			reader = new BufferedReader(new FileReader(f));
 		} catch (FileNotFoundException e) {
-			System.err.println("Error opening order file!");
+			System.err.println("Error opening sales file!");
 		}
 		try{
 			line = reader.readLine();
 			if(line == null) continue;
 			System.out.println("The file has opened.");
 			if (!line.trim().equals(" ")) {
-				if (line.trim().startsWith("ORDER_LIST")) {
+				if (line.trim().startsWith("SOLD_LIST")) {
 					line = reader.readLine();
 					if (line == null) continue;
 					if (line.trim().equals("{")) {
@@ -206,31 +206,31 @@ public class TextReader2{
 									if(map.containsKey("TYPE")){
 										if(map.get("TYPE").equalsIgnoreCase("CPU")){
 											product = new CPU();
-											readCPU(2);
+											readCPU(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("GPU")){
 											product = new GPU();
-											readGPU(2);
+											readGPU(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("MOTHERBOARD")){
 											product = new Motherboard();
-											readMOBO(2);
+											readMOBO(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("RAM")){
 											product = new RAM();
-											readRAM(2);
+											readRAM(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("HARDDRIVE")){
 											product = new HardDrive();
-											readHD(2);
+											readHD(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("KEYBOARD")){
 											product = new Keyboard();
-											readKeyboard(2);
+											readKeyboard(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("MOUSE")){
 											product = new Mouse();
-											readMouse(2);
+											readMouse(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("MONITOR")){
 											product = new Screen();
-											readMonitor(2);
+											readMonitor(3);
 										}else if(map.get("TYPE").equalsIgnoreCase("PRINTER")){
 											product = new Printer();
-											readPrinter(2);
+											readPrinter(3);
 										}
 									}else System.out.println("There is no item defined in this product");
 									line = readLine();
