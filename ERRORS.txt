@@ -4,8 +4,6 @@
 
 -otan epeksergazomai mia order kai ths allazw to status,ok tin prosthetei sta sales alla paramenei sta orders(prepei na diagrafetai apta orders)
 
--den meiwnoume to stock otan kanoume mia pwlhsh
-
 -182 : DEN STAMATAEI NA KANEI TO PRINTLN
 
 -model name prob 252 mainApp ekxwreitai ws space

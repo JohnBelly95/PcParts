@@ -11,6 +11,7 @@ STOCK_LIST
 		SIZE: 32
 		GATES: 7
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -22,6 +23,7 @@ STOCK_LIST
 		SPEED: 3.4
 		CORES: 4
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -33,6 +35,7 @@ STOCK_LIST
 		CHIPSET: AMD
 		MEMORY: 4
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -45,6 +48,7 @@ STOCK_LIST
 		SIZE: 4
 		SPEED: 1600
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -57,6 +61,7 @@ STOCK_LIST
 		WIDTH: 3.5
 		SIZE: 750
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -72,6 +77,7 @@ STOCK_LIST
 		COMPOSITEPORT: 2
 		RESOLUSION: 1600x900
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -82,6 +88,7 @@ STOCK_LIST
 		PRICE: 5
 		CONNECTION: wireless
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -93,6 +100,7 @@ STOCK_LIST
 		TECHNOLOGY: optical
 		CONNECTION: wired
 		PIECES: 2
+
 	}
 	ITEM
 	{
@@ -104,5 +112,6 @@ STOCK_LIST
 		TECHNOLOGY: color
 		PRINTER_TYPE: inkjet
 		PIECES: 2
+
 	}
 }

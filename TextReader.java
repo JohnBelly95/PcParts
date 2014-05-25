@@ -29,31 +29,22 @@ public class TextReader{
 		try{
 			line = reader.readLine();
 			if(line !=null){
-				System.out.println("The file has opened.lalala");
+				System.out.println("The file has opened.");
 				if (!line.trim().equals(" ")) {
-					System.out.println("bhke");
 					if (line.trim().startsWith("STOCK_LIST")) {
 						line = reader.readLine();
-						System.out.println("ksanabhke");
 						if (line != null){
 							if (line.trim().equals("{")) {
-								System.out.println("ksanabhke");
-								//line = reader.readLine();
 								while(line != null){
-									System.out.println("skase");
 									line = reader.readLine();
 									if(line != null){
 										if (line.trim().startsWith("ITEM")) {
-											System.out.println("eide to item");
 											line = reader.readLine();
-											System.out.println("2");
 											if (line != null){
 												if (line.trim().equals("{")) {
 													line = reader.readLine();
 													if(line != null){
 														if(line.trim().startsWith("TYPE:")){
-															System.out.println("3");
-															//line = reader.readLine();
 															if(line != null){
 																if(line.trim().substring(6).trim().equalsIgnoreCase("RAM")){
 																	product = new RAM();
