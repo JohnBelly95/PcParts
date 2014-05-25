@@ -11,7 +11,6 @@ public class Order extends PcParts{
 	private double fp;
 	public static boolean status;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-	//prepei na perasoume se mia metavliti th mera tis paraggelias
 	
 	public Order(){
 		thing = null;
@@ -21,20 +20,15 @@ public class Order extends PcParts{
 		orderDate = null;
 		fp = 20.0;
 	}
-	/*public static void main(String[] args) {											//for testing purposes.
-		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
-		Order cpu = new Order("GP",123,"12/12/12","12/12/12",i54670k);
-		System.out.println(cpu.thing.getManufacturer());
-	}*/
+
 	public Order(PcParts thing, String name, long phone, String expectedDate, double fp){
 		this.thing = thing;
 		this.name = name;
 		this.phone = phone;
 		this.expectedDate = expectedDate;
 		this.fp = fp;
-		Date today = new Date();					//??einai ok??
-		orderDate = formatter.format(today); //??einai ok??
-		System.out.println(orderDate);            // THA TO SVHSW!!!!!!!!!!
+		Date today = new Date();
+		orderDate = formatter.format(today);
 		status = false;
 		orderNo++;
 	}
@@ -96,6 +90,6 @@ public class Order extends PcParts{
 	}
 	
 	public String toString(){
-		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+thing+ "\n\t\tFINAL_PRICE: "+fp+ "\n\t\tARRIVAL_DATE: " +expectedDate);
+		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+thing+ "\n\t\tFINAL_PRICE: "+fp+ " € \n\t\tARRIVAL_DATE: " +expectedDate);
 	}
 }

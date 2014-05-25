@@ -102,12 +102,6 @@ public class TextReader{
 	}
 
 	public void OrderTextReader(List<Order> orderList){
-		/*try{
-			elegxos an oi paraggelies perilamvanontai sta diathesima proionta
-		}
-		catch(){
-			eidopoihsh
-		}*/
 		try {
 			f = new File("ORDER_LIST.txt");
 		} catch (NullPointerException e) {
@@ -288,7 +282,7 @@ public class TextReader{
 		}
 	}
 	
-	public void readRAM(int num){//  RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA              AAAAAAAAAAAAAAAAAAAAAAAAM
+	public void readRAM(int num){      //      R  A  M
 		try{
 			while(true){
 				line = reader.readLine();
@@ -321,6 +315,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 				}
 				stk.setThing(product);
@@ -362,6 +358,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -404,6 +402,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -448,6 +448,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -492,6 +494,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -542,6 +546,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -582,6 +588,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -624,6 +632,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
@@ -666,6 +676,8 @@ public class TextReader{
 						sl.setName(line.trim().substring(6).trim());
 					}else if(num == 3 && line.trim().startsWith("PHONE: ")){
 						sl.setPhone(Long.parseLong(line.trim().substring(7).trim()));
+					}else if (line.trim().startsWith("TYPE: ")){
+						line = reader.readLine();
 					}else break;
 					
 				}
