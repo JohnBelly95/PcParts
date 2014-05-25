@@ -70,7 +70,7 @@ public class Sell extends PcParts{
 	}
 	
 	public String toString(){
-		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+thing );
+		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+"\n\t\tFINAL_PRICE: "+fp+"SELL_DATE: "+sellDate+"\n\t\tNUMBER: "+saleNo+thing );
 	}
 	
 }

@@ -90,6 +90,6 @@ public class Order extends PcParts{
 	}
 	
 	public String toString(){
-		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+thing+ "\n\t\tFINAL_PRICE: "+fp+ "\n\t\tARRIVAL_DATE: " +expectedDate);
+		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+ "\n\t\tFINAL_PRICE: "+fp+ "\n\t\tARRIVAL_DATE: " +expectedDate+"\n\t\tNUMBER: "+orderNo+thing);
 	}
 }

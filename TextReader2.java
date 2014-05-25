@@ -90,6 +90,159 @@ public class TextReader2{
 			}
 		}
 	}
+	
+	public void OrderTextReader(List<Stock> ordersList){
+		try {
+			f = new File("ORDER_LIST.txt");
+		} catch (NullPointerException e) {
+			System.err.println("Order file not found.");
+		}
+		try {
+			reader = new BufferedReader(new FileReader(f));
+		} catch (FileNotFoundException e) {
+			System.err.println("Error opening order file!");
+		}
+		try{
+			line = reader.readLine();
+			if(line == null) continue;
+			System.out.println("The file has opened.");
+			if (!line.trim().equals(" ")) {
+				if (line.trim().startsWith("ORDER_LIST")) {
+					line = reader.readLine();
+					if (line == null) continue;
+					if (line.trim().equals("{")) {
+						while(line != null){
+							line = reader.readLine();
+							if(line == null) continue;
+							if (line.trim().startsWith("ITEM")) {
+								line = reader.readLine();
+								if (line == null) continue;
+								if (line.trim().equals("{")) {
+									while(line != "}"){
+										line = reader.readLine();
+										String split[] = line.trim().split(":").trim();
+										split[0] = split[0].toUpperCase();
+										map.put(split[0],split[1]);
+									}
+									if(map.containsKey("TYPE")){
+										if(map.get("TYPE").equalsIgnoreCase("CPU")){
+											product = new CPU();
+											readCPU(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("GPU")){
+											product = new GPU();
+											readGPU(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MOTHERBOARD")){
+											product = new Motherboard();
+											readMOBO(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("RAM")){
+											product = new RAM();
+											readRAM(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("HARDDRIVE")){
+											product = new HardDrive();
+											readHD(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("KEYBOARD")){
+											product = new Keyboard();
+											readKeyboard(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MOUSE")){
+											product = new Mouse();
+											readMouse(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MONITOR")){
+											product = new Screen();
+											readMonitor(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("PRINTER")){
+											product = new Printer();
+											readPrinter(2);
+										}
+									}else System.out.println("There is no item defined in this product");
+									line = readLine();
+									map.clear();
+									if(line.trim().equals("}")) break;
+									
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void SoldTextReader(List<Stock> ordersList){
+		try {
+			f = new File("ORDER_LIST.txt");
+		} catch (NullPointerException e) {
+			System.err.println("Order file not found.");
+		}
+		try {
+			reader = new BufferedReader(new FileReader(f));
+		} catch (FileNotFoundException e) {
+			System.err.println("Error opening order file!");
+		}
+		try{
+			line = reader.readLine();
+			if(line == null) continue;
+			System.out.println("The file has opened.");
+			if (!line.trim().equals(" ")) {
+				if (line.trim().startsWith("ORDER_LIST")) {
+					line = reader.readLine();
+					if (line == null) continue;
+					if (line.trim().equals("{")) {
+						while(line != null){
+							line = reader.readLine();
+							if(line == null) continue;
+							if (line.trim().startsWith("ITEM")) {
+								line = reader.readLine();
+								if (line == null) continue;
+								if (line.trim().equals("{")) {
+									while(line != "}"){
+										line = reader.readLine();
+										String split[] = line.trim().split(":").trim();
+										split[0] = split[0].toUpperCase();
+										map.put(split[0],split[1]);
+									}
+									if(map.containsKey("TYPE")){
+										if(map.get("TYPE").equalsIgnoreCase("CPU")){
+											product = new CPU();
+											readCPU(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("GPU")){
+											product = new GPU();
+											readGPU(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MOTHERBOARD")){
+											product = new Motherboard();
+											readMOBO(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("RAM")){
+											product = new RAM();
+											readRAM(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("HARDDRIVE")){
+											product = new HardDrive();
+											readHD(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("KEYBOARD")){
+											product = new Keyboard();
+											readKeyboard(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MOUSE")){
+											product = new Mouse();
+											readMouse(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("MONITOR")){
+											product = new Screen();
+											readMonitor(2);
+										}else if(map.get("TYPE").equalsIgnoreCase("PRINTER")){
+											product = new Printer();
+											readPrinter(2);
+										}
+									}else System.out.println("There is no item defined in this product");
+									line = readLine();
+									map.clear();
+									if(line.trim().equals("}")) break;
+									
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	public void readCPU(int i){
 		product.setmodelName(map.get("MODEL_NAME"));
 		product.setManufacturer(map.get("MANUFACTURER"));

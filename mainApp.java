@@ -512,7 +512,7 @@ public class mainApp{
 		output.write("\n}");
 		output.close();
 	}*/
-	public void CreateList (int i, int num,PcParts product ){
+	/*public void CreateList (int i, int num,PcParts product ){
 		if (i == 2){
 			if (num == 1){
 				stk.setThing(product);
@@ -527,5 +527,5 @@ public class mainApp{
 				soldList.add(sl);
 			}
 		}else System.out.println("Product's price or model is missing. We can not create this product.");
-	}
+	}*/
 }
