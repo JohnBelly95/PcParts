@@ -253,7 +253,7 @@ public class TextReader{
 															}else if(line.trim().equals("}")){
 																line = reader.readLine();
 																if(line.trim().equals("}")) break;
-															}
+															}else System.out.println("This product is not in the available product list.");
 														}
 													}//TYPE KLEINEI
 												}
