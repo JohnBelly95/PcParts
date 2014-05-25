@@ -20,6 +20,9 @@ public class mainApp{
 	private static PcParts item, part;
 	public static TextReader tr = new TextReader();
 	public static TextWriter tw = new TextWriter();
+	Stock stk = new Stock();
+	Sell sl = new Sell();
+	Order ord = new Order();
 	public static void main(String[] args) {
 		Initiate();
 		GUI();
@@ -189,7 +192,10 @@ public class mainApp{
 						}else if(decision.equals("N")){
 							System.out.println("Order Canceled");
 							break;
-						}else System.out.println("You entered an invalid character. Please try again.");
+						}else {
+							System.out.println("You entered an invalid character. Please try again.");
+							break;
+						}
 					}
 				}
 	   	 	}
@@ -505,4 +511,20 @@ public class mainApp{
 		output.write("\n}");
 		output.close();
 	}*/
+	public void CreateList (int i, int num,PcParts product ){
+		if (i == 2){
+			if (num == 1){
+				stk.setThing(product);
+				shopStock.add(stk);
+			}
+			if (num == 2){
+				ord.setThing(product);
+				ordersList.add(ord);
+			}
+			if (num == 3){
+				sl.setThing(product);
+				soldList.add(sl);
+			}
+		}else System.out.println("Product's price or model is missing. We can not create this product.");
+	}
 }
