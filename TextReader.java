@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class TextReader2{
+public class TextReader{
 	private List<Stock> stockList = new ArrayList<Stock>();
 	private List<Order> orderList = new ArrayList<Order>();
 	private List<Sell> soldList = new ArrayList<Sell>();
@@ -28,11 +28,11 @@ public class TextReader2{
 		}
 		try{
 			line = reader.readLine();
-			if(line == null){
+			if(line != null){
 				if (!line.trim().equals(" ")) {
 					if (line.trim().startsWith("STOCK_LIST")) {
 						line = reader.readLine();
-						if (line == null){
+						if (line != null){
 							if (line.trim().equals("{")) {
 								while(line != null){
 									line = reader.readLine();
@@ -41,11 +41,13 @@ public class TextReader2{
 										line = reader.readLine();
 										if (line == null) continue;
 										if (line.trim().equals("{")) {
-											while(line != "}"){
-												line = reader.readLine();
+											line = reader.readLine();
+											while(!line.trim().equals("}")){
+												System.out.println(line.trim());
 												String split[] = line.trim().split(":");
 												split[0] = split[0].toUpperCase();
 												map.put(split[0],split[1]);
+												line = reader.readLine();
 											}
 											if(map.containsKey("TYPE")  && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												if(map.get("TYPE").equalsIgnoreCase("CPU")){
@@ -76,6 +78,7 @@ public class TextReader2{
 													product = new Printer();
 													readPrinter(1);
 												}
+												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
@@ -89,7 +92,7 @@ public class TextReader2{
 					}
 				}
 			}
-		}catch(IOException e){
+		} catch(IOException e){
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
@@ -158,6 +161,7 @@ public class TextReader2{
 													product = new Printer();
 													readPrinter(2);
 												}
+												orderList.add(ord);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
@@ -251,7 +255,6 @@ public class TextReader2{
 									line = reader.readLine();
 									map.clear();
 									if(line.trim().equals("}")) break;
-									}
 								}
 							}
 						}
@@ -274,16 +277,18 @@ public class TextReader2{
 		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES")));
 		if(i==1){
 			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setThing(product);
 		}else if(i==2){
 			ord.setName(map.get("NAME"));
 			ord.setPhone(Long.parseLong(map.get("PHONE")));
 			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
 			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setThing(product);
 		}else if(i==3){
 			sl.setName(map.get("NAME"));
 			sl.setPhone(Long.parseLong(map.get("PHONE")));
 			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
-			
+			sl.setThing(product);
 		}
 	}
 	public void readRAM(int i){
