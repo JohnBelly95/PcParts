@@ -276,9 +276,15 @@ public class mainApp{
 			if(str2.equals("1")||str2.equals("2")||str2.equals("4")||str2.equals("5")||str2.equals("3")||str2.equals("7")||str2.equals("8")||str2.equals("9")||str2.equals("6")){
 			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
-				System.out.println("Please enter the model name of the desired part. ");
-				//input.nextLine();				//?????????????????????????????????????
-				x1 = input.nextLine();
+				if (str1.equals("1")){
+					System.out.println("Please enter the model name of the desired part. ");
+					//input.nextLine();				//?????????????????????????????????????
+					x1 = input.nextLine();
+				}else{
+					System.out.println("Please enter the model name of the desired part. ");
+					input.nextLine();				//?????????????????????????????????????
+					x1 = input.nextLine();
+				}
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
 				x2 = input.nextLine();

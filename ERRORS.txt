@@ -22,3 +22,5 @@ SOS-i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metav
 -kata to read tou txt 1)typwnei mono CPU
 		      2)there is an error sth nanagnwsh ths order
 
+-equalsIgnoreCase SE OLES TIS METAVLITES sthn textReader!!
+
