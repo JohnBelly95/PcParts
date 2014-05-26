@@ -12,6 +12,7 @@ public class TextReader{
 	Order ord = new Order();
 	Sell sl = new Sell();
 	File f = null;
+	private int i;
 	Map<String,String> map = new HashMap<String,String>();
 	
 	public List<Stock> StockTextReader(){
@@ -22,7 +23,7 @@ public class TextReader{
 		}
 		try {
 			reader = new BufferedReader(new FileReader(f));
-			System.out.println("The file has opened.");
+			System.out.println("The Stock file has opened.");
 		} catch (FileNotFoundException e) {
 			System.err.println("Error opening stock file!");
 		}
@@ -48,54 +49,46 @@ public class TextReader{
 												map.put(split[0],split[1]);
 												line = reader.readLine();
 											}
-											if(map.containsKey("TYPE")/* && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")*/){
-												System.out.println("test");
+											i = 1;
+											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												String str = map.get("TYPE");
-												System.out.println(str);
 												if(str.equalsIgnoreCase("CPU")){
 													product = new CPU();
-													readCPU(1);
-													System.out.println("1");
+													readCPU(i);
 												}else if(str.trim().equalsIgnoreCase("GPU")){
 													product = new GPU();
-													readGPU(1);
-													System.out.println("2");
+													readGPU(i);
 												}else if(str.trim().equalsIgnoreCase("MOTHERBOARD")){
 													product = new Motherboard();
-													readMOBO(1);
-													System.out.println("3");
+													readMOBO(i);
 												}else if(str.trim().equalsIgnoreCase("RAM")){
 													product = new RAM();
-													readRAM(1);
-													System.out.println("4");
+													readRAM(i);
 												}else if(str.trim().equalsIgnoreCase("HARDDRIVE")){
 													product = new HardDrive();
-													readHD(1);
-													System.out.println("5");
+													readHD(i);
 												}else if(str.trim().equalsIgnoreCase("KEYBOARD")){
 													product = new Keyboard();
-													readKeyboard(1);
-													System.out.println("6");
+													readKeyboard(i);
 												}else if(str.trim().equalsIgnoreCase("MOUSE")){
 													product = new Mouse();
-													readMouse(1);
-													System.out.println("7");
+													readMouse(i);
 												}else if(str.trim().equalsIgnoreCase("MONITOR")){
 													product = new Screen();
-													readMonitor(1);
-													System.out.println("8");
+													readMonitor(i);
 												}else if(str.trim().equalsIgnoreCase("PRINTER")){
 													product = new Printer();
-													readPrinter(1);
-													System.out.println("9");
-												}else System.out.println("hi");
+													readPrinter(i);
+												}else System.out.println("There was an error");
 												stk.setThing(product);
 												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
-											if(line.trim().equals("}")) break;
-											
+											if(line.trim().equals("}")){
+												System.out.println("Everything seems to be in order here.");
+												break;
+											}
 										}
 									}
 								}
@@ -125,66 +118,72 @@ public class TextReader{
 		}
 		try {
 			reader = new BufferedReader(new FileReader(f));
+			System.out.println("The Orders file has opened.");
 		} catch (FileNotFoundException e) {
 			System.err.println("Error opening order file!");
 		}
 		try{
 			line = reader.readLine();
-			if(line == null) {
-				System.out.println("The file has opened.");
+			if(line != null){
 				if (!line.trim().equals(" ")) {
 					if (line.trim().startsWith("ORDER_LIST")) {
 						line = reader.readLine();
-						if (line == null){
+						if (line != null){
 							if (line.trim().equals("{")) {
 								while(line != null){
 									line = reader.readLine();
 									if(line == null) continue;
-									if (line.trim().startsWith("ITEM")) {
+									if (line.trim().startsWith("ORDER")) {
 										line = reader.readLine();
 										if (line == null) continue;
 										if (line.trim().equals("{")) {
-											while(line != "}"){
+											line = reader.readLine();
+											while(!line.trim().equals("}")){
 												String split[] = line.trim().split(":");
 												split[0] = split[0].toUpperCase();
 												map.put(split[0],split[1]);
 												line = reader.readLine();
 											}
+											i = 2;
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
-												if(map.get("TYPE").trim().equalsIgnoreCase("CPU")){
+												String str = map.get("TYPE");
+												if(str.equalsIgnoreCase("CPU")){
 													product = new CPU();
-													readCPU(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("GPU")){
+													readCPU(i);
+												}else if(str.trim().equalsIgnoreCase("GPU")){
 													product = new GPU();
-													readGPU(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MOTHERBOARD")){
+													readGPU(i);
+												}else if(str.trim().equalsIgnoreCase("MOTHERBOARD")){
 													product = new Motherboard();
-													readMOBO(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("RAM")){
+													readMOBO(i);
+												}else if(str.trim().equalsIgnoreCase("RAM")){
 													product = new RAM();
-													readRAM(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("HARDDRIVE")){
+													readRAM(i);
+												}else if(str.trim().equalsIgnoreCase("HARDDRIVE")){
 													product = new HardDrive();
-													readHD(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("KEYBOARD")){
+													readHD(i);
+												}else if(str.trim().equalsIgnoreCase("KEYBOARD")){
 													product = new Keyboard();
-													readKeyboard(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MOUSE")){
+													readKeyboard(i);
+												}else if(str.trim().equalsIgnoreCase("MOUSE")){
 													product = new Mouse();
-													readMouse(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MONITOR")){
+													readMouse(i);
+												}else if(str.trim().equalsIgnoreCase("MONITOR")){
 													product = new Screen();
-													readMonitor(2);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("PRINTER")){
+													readMonitor(i);
+												}else if(str.trim().equalsIgnoreCase("PRINTER")){
 													product = new Printer();
-													readPrinter(2);
-												}
-												orderList.add(ord);
+													readPrinter(i);
+												}else System.out.println("There was an error");
+												stk.setThing(product);
+												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
-											if(line.trim().equals("}")) break;
-											
+											if(line.trim().equals("}")){
+												System.out.println("Everything seems to be in order here.");
+												break;
+											}
 										}
 									}
 								}
@@ -214,71 +213,74 @@ public class TextReader{
 		}
 		try {
 			reader = new BufferedReader(new FileReader(f));
+			System.out.println("The Sales file has opened.");
 		} catch (FileNotFoundException e) {
 			System.err.println("Error opening sales file!");
 		}
 		try{
 			line = reader.readLine();
-			if(line == null) {
-				System.out.println("The file has opened.");
+			if(line != null){
 				if (!line.trim().equals(" ")) {
 					if (line.trim().startsWith("SOLD_LIST")) {
 						line = reader.readLine();
-						if (line == null) {
+						if (line != null){
 							if (line.trim().equals("{")) {
 								while(line != null){
 									line = reader.readLine();
 									if(line == null) continue;
-									if (line.trim().startsWith("ITEM")) {
+									if (line.trim().startsWith("SOLD")) {
 										line = reader.readLine();
 										if (line == null) continue;
 										if (line.trim().equals("{")) {
-											while(line != "}"){
-												line = reader.readLine();
+											line = reader.readLine();
+											while(!line.trim().equals("}")){
 												String split[] = line.trim().split(":");
 												split[0] = split[0].toUpperCase();
 												map.put(split[0],split[1]);
+												line = reader.readLine();
 											}
+											i = 3;
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
-												if(map.get("TYPE").equalsIgnoreCase("CPU")){
+												String str = map.get("TYPE");
+												if(str.equalsIgnoreCase("CPU")){
 													product = new CPU();
-													readCPU(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("GPU")){
+													readCPU(i);
+												}else if(str.trim().equalsIgnoreCase("GPU")){
 													product = new GPU();
-													readGPU(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MOTHERBOARD")){
+													readGPU(i);
+												}else if(str.trim().equalsIgnoreCase("MOTHERBOARD")){
 													product = new Motherboard();
-													readMOBO(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("RAM")){
+													readMOBO(i);
+												}else if(str.trim().equalsIgnoreCase("RAM")){
 													product = new RAM();
-													readRAM(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("HARDDRIVE")){
+													readRAM(i);
+												}else if(str.trim().equalsIgnoreCase("HARDDRIVE")){
 													product = new HardDrive();
-													readHD(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("KEYBOARD")){
+													readHD(i);
+												}else if(str.trim().equalsIgnoreCase("KEYBOARD")){
 													product = new Keyboard();
-													readKeyboard(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MOUSE")){
+													readKeyboard(i);
+												}else if(str.trim().equalsIgnoreCase("MOUSE")){
 													product = new Mouse();
-													readMouse(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("MONITOR")){
+													readMouse(i);
+												}else if(str.trim().equalsIgnoreCase("MONITOR")){
 													product = new Screen();
-													readMonitor(3);
-												}else if(map.get("TYPE").trim().equalsIgnoreCase("PRINTER")){
+													readMonitor(i);
+												}else if(str.trim().equalsIgnoreCase("PRINTER")){
 													product = new Printer();
-													readPrinter(3);
-												}
-												soldList.add(sl);
+													readPrinter(i);
+												}else System.out.println("There was an error");
+												stk.setThing(product);
+												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
-											if(line.trim().equals("}")) break;
-											
+											if(line.trim().equals("}")){
+												System.out.println("Everything seems to be in order here.");
+												break;
+											}
 										}
-									}else System.out.println("There is no item defined in this product");
-									line = reader.readLine();
-									map.clear();
-									if(line.trim().equals("}")) break;
+									}
 								}
 							}
 						}
@@ -373,7 +375,7 @@ public class TextReader{
 		product.setManufacturer(map.get("MANUFACTURER").trim());
 		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
 		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
-		((HardDrive)product).setType(map.get("TYPE").trim());
+		((HardDrive)product).setType(map.get("MODEL_TYPE").trim());
 		((HardDrive)product).setWidth(Double.parseDouble(map.get("WIDTH").trim()));
 		((HardDrive)product).setSize(Integer.parseInt(map.get("SIZE").trim()));
 		if(i==1){
