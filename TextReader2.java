@@ -96,7 +96,7 @@ public class TextReader2{
 		return stockList;
 	}
 	
-	public void OrderTextReader(){
+	public List<Order> OrderTextReader(){
 		try {
 			f = new File("ORDER_LIST.txt");
 		} catch (NullPointerException e) {
@@ -175,6 +175,7 @@ public class TextReader2{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+		return orderList;
 	}
 	
 	public List<Sell> SoldTextReader(){
@@ -265,6 +266,7 @@ public class TextReader2{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+		return soldList;
 	}
 	
 	public void readCPU(int i){
