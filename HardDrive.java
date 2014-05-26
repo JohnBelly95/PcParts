@@ -34,7 +34,7 @@ public class HardDrive extends Hardware{
         this.Width = Width;
     }
     public String toString(){
-        return String.format("\n\t\tTYPE: HARDDRIVE" + super.toString() + "\n\t\tTYPE: " + this.Type + "\n\t\tWIDTH: " + this.Width  + "\n\t\tSIZE: " + this.Size );
+        return String.format("\n\t\tTYPE: HARDDRIVE" + super.toString() + "\n\t\tMODEL_TYPE: " + this.Type + "\n\t\tWIDTH: " + this.Width  + "\n\t\tSIZE: " + this.Size );
     }
 }
 

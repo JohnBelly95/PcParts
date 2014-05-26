@@ -10,7 +10,7 @@ public class Order extends PcParts{
 	private Scanner input = new Scanner(System.in);
 	private double fp;
 	public static boolean status;
-	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
 	
 	public Order(){
 		thing = null;
