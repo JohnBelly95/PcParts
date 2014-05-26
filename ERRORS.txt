@@ -1,0 +1,27 @@
+marios-screen,mouse } ok
+ keyboard,printer } den kanei tis erwthseis gia to eidos sundesis tou
+
+
+marios-otan epeksergazomai mia order kai ths allazw to status,ok tin prosthetei sta sales alla paramenei sta orders(prepei na diagrafetai apta orders)
+
+marios-model name prob 252 mainApp ekxwreitai ws space
+
+marios-type hard drive ekxwreitai ws null
+ 
+ok-na checkaroume me printlnth methodo date se order/sell  -- -- > 25-May-2014
+dora-arrival date de dexetai kena
+
+-screen ports , string or int?
+
+-Κατά την εξέταση της εργασίας ενδέχεται να τροποποιηθεί το αρχείο σας για να διαπιστωθεί
+η ανεκτικότητα του κώδικά σας σε σφάλματα της δομής του αρχείου. TEST IT TEST IT TEST IT
+
+-Τα πεδία
+ITEM_TYPE, MODEL και PRICE είναι υποχρεωτικό να υπάρχουν. Αν δεν υπάρχουν, το
+συγκεκριμένο προϊόν να μην λαμβάνεται υπόψη και να τυπώνεται στην οθόνη σχετική ειδοποίηση.
+Προσέξτε ότι για να δημιουργηθεί και αρχικοποιηθεί στιγμιότυπο από την κατάλληλη κλάση, πρέπει
+να διαβαστεί πρώτα το tag ΙΤΕΜ_TYPE. Όμως, το συγκεκριμένο tag μπορεί να μην είναι το πρώτο
+που συναντάτε μέσα στην οντότητα ΙΤΕΜ.
+
+-i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metavlhtes
+

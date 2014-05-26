@@ -3,7 +3,7 @@ import java.util.*;
 import java.text.*;
 
 public class Order extends PcParts{
-	private String name, expectedDate;
+	private String name, expectedDate, orderDate;
 	private int orderNo=1;
 	private long phone;
 	private PcParts thing;
@@ -11,23 +11,24 @@ public class Order extends PcParts{
 	private double fp;
 	public static boolean status;
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-	//prepei na perasoume se mia metavliti th mera tis paraggelias
 	
 	public Order(){
-		
+		thing = null;
+		name = null;
+		phone = 2102121236;
+		expectedDate = null;
+		orderDate = null;
+		fp = 20.0;
 	}
-	/*public static void main(String[] args) {											//for testing purposes.
-		PcParts i54670k = new CPU(3.4,4,"i5-4670k","Intel",2013,200);
-		Order cpu = new Order("GP",123,"12/12/12","12/12/12",i54670k);
-		System.out.println(cpu.thing.getManufacturer());
-	}*/
+
 	public Order(PcParts thing, String name, long phone, String expectedDate, double fp){
 		this.thing = thing;
 		this.name = name;
 		this.phone = phone;
-		this.expectedDate= expectedDate;
+		this.expectedDate = expectedDate;
 		this.fp = fp;
-		Date date = new Date();
+		Date today = new Date();
+		orderDate = formatter.format(today);
 		status = false;
 		orderNo++;
 	}
@@ -56,7 +57,7 @@ public class Order extends PcParts{
 	public long getPhone(){
 		return phone;
 	}	
-	public void setPhone(int phone){
+	public void setPhone(long phone){
 		this.phone = phone;
 	}
 	
@@ -67,7 +68,28 @@ public class Order extends PcParts{
 		this.fp = fp;
 	}
 	
+	public String getExpectedDate(){
+		return expectedDate;
+	}
+	public void setExpectedDate(String ExpectedDate){
+		this.expectedDate = expectedDate;
+	}
+	
+	public int getOrderNo(){
+		return orderNo;
+	}
+	public void setOrderNo(int orderNo){
+		this.orderNo = orderNo;
+	}
+	
+	public String getOrderDate(){
+		return orderDate;
+	}
+	public void setOrderDate(String orderDate){
+		this.orderDate = orderDate;
+	}
+	
 	public String toString(){
-		return ("The customer's name is: "+name+ " and his phone is: " +phone+ " . About the item : " +thing+ ". The final price is "+fp+ " Euros and should be available on : " +expectedDate);
+		return ("\n\t\tNAME: "+name+ "\n\t\tPHONE: " +phone+ "\n\t\tFINAL_PRICE: "+fp+"\n\t\tORDER_DATE: "+orderDate+ "\n\t\tARRIVAL_DATE: " +expectedDate+"\n\t\tNUMBER: "+orderNo+thing);
 	}
 }

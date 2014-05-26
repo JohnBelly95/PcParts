@@ -37,7 +37,7 @@ public class TextWriter{
 			output = new BufferedWriter(new FileWriter("ORDER_LIST.txt"));
 			output.write("ORDER_LIST\n{");
 			for(int i=0; i<orderList.size(); i++){
-				output.write("\n\tORDER\n\t{" + orderList.get(i) + "\n\t}",0,(orderList.get(i).toString().length() + 12));
+				output.write("\n\tORDER\n\t{" + orderList.get(i) + "\n\t}");
 			}
 			output.write("\n}");
 		}
@@ -59,7 +59,7 @@ public class TextWriter{
 			output = new BufferedWriter(new FileWriter("SOLD_LIST.txt"));
 			output.write("SOLD_LIST\n{");
 			for(int i=0; i<soldList.size(); i++){
-				output.write("\n\tSOLD\n\t{" + soldList.get(i)/*.toString()*/ + "\n\t}",0,(soldList.get(i).toString().length() + 12));
+				output.write("\n\tSOLD\n\t{" + soldList.get(i) + "\n\t}");
 			}
 			output.write("\n}");
 		}

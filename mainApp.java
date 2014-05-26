@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class mainApp{
 	private static String chip, printingType, type, technology, connection, resolution,str, str1, str2, x1, x2, answer, decision, name, expectedDate, response;
-	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, width, size, RAMSpeed, z1, z2, j=1, reply;
-	private static double clock,diameter,fp;
+	private static int cores, RAM, ePorts,HDMIport, DVIport, COMPOSITEport, size, RAMSpeed, z1, z2, j=1, reply;
+	private static double clock,diameter,fp, width;
 	private static long phone;
 	private static boolean check, status;
 	public static int HWSale, peripheralSale;
@@ -18,7 +18,11 @@ public class mainApp{
 	private static List<Order> ordersList = new ArrayList<Order>();
 	private static List<Sell> soldList = new ArrayList<Sell>();
 	private static PcParts item, part;
-
+	public static TextReader tr = new TextReader();
+	public static TextWriter tw = new TextWriter();
+	Stock stk = new Stock();
+	Sell sl = new Sell();
+	Order ord = new Order();
 	public static void main(String[] args) {
 		Initiate();
 		GUI();
@@ -30,7 +34,11 @@ public class mainApp{
 		System.out.println("What is the sale on the Peripherals today ? (do not input %)");
 		peripheralSale = input.nextInt();
 	}
-	public static void createStock(){
+	public static void createStock(){	//Edw tha mpoune ta FileReader. Ena gia to kathena.
+		
+		/*tr.StockTextReader(shopStock);
+		tr.OrderTextReader(ordersList);
+		tr.SoldTextReader(soldList);*/
 		//Starting Stock goes here		
 		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
@@ -67,7 +75,7 @@ public class mainApp{
 		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
-		
+		tw.StockTextWriter(shopStock);
 	}
 	public static void GUI(){
 		while (true){
@@ -106,11 +114,11 @@ public class mainApp{
 				}
 				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
-				if (Exists(thing, shopStock)){
+				if (Exists(thing, shopStock)){  //TO PROION UPARXEI STO STOCK
 					System.out.println("The product exists. Are you interested in buying this product? (Y/N)");
 					decision = input.next();
 					if ( decision.equals("Y")){
-						part = Questions3();
+						part = Questions3(thing);
 						System.out.println("You will now be asked to input the customers credentials");
 						System.out.println("Please enter the customer's full name.");
 						System.out.print(">");
@@ -124,14 +132,13 @@ public class mainApp{
 						System.out.print(">");
 						input.nextLine();
 						str = input.nextLine();
-						int k = thing.getPrice();
-						System.out.println("Sale is "+ HWSale);
+						//System.out.println("Sale is "+ HWSale);
 						if(str.equals("Y")){
 							if (str1.equals("1")){
-								fp = k* (1 - HWSale/100);                  //finding the final price
+								fp = thing.getPrice() - thing.getPrice()* HWSale/100;                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}else if(str1.equals("2")){
-								fp = thing.getPrice()* (1 - peripheralSale/100);                  //finding the final price
+								fp = thing.getPrice() - thing.getPrice() * peripheralSale/100;                  //finding the final price
 								System.out.println("The final price is : "+ fp +" Euros.");
 							}
 						}else{
@@ -139,9 +146,12 @@ public class mainApp{
 						}
 						Sell sl = new Sell(part, name, phone, fp);
 						soldList.add(sl);
+						tw.SoldTextWriter(soldList);
+						tw.StockTextWriter(shopStock);
+						//Edw tha mpoune ta TextWriter gia Stock kai Sold.
 					}else ;
 
-				}else{
+				}else{ // TO PROION DEN UPARXEI STO STOCK
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
 					decision = input.next(); 
 					while(true){
@@ -163,25 +173,29 @@ public class mainApp{
 							input.nextLine();
 							str = input.nextLine();
 							if(str.equals("Y")){
-								if (item.isHardware == true){
-									fp = item.getPrice()* (1 - HWSale/100);
+								if (str1.equals("1")){
+									fp = thing.getPrice() - thing.getPrice()* HWSale/100;                  //finding the final price
 									System.out.println("The final price is : "+ fp +" Euros.");
-								}else{
-									fp = item.getPrice()* (1 - peripheralSale/100);
+								}else if(str1.equals("2")){
+									fp = thing.getPrice() - thing.getPrice() * peripheralSale/100;                  //finding the final price
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}
 							}else{
-								fp = item.getPrice();
-								break;
+								fp = thing.getPrice();
 							}
 							Order odr = new Order(item, name, phone,expectedDate,fp);
 							ordersList.add(odr);
+							tw.OrderTextWriter(ordersList);
+							// Edw tha mpei to TextWriter gia to Order.
 							System.out.println("Order set.");
 							break;
 						}else if(decision.equals("N")){
 							System.out.println("Order Canceled");
 							break;
-						}else System.out.println("You entered an invalid character. Please try again.");
+						}else {
+							System.out.println("You entered an invalid character. Please try again.");
+							break;
+						}
 					}
 				}
 	   	 	}
@@ -223,7 +237,8 @@ public class mainApp{
 					ordersList.get(reply-1).setStatus(status);
 					System.out.println("The order's status is now 'Available' .");
 					Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
-					soldList.add(sl);	
+					soldList.add(sl);
+					ordersList.remove(reply-1);
 				}
 				break;
 			}
@@ -251,7 +266,7 @@ public class mainApp{
 			//if((str1.equals("1")&&(str2.equals("1")||str2.equals("2")||str2.equals("3")||str2.equals("4")||str2.equals("5")))||(str1.equals("2")&&(str2.equals("6")||str2.equals("7")||str2.equals("8")||str2.equals("9")))){
 				System.out.println("You will now be asked to input the specifications of the desired product");
 				System.out.println("Please enter the model name of the desired part. ");
-				input.next();
+				//input.nextLine();				//?????????????????????????????????????
 				x1 = input.nextLine();
 				System.out.println("Model name is set to: " + x1);
 				System.out.println("Please enter the manufacturer of the desired part. ");
@@ -272,14 +287,14 @@ public class mainApp{
 				System.out.println("1. Hardware");
 				System.out.println("2. Peripherals");
 				str1 = input.next();
-				if(str1 == "1"){
+				if(str1.equals("1")){
 					System.out.println("1. Motherboard");
 					System.out.println("2. CPU");
 					System.out.println("3. GPU");
 					System.out.println("4. RAM memory");
 					System.out.println("5. Hard Drive");
 					str2 = input.next();
-				}else if(str1 == "2"){
+				}else if(str1.equals("2")){
 					System.out.println("1. Screen");
 					System.out.println("2. Keyboard");
 					System.out.println("3. Mouse");
@@ -338,11 +353,11 @@ public class mainApp{
 		}
 		return item;
 	}
-	public static PcParts Questions3(){
+	public static PcParts Questions3(PcParts thing){
 		for(int i=0; i < shopStock.size(); i++){
-			if ( x1.equals(shopStock.get(i).getManufacturer()) && x2.equals(shopStock.get(i).getmodelName()) && z1 == shopStock.get(i).getmodelYear()){
+			if ( thing.getManufacturer().equals(shopStock.get(i).getManufacturer()) && thing.getmodelName().equals(shopStock.get(i).getmodelName()) && thing.getmodelYear() == shopStock.get(i).getmodelYear()){
 				item = shopStock.get(i).getThing();
-				shopStock.get(i).setAvailableStock(shopStock.get(i).getAvailableStock() - 1);
+				shopStock.get(i).setAvailableStock(shopStock.get(i).getAvailableStock() - 1); // <------meiwsh tou stock
 			}
 		}
 		return item;
@@ -467,9 +482,9 @@ public class mainApp{
 
 	public static PcParts SSHD(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What Hard drive type is the customer ordering ?");
-		type = input.next();
+		type = input.nextLine();											//????????????????????????????????????????
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
-		width = input.nextInt();
+		width = input.nextDouble();
 		System.out.println("What size (GB) is the customer ordering ?");
 		size = input.nextInt();
 		x1 = modelName;
@@ -496,5 +511,21 @@ public class mainApp{
 		
 		output.write("\n}");
 		output.close();
+	}*/
+	/*public void CreateList (int i, int num,PcParts product ){
+		if (i == 2){
+			if (num == 1){
+				stk.setThing(product);
+				shopStock.add(stk);
+			}
+			if (num == 2){
+				ord.setThing(product);
+				ordersList.add(ord);
+			}
+			if (num == 3){
+				sl.setThing(product);
+				soldList.add(sl);
+			}
+		}else System.out.println("Product's price or model is missing. We can not create this product.");
 	}*/
 }
