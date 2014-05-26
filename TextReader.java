@@ -52,7 +52,7 @@ public class TextReader{
 											i = 1;
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												String str = map.get("TYPE");
-												if(str.equalsIgnoreCase("CPU")){
+												if(str.trim().equalsIgnoreCase("CPU")){
 													product = new CPU();
 													readCPU(i);
 												}else if(str.trim().equalsIgnoreCase("GPU")){
@@ -147,7 +147,7 @@ public class TextReader{
 											i = 2;
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												String str = map.get("TYPE");
-												if(str.equalsIgnoreCase("CPU")){
+												if(str.trim().equalsIgnoreCase("CPU")){
 													product = new CPU();
 													readCPU(i);
 												}else if(str.trim().equalsIgnoreCase("GPU")){
@@ -176,7 +176,7 @@ public class TextReader{
 													readPrinter(i);
 												}else System.out.println("There was an error");
 												stk.setThing(product);
-												stockList.add(stk);
+												orderList.add(ord);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
@@ -242,7 +242,7 @@ public class TextReader{
 											i = 3;
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												String str = map.get("TYPE");
-												if(str.equalsIgnoreCase("CPU")){
+												if(str.trim().equalsIgnoreCase("CPU")){
 													product = new CPU();
 													readCPU(i);
 												}else if(str.trim().equalsIgnoreCase("GPU")){
@@ -271,7 +271,7 @@ public class TextReader{
 													readPrinter(i);
 												}else System.out.println("There was an error");
 												stk.setThing(product);
-												stockList.add(stk);
+												soldList.add(sl);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
 											map.clear();
@@ -304,7 +304,7 @@ public class TextReader{
 		product.setmodelName(map.get("MODEL_NAME").trim());
 		product.setManufacturer(map.get("MANUFACTURER").trim());
 		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
 		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED").trim()));
 		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES").trim()));
 		if(i==1){
