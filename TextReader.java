@@ -109,7 +109,15 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+<<<<<<< HEAD
 		System.out.println(stockList);
+=======
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
+		}
+>>>>>>> 402ad8836c4fd5241daa4d71ba511691fabf57f0
 		return stockList;
 	}
 	
@@ -192,6 +200,11 @@ public class TextReader{
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
 		}
 		return orderList;
 	}
@@ -278,6 +291,11 @@ public class TextReader{
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
 		}
 		return soldList;
 	}
