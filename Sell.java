@@ -8,7 +8,7 @@ public class Sell extends PcParts{
 	private double fp;
 	private PcParts thing;
 	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
 	static Scanner input = new Scanner(System.in);
 
 	public Sell(){

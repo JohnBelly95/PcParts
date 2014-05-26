@@ -11,7 +11,7 @@ public class TextReader{
 	Stock stk = new Stock() ;
 	Order ord = new Order();
 	Sell sl = new Sell();
-	File f = null;
+	private File f = null;
 	private int i;
 	Map<String,String> map = new HashMap<String,String>();
 	
