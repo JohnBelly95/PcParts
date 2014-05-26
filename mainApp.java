@@ -485,6 +485,7 @@ public class mainApp{
 
 	public static PcParts SSHD(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What Hard drive type is the customer ordering ?");
+		//input.nextLine();
 		type = input.nextLine();											//????????????????????????????????????????
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
 		width = input.nextDouble();

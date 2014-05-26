@@ -2,8 +2,6 @@ marios-screen,mouse } ok
  keyboard,printer } den kanei tis erwthseis gia to eidos sundesis tou
 
 
-marios-otan epeksergazomai mia order kai ths allazw to status,ok tin prosthetei sta sales alla paramenei sta orders(prepei na diagrafetai apta orders)
-
 marios-model name prob 252 mainApp ekxwreitai ws space
 
 marios-type hard drive ekxwreitai ws null
