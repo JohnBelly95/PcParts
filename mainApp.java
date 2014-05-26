@@ -36,12 +36,14 @@ public class mainApp{
 	}
 	public static void createStock(){	//Edw tha mpoune ta FileReader. Ena gia to kathena.
 		
-		shopStock = StockTextReader();
+		shopStock = tr.StockTextReader();
+		ordersList = tr.OrderTextReader();
+		soldList = tr.SoldTextReader();
 		/*tr.StockTextReader(shopStock);
 		tr.OrderTextReader(ordersList);
 		tr.SoldTextReader(soldList);*/
 		//Starting Stock goes here		
-		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
+		/*PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
 		shopStock.add(MoBo);
 		
@@ -76,7 +78,7 @@ public class mainApp{
 		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
-		tw.StockTextWriter(shopStock);
+		tw.StockTextWriter(shopStock);*/
 	}
 	public static void GUI(){
 		while (true){
@@ -495,6 +497,7 @@ public class mainApp{
 		HardDrive HDRV = new HardDrive(type, size, width, x1, x2, z1, z2);
 		return HDRV;
 	}
+<<<<<<< HEAD
 	/*public void StockTextWriter(ArrayList StockList) throws FileNotFoundException, IOException {
 		try {
 			in = new BufferedReader(new FileReader("STOCK_LIST.txt"));
@@ -514,4 +517,7 @@ public class mainApp{
 		output.close();
 	}*/
 	public void CreateList();
+=======
+	
+>>>>>>> 8ab9d8feb953451e9e6257f6780c6f969413e863
 }
