@@ -497,7 +497,7 @@ public class mainApp{
 		HardDrive HDRV = new HardDrive(type, size, width, x1, x2, z1, z2);
 		return HDRV;
 	}
-<<<<<<< HEAD
+
 	/*public void StockTextWriter(ArrayList StockList) throws FileNotFoundException, IOException {
 		try {
 			in = new BufferedReader(new FileReader("STOCK_LIST.txt"));
@@ -516,8 +516,6 @@ public class mainApp{
 		output.write("\n}");
 		output.close();
 	}*/
-	public void CreateList();
-=======
-	
->>>>>>> 8ab9d8feb953451e9e6257f6780c6f969413e863
+	public void CreateList(){
+	}
 }
