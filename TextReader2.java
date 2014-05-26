@@ -159,7 +159,7 @@ public class TextReader2{
 													readPrinter(2);
 												}
 											}else System.out.println("There is no item defined in this product");
-											line = readLine();
+											line = reader.readLine();
 											map.clear();
 											if(line.trim().equals("}")) break;
 											
@@ -240,7 +240,7 @@ public class TextReader2{
 											readPrinter(3);
 										}
 									}else System.out.println("There is no item defined in this product");
-									line = readLine();
+									line = reader.readLine();
 									map.clear();
 									if(line.trim().equals("}")) break;
 									
@@ -262,7 +262,7 @@ public class TextReader2{
 		product.setPrice(Integer.parseInt(map.get("PRICE")));
 		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
 		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED")));
-		((CPU)product).setCores(Integer.parseInt(map.get("CORES")));
+		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES")));
 		if(i==1){
 			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
 		}else if(i==2){

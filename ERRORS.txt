@@ -11,7 +11,7 @@ marios-type hard drive ekxwreitai ws null
 ok-na checkaroume me printlnth methodo date se order/sell  -- -- > 25-May-2014
 dora-arrival date de dexetai kena
 
--screen ports , string or int?
+-screen ports , string or int?-- -- >int
 
 -Κατά την εξέταση της εργασίας ενδέχεται να τροποποιηθεί το αρχείο σας για να διαπιστωθεί
 η ανεκτικότητα του κώδικά σας σε σφάλματα της δομής του αρχείου. TEST IT TEST IT TEST IT
