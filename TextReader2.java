@@ -251,6 +251,7 @@ public class TextReader2{
 									line = reader.readLine();
 									map.clear();
 									if(line.trim().equals("}")) break;
+									}
 								}
 							}
 						}
