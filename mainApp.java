@@ -36,6 +36,7 @@ public class mainApp{
 	}
 	public static void createStock(){	//Edw tha mpoune ta FileReader. Ena gia to kathena.
 		
+		shopStock = StockTextReader();
 		/*tr.StockTextReader(shopStock);
 		tr.OrderTextReader(ordersList);
 		tr.SoldTextReader(soldList);*/
@@ -512,20 +513,5 @@ public class mainApp{
 		output.write("\n}");
 		output.close();
 	}*/
-	/*public void CreateList (int i, int num,PcParts product ){
-		if (i == 2){
-			if (num == 1){
-				stk.setThing(product);
-				shopStock.add(stk);
-			}
-			if (num == 2){
-				ord.setThing(product);
-				ordersList.add(ord);
-			}
-			if (num == 3){
-				sl.setThing(product);
-				soldList.add(sl);
-			}
-		}else System.out.println("Product's price or model is missing. We can not create this product.");
-	}*/
+	public void CreateList()
 }
