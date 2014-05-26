@@ -82,7 +82,6 @@ public class TextReader{
 													product = new Printer();
 													readPrinter(1);
 												}else System.out.println("There was an error");
-												
 												stk.setThing(product);
 												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
