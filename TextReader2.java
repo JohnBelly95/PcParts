@@ -2,10 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class TextReader2{
-	private List<Stock> stockList;
-	private List<Order> orderList;
-	private List<Sell> soldList;
-	static BufferedReader input;
+	private List<Stock> stockList = new ArrayList<Stock>();
+	private List<Order> orderList = new ArrayList<Order>();
+	private List<Sell> soldList = new ArrayList<Sell>();
 	static PcParts product = null;
 	String line;
 	BufferedReader reader = null;
@@ -15,7 +14,7 @@ public class TextReader2{
 	File f = null;
 	Map<String,String> map = new HashMap<String,String>();
 	
-	public void StockTextReader(List<Stock> stockList){
+	public List<Stock> StockTextReader(){
 		try {
 			f = new File("STOCK_LIST.txt");
 		} catch (NullPointerException e) {
@@ -94,9 +93,10 @@ public class TextReader2{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+		return stockList;
 	}
 	
-	public void OrderTextReader(List<Stock> ordersList){
+	public void OrderTextReader(){
 		try {
 			f = new File("ORDER_LIST.txt");
 		} catch (NullPointerException e) {
@@ -177,7 +177,7 @@ public class TextReader2{
 		}
 	}
 	
-	public void SoldTextReader(List<Stock> soldList){
+	public List<Sell> SoldTextReader(){
 		try {
 			f = new File("SOLD_LIST.txt");
 		} catch (NullPointerException e) {
@@ -190,60 +190,63 @@ public class TextReader2{
 		}
 		try{
 			line = reader.readLine();
-			if(line == null) continue;
-			System.out.println("The file has opened.");
-			if (!line.trim().equals(" ")) {
-				if (line.trim().startsWith("SOLD_LIST")) {
-					line = reader.readLine();
-					if (line == null) continue;
-					if (line.trim().equals("{")) {
-						while(line != null){
-							line = reader.readLine();
-							if(line == null) continue;
-							if (line.trim().startsWith("ITEM")) {
-								line = reader.readLine();
-								if (line == null) continue;
-								if (line.trim().equals("{")) {
-									while(line != "}"){
-										line = reader.readLine();
-										String split[] = line.trim().split(":");
-										split[0] = split[0].toUpperCase();
-										map.put(split[0],split[1]);
-									}
-									if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
-										if(map.get("TYPE").equalsIgnoreCase("CPU")){
-											product = new CPU();
-											readCPU(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("GPU")){
-											product = new GPU();
-											readGPU(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("MOTHERBOARD")){
-											product = new Motherboard();
-											readMOBO(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("RAM")){
-											product = new RAM();
-											readRAM(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("HARDDRIVE")){
-											product = new HardDrive();
-											readHD(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("KEYBOARD")){
-											product = new Keyboard();
-											readKeyboard(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("MOUSE")){
-											product = new Mouse();
-											readMouse(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("MONITOR")){
-											product = new Screen();
-											readMonitor(3);
-										}else if(map.get("TYPE").equalsIgnoreCase("PRINTER")){
-											product = new Printer();
-											readPrinter(3);
-										}
-									}else System.out.println("There is no item defined in this product");
+			if(line == null) {
+				System.out.println("The file has opened.");
+				if (!line.trim().equals(" ")) {
+					if (line.trim().startsWith("SOLD_LIST")) {
+						line = reader.readLine();
+						if (line == null) {
+							if (line.trim().equals("{")) {
+								while(line != null){
 									line = reader.readLine();
-									map.clear();
-									if(line.trim().equals("}")) break;
-									
+									if(line == null) continue;
+									if (line.trim().startsWith("ITEM")) {
+										line = reader.readLine();
+										if (line == null) continue;
+										if (line.trim().equals("{")) {
+											while(line != "}"){
+												line = reader.readLine();
+												String split[] = line.trim().split(":");
+												split[0] = split[0].toUpperCase();
+												map.put(split[0],split[1]);
+											}
+											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
+												if(map.get("TYPE").equalsIgnoreCase("CPU")){
+													product = new CPU();
+													readCPU(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("GPU")){
+													product = new GPU();
+													readGPU(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("MOTHERBOARD")){
+													product = new Motherboard();
+													readMOBO(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("RAM")){
+													product = new RAM();
+													readRAM(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("HARDDRIVE")){
+													product = new HardDrive();
+													readHD(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("KEYBOARD")){
+													product = new Keyboard();
+													readKeyboard(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("MOUSE")){
+													product = new Mouse();
+													readMouse(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("MONITOR")){
+													product = new Screen();
+													readMonitor(3);
+												}else if(map.get("TYPE").equalsIgnoreCase("PRINTER")){
+													product = new Printer();
+													readPrinter(3);
+												}
+												soldList.add(sl);
+											}else System.out.println("There is no item defined in this product");
+											line = reader.readLine();
+											map.clear();
+											if(line.trim().equals("}")) break;
+											
+										}
+									}
 								}
 							}
 						}
@@ -262,7 +265,7 @@ public class TextReader2{
 		product.setPrice(Integer.parseInt(map.get("PRICE")));
 		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
 		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED")));
-		((CPU)product).setCores(Integer.parseInt(map.get("CORES")));
+		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES")));
 		if(i==1){
 			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
 		}else if(i==2){
@@ -274,6 +277,7 @@ public class TextReader2{
 			sl.setName(map.get("NAME"));
 			sl.setPhone(Long.parseLong(map.get("PHONE")));
 			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			
 		}
 	}
 	public void readRAM(int i){
