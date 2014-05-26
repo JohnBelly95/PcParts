@@ -1,17 +1,8 @@
-marios-screen,mouse } ok
- keyboard,printer } den kanei tis erwthseis gia to eidos sundesis tou
+SOS-model NAME prob 252 mainApp ekxwreitai ws space 
 
-
-marios-model name prob 252 mainApp ekxwreitai ws space
-
-marios-type hard drive ekxwreitai ws null
+-type hard drive ekxwreitai ws null
  
-
-dora-arrival date de dexetai kena
-
--screen ports , string or int?-- -- >int
-
--Κατά την εξέταση της εργασίας ενδέχεται να τροποποιηθεί το αρχείο σας για να διαπιστωθεί
+SOS-Κατά την εξέταση της εργασίας ενδέχεται να τροποποιηθεί το αρχείο σας για να διαπιστωθεί
 η ανεκτικότητα του κώδικά σας σε σφάλματα της δομής του αρχείου. TEST IT TEST IT TEST IT
 
 -Τα πεδία
@@ -26,5 +17,8 @@ ITEM_TYPE, MODEL και PRICE είναι υποχρεωτικό να υπάρχουν. Αν δεν υπάρχουν, το
  2.perpherals
  
 
--i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metavlhtes
+SOS-i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metavlhtes
+
+-kata to read tou txt 1)typwnei mono CPU
+		      2)there is an error sth nanagnwsh ths order
 

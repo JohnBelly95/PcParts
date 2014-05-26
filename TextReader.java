@@ -79,7 +79,7 @@ public class TextReader{
 												}else if(str.trim().equalsIgnoreCase("PRINTER")){
 													product = new Printer();
 													readPrinter(i);
-												}else System.out.println("There was an error");
+												}else System.out.println("There was an error.");
 												stk.setThing(product);
 												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
