@@ -90,7 +90,6 @@ public class TextReader{
 													System.out.println("9");
 												}else System.out.println("hi");
 												stk.setThing(product);
-												System.out.println(stk);
 												stockList.add(stk);
 											}else System.out.println("There is no item defined in this product");
 											line = reader.readLine();
@@ -109,7 +108,12 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
-		System.out.println(stockList);
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
+		}
+
 		return stockList;
 	}
 	
@@ -141,10 +145,10 @@ public class TextReader{
 										if (line == null) continue;
 										if (line.trim().equals("{")) {
 											while(line != "}"){
-												line = reader.readLine();
 												String split[] = line.trim().split(":");
 												split[0] = split[0].toUpperCase();
 												map.put(split[0],split[1]);
+												line = reader.readLine();
 											}
 											if(map.containsKey("TYPE") && map.containsKey("MODEL_NAME") && map.containsKey("PRICE")){
 												if(map.get("TYPE").trim().equalsIgnoreCase("CPU")){
@@ -193,6 +197,12 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
+		}
+
 		return orderList;
 	}
 	
@@ -279,6 +289,12 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("Error closing file.");
+		}
+
 		return soldList;
 	}
 	
