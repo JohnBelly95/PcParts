@@ -109,15 +109,7 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
-<<<<<<< HEAD
 		System.out.println(stockList);
-=======
-		try {
-			reader.close();
-		} catch (IOException e) {
-			System.err.println("Error closing file.");
-		}
->>>>>>> 402ad8836c4fd5241daa4d71ba511691fabf57f0
 		return stockList;
 	}
 	
@@ -200,11 +192,6 @@ public class TextReader{
 		}catch(IOException e){
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
-		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			System.err.println("Error closing file.");
 		}
 		return orderList;
 	}
@@ -292,58 +279,53 @@ public class TextReader{
 			System.err.println("An IOException was caught");
 			e.printStackTrace(System.out);
 		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			System.err.println("Error closing file.");
-		}
 		return soldList;
 	}
 	
 	public void readCPU(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
 		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
-		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED")));
-		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES")));
+		((CPU)product).setSpeed(Double.parseDouble(map.get("SPEED").trim()));
+		((CPU)product).setCoreCount(Integer.parseInt(map.get("CORES").trim()));
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
 			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
-			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setName(map.get("NAME").trim());
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
 	public void readRAM(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
-		((RAM)product).setType(map.get("MODEL_TYPE"));
-		((RAM)product).setSize(Integer.parseInt(map.get("SIZE")));
-		((RAM)product).setSpeed(Integer.parseInt(map.get("SPEED")));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
+		((RAM)product).setType(map.get("MODEL_TYPE").trim());
+		((RAM)product).setSize(Integer.parseInt(map.get("SIZE").trim()));
+		((RAM)product).setSpeed(Integer.parseInt(map.get("SPEED").trim()));
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
-			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setName(map.get("NAME").trim());
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
-			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setName(map.get("NAME").trim());
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
@@ -353,7 +335,7 @@ public class TextReader{
 		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
 		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
 		((GPU)product).setChipset(map.get("CHIPSET").trim());
-		((GPU)product).setMemory(Integer.parseInt(map.get("MEMORY: ").trim()));
+		((GPU)product).setMemory(Integer.parseInt(map.get("MEMORY").trim()));
 		if(i==1){
 			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
@@ -379,7 +361,7 @@ public class TextReader{
 		((HardDrive)product).setWidth(Double.parseDouble(map.get("WIDTH").trim()));
 		((HardDrive)product).setSize(Integer.parseInt(map.get("SIZE").trim()));
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
 			ord.setName(map.get("NAME").trim());
@@ -419,97 +401,97 @@ public class TextReader{
 		}
 	}
 	public void readMonitor(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
 		((Screen)product).setType(map.get("TYPE"));
-		((Screen)product).setSize(Double.parseDouble(map.get("SIZE")));
-		((Screen)product).setHDMIport(Integer.parseInt(map.get("HDMIPORT")));
-		((Screen)product).setDVIport(Integer.parseInt(map.get("DVIPORT")));
-		((Screen)product).setCOMPOSITEport(Integer.parseInt(map.get("COMPOSITEPORT")));
-		((Screen)product).setResolution(map.get("RESOLUSION"));
+		((Screen)product).setSize(Double.parseDouble(map.get("SIZE").trim()));
+		((Screen)product).setHDMIport(Integer.parseInt(map.get("HDMIPORT").trim()));
+		((Screen)product).setDVIport(Integer.parseInt(map.get("DVIPORT").trim()));
+		((Screen)product).setCOMPOSITEport(Integer.parseInt(map.get("COMPOSITEPORT".trim())));
+		((Screen)product).setResolution(map.get("RESOLUSION").trim());
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
-			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setName(map.get("NAME").trim());
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
-			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setName(map.get("NAME").trim());
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
 	public void readKeyboard(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
-		((Keyboard)product).setConnection(map.get("CONNECTION"));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
+		((Keyboard)product).setConnection(map.get("CONNECTION").trim());
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
-			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setName(map.get("NAME").trim());
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
 			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
 	public void readMouse(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
-		((Mouse)product).setTechnology(map.get("TECHNOLOGY"));
-		((Mouse)product).setConnection(map.get("CONNECTION"));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
+		((Mouse)product).setTechnology(map.get("TECHNOLOGY").trim());
+		((Mouse)product).setConnection(map.get("CONNECTION").trim());
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
-			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setName(map.get("NAME").trim());
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
-			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setName(map.get("NAME").trim());
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
 	public void readPrinter(int i){
-		product.setmodelName(map.get("MODEL_NAME"));
-		product.setManufacturer(map.get("MANUFACTURER"));
-		product.setPrice(Integer.parseInt(map.get("PRICE")));
-		product.setmodelYear(Integer.parseInt(map.get("YEAR")));
-		((Printer)product).setTechnology(map.get("TECHNOLOGY"));
-		((Printer)product).setPrintingType(map.get("PRINTER_TYPE"));
+		product.setmodelName(map.get("MODEL_NAME").trim());
+		product.setManufacturer(map.get("MANUFACTURER").trim());
+		product.setPrice(Integer.parseInt(map.get("PRICE").trim()));
+		product.setmodelYear(Integer.parseInt(map.get("YEAR").trim()));
+		((Printer)product).setTechnology(map.get("TECHNOLOGY").trim());
+		((Printer)product).setPrintingType(map.get("PRINTER_TYPE").trim());
 		if(i==1){
-			stk.setAvailableStock(Integer.parseInt(map.get("PIECES")));
+			stk.setAvailableStock(Integer.parseInt(map.get("PIECES").trim()));
 			stk.setThing(product);
 		}else if(i==2){
-			ord.setName(map.get("NAME"));
-			ord.setPhone(Long.parseLong(map.get("PHONE")));
-			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE")));
-			ord.setExpectedDate(map.get("ARRIVAL_DATE"));
+			ord.setName(map.get("NAME").trim());
+			ord.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			ord.setFP(Double.parseDouble(map.get("FINAL_PRICE").trim()));
+			ord.setExpectedDate(map.get("ARRIVAL_DATE").trim());
 			ord.setThing(product);
 		}else if(i==3){
-			sl.setName(map.get("NAME"));
-			sl.setPhone(Long.parseLong(map.get("PHONE")));
-			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE")));
+			sl.setName(map.get("NAME").trim());
+			sl.setPhone(Long.parseLong(map.get("PHONE").trim()));
+			sl.setFp(Double.parseDouble(map.get("FINAL_PRICE").trim()));
 			sl.setThing(product);
 		}
 	}
