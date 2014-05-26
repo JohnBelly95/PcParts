@@ -159,7 +159,7 @@ public class TextReader2{
 													readPrinter(2);
 												}
 											}else System.out.println("There is no item defined in this product");
-											line = readLine();
+											line = reader.readLine();
 											map.clear();
 											if(line.trim().equals("}")) break;
 											
@@ -240,7 +240,7 @@ public class TextReader2{
 											readPrinter(3);
 										}
 									}else System.out.println("There is no item defined in this product");
-									line = readLine();
+									line = reader.readLine();
 									map.clear();
 									if(line.trim().equals("}")) break;
 									
