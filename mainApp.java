@@ -2,6 +2,12 @@
 ZACHARIADIS IOANNIS P3130063 2o EKSAMINO
 DERVI THEODORA      P3130051 2o EKSAMINO
 */
+/*loipon apo ta test pou tou ekana dn auksanei o ari8mos twn parageleiwn menei gia kapoio logo sto 2 
+to STOCK_LIST den grafetai kai otan esvisa ta sxolia graftike alla otan to ksanatreksa krasare.Nomizw to provlhma einai otan einai grammenh h stock list 
+kai ksanaksekinaei to programma nomizw giannh to kserate dn kserw gt ginetai 
+epomenws otan teleiwnei to programma 8a prepei na svinoume tis listes
+omws ola ta products trexoun mia xara 
+to SOLD_LIST den grafetai epishs pote(to ftoiaksa eixame ksexasei na valoume ton writer) */
 import java.io.*;
 import java.util.*;
 import java.util.ArrayList;
@@ -14,6 +20,7 @@ public class mainApp{
 	private static boolean check, status;
 	public static int HWSale, peripheralSale;
 	static Scanner input = new Scanner(System.in);
+	static Scanner input2 = new Scanner(System.in);
 	private static List<Stock> shopStock = new ArrayList<Stock>();
 	private static List<Order> ordersList = new ArrayList<Order>();
 	private static List<Sell> soldList = new ArrayList<Sell>();
@@ -39,13 +46,11 @@ public class mainApp{
 		shopStock = tr.StockTextReader();
 		ordersList = tr.OrderTextReader();
 		soldList = tr.SoldTextReader();
+	
 		
-		/*tr.StockTextReader(shopStock);
-		tr.OrderTextReader(ordersList);
-		tr.SoldTextReader(soldList);*/
 		
 		//Starting Stock goes here		
-		/*PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
+		PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
 		shopStock.add(MoBo);
 		
@@ -80,7 +85,7 @@ public class mainApp{
 		PcParts mg2550 = new Printer("inkjet","color","mg2550","Canon",2013,45);
 		Stock PR1 = new Stock(mg2550);
 		shopStock.add(PR1);
-		tw.StockTextWriter(shopStock);*/
+		tw.StockTextWriter(shopStock);
 	}
 	public static void GUI(){
 		while (true){
@@ -157,7 +162,7 @@ public class mainApp{
 						tw.SoldTextWriter(soldList);
 						tw.StockTextWriter(shopStock);
 						//Edw tha mpoune ta TextWriter gia Stock kai Sold.
-					}else ;
+					}//else ;
 
 				}else{ // TO PROION DEN UPARXEI STO STOCK
 					System.out.println("We do not have this product in stock. Would you like for us to order it? (Y/N)");
@@ -194,7 +199,7 @@ public class mainApp{
 								System.out.println("You entered an invalid character. Please try again.");
 								break;
 							}
-							Order odr = new Order(item, name, phone,expectedDate,fp);
+							Order odr = new Order(item, name, phone,expectedDate,fp);//            edw 8a prepei na meiwnontai ta pieces sto stock
 							ordersList.add(odr);
 							tw.OrderTextWriter(ordersList);
 							// Edw tha mpei to TextWriter gia to Order.
@@ -247,6 +252,7 @@ public class mainApp{
 						System.out.println("The order's status is now 'Available' .");
 						Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
 						soldList.add(sl);
+						tw.SoldTextWriter(soldList);
 						ordersList.remove(reply-1);
 					}
 					break;
@@ -499,8 +505,7 @@ public class mainApp{
 
 	public static PcParts SSHD(String modelName, String manufacturer, int modelYear, int price){
 		System.out.println("What Hard drive type is the customer ordering ?");
-		input.nextLine();
-		type = input.nextLine();											//????????????????????????????????????????
+		type = input2.nextLine();											
 		System.out.println("What is the width (inches) of the product that the customer ordering ?");
 		width = input.nextDouble();
 		System.out.println("What size (GB) is the customer ordering ?");
