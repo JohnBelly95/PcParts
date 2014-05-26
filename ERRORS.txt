@@ -23,5 +23,10 @@ ITEM_TYPE, MODEL και PRICE είναι υποχρεωτικό να υπάρχουν. Αν δεν υπάρχουν, το
 να διαβαστεί πρώτα το tag ΙΤΕΜ_TYPE. Όμως, το συγκεκριμένο tag μπορεί να μην είναι το πρώτο
 που συναντάτε μέσα στην οντότητα ΙΤΕΜ.
 
+-1.hardware
+		} an sto hardware epileksoume 6,7,8,9 mas dhmiourgei peripheral
+ 2.perpherals
+ 
+
 -i reader vriskei to type alla an den einai 1h exei prosperasei kapoies metavlhtes
 

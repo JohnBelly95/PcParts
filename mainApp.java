@@ -39,9 +39,11 @@ public class mainApp{
 		shopStock = tr.StockTextReader();
 		ordersList = tr.OrderTextReader();
 		soldList = tr.SoldTextReader();
+		
 		/*tr.StockTextReader(shopStock);
 		tr.OrderTextReader(ordersList);
 		tr.SoldTextReader(soldList);*/
+		
 		//Starting Stock goes here		
 		/*PcParts Z87k = new Motherboard("Intel",32,7,"Z87-K","Asus",2013,112);
 		Stock MoBo = new Stock(Z87k);
@@ -114,6 +116,9 @@ public class mainApp{
 					//input.nextLine();
 					int help = input.nextInt()+5 ;
 					str2 = Integer.toString(help);
+				}else{
+					System.out.println("You entered an invalid character. Please try again.");
+					break;
 				}
 				PcParts thing = Questions1(str1,str2);
 				//elegxos ston katalogo twn diathesimwn gia to sugkekrimeno proion
@@ -168,7 +173,7 @@ public class mainApp{
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
 							phone = input.nextLong();
-							System.out.println("When do we expect the item to be available ?");
+							System.out.println("When do we expect the item to be available ? (dd-mmm-yyyy)");
 							System.out.print(">");
 							expectedDate = input.next();
 							System.out.println("Is the desired item on sale ? (Y/N)");
@@ -183,8 +188,11 @@ public class mainApp{
 									fp = thing.getPrice() - thing.getPrice() * peripheralSale/100;                  //finding the final price
 									System.out.println("The final price is : "+ fp +" Euros.");
 								}
-							}else{
+							}else if(str.equals("N")){
 								fp = thing.getPrice();
+							}else{
+								System.out.println("You entered an invalid character. Please try again.");
+								break;
 							}
 							Order odr = new Order(item, name, phone,expectedDate,fp);
 							ordersList.add(odr);
@@ -217,40 +225,40 @@ public class mainApp{
 			//System.out.println((i+1) + ". ");
 			System.out.println((i+1) + ". \n" + ordersList.get(i));
 		}
-		System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
-		System.out.print(">");
-		input.nextLine();
-		reply = input.nextInt();
-		while(true){
-			if ( reply==0){
-				break;
-			}else if (reply-1 > ordersList.size()){
-				System.out.println("You picked "+reply+" . There are not so many orders to list.");
-				System.out.println("Please try again !");
-			}else{
-				System.out.println(ordersList.get(reply-1));
-				System.out.println("Would you like to change the order's status ? (Y/N) ");
-				input.nextLine();
-				response = input.nextLine();
-				if(str.equals("Y")){
-					/*System.out.println("The order's status is now 'Available' .");
-					Sell sl = new Sell(ordersList.get(reply--).getthing(), ordersList.get(reply--).getname(), ordersList.get(reply--).getphone(), ordersList.get(reply--).getfp());
-					*/
-					status = true;
-					ordersList.get(reply-1).setStatus(status);
-					System.out.println("The order's status is now 'Available' .");
-					Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
-					soldList.add(sl);
-					ordersList.remove(reply-1);
+		if (ordersList.size() != 0){
+			System.out.println("Which order would you like to view? ( Enter 0 for exit. )");
+			System.out.print(">");
+			input.nextLine();
+			reply = input.nextInt();
+			while(true){
+				if ( reply==0){
+					break;
+				}else if (reply-1 > ordersList.size()){
+					System.out.println("You picked "+reply+" . There are not so many orders to list.");
+					System.out.println("Please try again !");
+				}else{
+					System.out.println(ordersList.get(reply-1));
+					System.out.println("Would you like to change the order's status ? (Y/N) ");
+					input.nextLine();
+					response = input.nextLine();
+					if(str.equals("Y")){
+						status = true;
+						ordersList.get(reply-1).setStatus(status);
+						System.out.println("The order's status is now 'Available' .");
+						Sell sl = new Sell(ordersList.get(reply-1).getThing(), ordersList.get(reply-1).getName(), ordersList.get(reply-1).getPhone(), ordersList.get(reply-1).getFP());
+						soldList.add(sl);
+						ordersList.remove(reply-1);
+					}
+					break;
 				}
-				break;
 			}
-		}
+		}else System.out.println("There are no orders.");
 	}
 	public static void showSales(){
 		for (int i=0; i < soldList.size(); i++){
 			System.out.println(soldList.get(i));
 		}
+		if (soldList.size() == 0) System.out.println("There are no sales.");
 	}	
 	public static boolean Exists ( PcParts thing, List<Stock> shopStock ){	
 		check = false;
@@ -496,26 +504,5 @@ public class mainApp{
 		z2 = price;
 		HardDrive HDRV = new HardDrive(type, size, width, x1, x2, z1, z2);
 		return HDRV;
-	}
-
-	/*public void StockTextWriter(ArrayList StockList) throws FileNotFoundException, IOException {
-		try {
-			in = new BufferedReader(new FileReader("STOCK_LIST.txt"));
-			output = new BufferedWriter(new FileWriter("STOCK_LIST.txt"));
-			String inputLine = null;
-			while((inputLine = in.readLine()) != null)
-				System.out.println(inputLine);
-		}
-		catch(IOException ex) {
-			System.err.println("An IOException was caught!");
-            ex.printStackTrace();
-        }
-		for(i=0, i<
-		output.write("STOCK_LIST\n{");
-		
-		output.write("\n}");
-		output.close();
-	}*/
-	public void CreateList(){
 	}
 }

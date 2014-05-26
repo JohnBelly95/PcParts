@@ -127,7 +127,7 @@ public class TextReader{
 								while(line != null){
 									line = reader.readLine();
 									if(line == null) continue;
-									if (line.trim().startsWith("ITEM")) {
+									if (line.trim().startsWith("ORDER")) {
 										line = reader.readLine();
 										if (line == null) continue;
 										if (line.trim().equals("{")) {
@@ -215,7 +215,7 @@ public class TextReader{
 								while(line != null){
 									line = reader.readLine();
 									if(line == null) continue;
-									if (line.trim().startsWith("ITEM")) {
+									if (line.trim().startsWith("SOLD")) {
 										line = reader.readLine();
 										if (line == null) continue;
 										if (line.trim().equals("{")) {

@@ -29,7 +29,7 @@ public class Stock extends PcParts{
 		System.out.println();
 		return (thing + "\n\t\tPIECES: " + getAvailableStock() + "\n");
 	}
-	public String getManufacturer(){
+	/*public String getManufacturer(){
 		return thing.Manufacturer;
 	}
 	public String getmodelName(){
@@ -40,5 +40,5 @@ public class Stock extends PcParts{
 	}
 	public int getPrice(){
 		return thing.Price;
-	}
+	}*/
 }
