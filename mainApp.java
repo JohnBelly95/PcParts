@@ -173,7 +173,7 @@ public class mainApp{
 							System.out.println("Please enter the customer's phone.");
 							System.out.print(">");
 							phone = input.nextLong();
-							System.out.println("When do we expect the item to be available ? (dd-mmm-yyyy)");
+							System.out.println("When do we expect the item to be available ? (dd/mm/yyyy)");
 							System.out.print(">");
 							expectedDate = input.next();
 							System.out.println("Is the desired item on sale ? (Y/N)");
