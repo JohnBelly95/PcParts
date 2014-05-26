@@ -247,15 +247,10 @@ public class TextReader2{
 											if(line.trim().equals("}")) break;
 											
 										}
-<<<<<<< HEAD
 									}else System.out.println("There is no item defined in this product");
 									line = reader.readLine();
 									map.clear();
 									if(line.trim().equals("}")) break;
-									
-=======
-									}
->>>>>>> 7ac906d66f211a072bc2729ed014d5d40255b3c1
 								}
 							}
 						}
